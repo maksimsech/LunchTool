@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using LunchTool.Logic.Enities;
+using LunchTool.Logic.Context;
+
+namespace LunchTool.Logic.Repository.Implementation
+{
+    public class OrderRepository: IRepository<Order>
+    {
+        private DataContext dataContext;
+
+        public OrderRepository(DataContext dataContext)
+        {
+            this.dataContext = dataContext;
+        }
+
+        public IEnumerable<Order> GetAll() => dataContext.Orders;
+
+        public Order Get(int id) => dataContext.Orders.Find(id);
+
+        public void Add(Order item) => dataContext.Orders.Add(item);
+
+        public void Update(Order item) => dataContext.Entry(item).State = EntityState.Modified;
+
+        public IEnumerable<Order> Find(Func<Order, bool> predicate) => dataContext.Orders.Where(predicate).ToList();
+
+        public void Delete(int id)
+        {
+            var order = dataContext.Orders.Find(id);
+            if (order != null)
+                dataContext.Orders.Remove(order);
+        }
+    }
+}
