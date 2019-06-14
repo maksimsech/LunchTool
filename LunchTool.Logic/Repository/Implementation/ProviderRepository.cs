@@ -27,11 +27,6 @@ namespace LunchTool.Logic.Repository.Implementation
 
         public IEnumerable<Provider> Find(Func<Provider, bool> predicate) => dataContext.Providers.Where(predicate).ToList();
 
-        public void Delete(int id)
-        {
-            var provider = dataContext.Providers.Find(id);
-            if (provider != null)
-                dataContext.Providers.Remove(provider);
-        }
+        public void Delete(Provider item) => dataContext.Providers.Remove(item);
     }
 }

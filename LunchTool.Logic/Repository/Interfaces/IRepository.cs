@@ -10,6 +10,6 @@ namespace LunchTool.Logic.Repository.Interfaces
         IEnumerable<T> Find(Func<T, bool> predicate);
         void Add(T item);
         void Update(T item);
-        void Delete(int id);
+        void Delete(T item);
     }
 }

@@ -27,11 +27,6 @@ namespace LunchTool.Logic.Repository.Implementation
 
         public IEnumerable<Order> Find(Func<Order, bool> predicate) => dataContext.Orders.Where(predicate).ToList();
 
-        public void Delete(int id)
-        {
-            var order = dataContext.Orders.Find(id);
-            if (order != null)
-                dataContext.Orders.Remove(order);
-        }
+        public void Delete(Order item) => dataContext.Orders.Remove(item);
     }
 }

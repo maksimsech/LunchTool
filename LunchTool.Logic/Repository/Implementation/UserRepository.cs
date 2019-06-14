@@ -27,12 +27,7 @@ namespace LunchTool.Logic.Repository.Implementation
 
         public IEnumerable<User> Find(Func<User, bool> predicate) => dataContext.Users.Where(predicate).ToList();
 
-        public void Delete(int id)
-        {
-            var user = dataContext.Users.Find(id);
-            if (user != null)
-                dataContext.Users.Remove(user);
-        }
+        public void Delete(User item) => dataContext.Users.Remove(item);
 
     }
 }

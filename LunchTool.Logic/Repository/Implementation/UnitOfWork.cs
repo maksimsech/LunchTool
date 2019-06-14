@@ -11,11 +11,11 @@ namespace LunchTool.Logic.Repository.Implementation
     public class UnitOfWork : IUnitOfWork
     {
         private DataContext dataContext;
-        private DishRepository dishRepository;
-        private MenuRepository menuRepository;
-        private OrderRepository orderRepository;
-        private ProviderRepository providerRepository;
-        private UserRepository userRepository;
+        private GenericRepository<Dish> dishRepository;
+        private GenericRepository<Menu> menuRepository;
+        private GenericRepository<Order> orderRepository;
+        private GenericRepository<Provider> providerRepository;
+        private GenericRepository<User> userRepository;
 
         public UnitOfWork(string connectionString)
         {
@@ -26,31 +26,31 @@ namespace LunchTool.Logic.Repository.Implementation
 
         public IRepository<Dish> Dishes { get {
                 if (dishRepository == null)
-                    dishRepository = new DishRepository(dataContext);
+                    dishRepository = new GenericRepository<Dish>(dataContext);
                 return dishRepository;
             } }
 
         public IRepository<Menu> Menus { get {
                 if (menuRepository == null)
-                    menuRepository = new MenuRepository(dataContext);
+                    menuRepository = new GenericRepository<Menu>(dataContext);
                 return menuRepository;
             } }
 
         public IRepository<Order> Orders { get {
                 if (orderRepository == null)
-                    orderRepository = new OrderRepository(dataContext);
+                    orderRepository = new GenericRepository<Order>(dataContext);
                 return orderRepository;
             } }
 
         public IRepository<Provider> Providers { get {
                 if (providerRepository == null)
-                    providerRepository = new ProviderRepository(dataContext);
+                    providerRepository = new GenericRepository<Provider>(dataContext);
                 return providerRepository;
             } }
 
         public IRepository<User> Users { get {
                 if (userRepository == null)
-                    userRepository = new UserRepository(dataContext);
+                    userRepository = new GenericRepository<User>(dataContext);
                 return userRepository;
             } }
 

@@ -27,11 +27,6 @@ namespace LunchTool.Logic.Repository.Implementation
 
         public IEnumerable<Menu> Find(Func<Menu, bool> predicate) => dataContext.Menus.Where(predicate).ToList();
 
-        public void Delete(int id)
-        {
-            var menu = dataContext.Menus.Find(id);
-            if (menu != null)
-                dataContext.Menus.Remove(menu);
-        }
+        public void Delete(Menu item) => dataContext.Menus.Remove(item);
     }
 }
