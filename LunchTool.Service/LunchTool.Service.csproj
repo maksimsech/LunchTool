@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementation\" />
-    <Folder Include="Interfaces\" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
   </ItemGroup>
 
   <ItemGroup>

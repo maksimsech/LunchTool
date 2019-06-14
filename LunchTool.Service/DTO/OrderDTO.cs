@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LunchTool.Service.DTO
 {
-    class OrderDTO
+    public class OrderDTO
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }

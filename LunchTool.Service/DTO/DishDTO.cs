@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LunchTool.Service.DTO
 {
-    class DishDTO
+    public class DishDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
