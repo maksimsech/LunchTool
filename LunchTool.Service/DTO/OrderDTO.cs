@@ -7,8 +7,7 @@ namespace LunchTool.Service.DTO
     class OrderDTO
     {
         public int Id { get; set; }
-        public DateTime TimeLimit { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public int UserId { get; set; }
     }

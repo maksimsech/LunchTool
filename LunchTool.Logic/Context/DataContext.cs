@@ -13,6 +13,7 @@ namespace LunchTool.Logic.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<Provider> Providers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<OrderDish> OrderDishes { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

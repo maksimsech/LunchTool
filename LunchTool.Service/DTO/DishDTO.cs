@@ -10,5 +10,7 @@ namespace LunchTool.Service.DTO
         public string Name { get; set; }
         public double Weight { get; set; }
         public decimal Price { get; set; }
+
+        public int MenuId { get; set; }
     }
 }

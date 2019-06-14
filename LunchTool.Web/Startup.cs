@@ -52,6 +52,8 @@ namespace LunchTool.Web
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            var uof = new Logic.Repository.Implementation.UnitOfWork(Configuration.GetConnectionString("DefaultConnection"));
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

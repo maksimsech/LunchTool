@@ -12,6 +12,7 @@ namespace LunchTool.Logic.Repository.Interfaces
         IRepository<Order> Orders { get; }
         IRepository<Provider> Providers { get; }
         IRepository<User> Users { get; }
+        IRepository<OrderDish> OrderDishes { get; }
 
         void Save();
     }

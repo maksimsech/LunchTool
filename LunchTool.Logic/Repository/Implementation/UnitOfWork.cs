@@ -16,6 +16,7 @@ namespace LunchTool.Logic.Repository.Implementation
         private GenericRepository<Order> orderRepository;
         private GenericRepository<Provider> providerRepository;
         private GenericRepository<User> userRepository;
+        private GenericRepository<OrderDish> orderDishRepository;
 
         public UnitOfWork(string connectionString)
         {
@@ -52,6 +53,12 @@ namespace LunchTool.Logic.Repository.Implementation
                 if (userRepository == null)
                     userRepository = new GenericRepository<User>(dataContext);
                 return userRepository;
+            } }
+        
+        public IRepository<OrderDish> OrderDishes { get {
+                if (orderDishRepository == null)
+                    orderDishRepository = new GenericRepository<OrderDish>(dataContext);
+                return orderDishRepository;
             } }
 
         public void Save() => dataContext.SaveChanges();
