@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using LunchTool.Logic.Enities;
+using LunchTool.Logic.Entities;
 
 namespace LunchTool.Logic.Context
 {
@@ -30,17 +30,6 @@ namespace LunchTool.Logic.Context
                 .HasOne(o => o.Dish)
                 .WithMany(d => d.OrderDishes)
                 .HasForeignKey(o => o.DishId);
-
-
-            modelBuilder.Entity<MenuDish>()
-                .HasOne(m => m.Dish)
-                .WithMany(d => d.MenuDishes)
-                .HasForeignKey(m => m.DishId);
-
-            modelBuilder.Entity<MenuDish>()
-                .HasOne(d => d.Menu)
-                .WithMany(m => m.MenuDishes)
-                .HasForeignKey(d => d.MenuId);
         }
     }
 }

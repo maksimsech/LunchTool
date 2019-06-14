@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
     <Folder Include="Implementation\" />
-    <Folder Include="Infrastracture\" />
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LunchTool.Logic\LunchTool.Logic.csproj" />
   </ItemGroup>
 
 </Project>
