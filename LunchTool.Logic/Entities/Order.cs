@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LunchTool.Logic.Entities
 {
     public class Order
     {
         public int Id { get; set; }
+        [Required]
         public DateTime CreateDate { get; set; }
 
         public int UserId { get; set; }

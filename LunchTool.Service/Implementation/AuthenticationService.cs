@@ -11,18 +11,24 @@ using AutoMapper;
 
 namespace LunchTool.Service.Implementation
 {
-    public class AuthentificationService : IAuthentificationService
+    public class AuthenticationService : IAuthenticationService
     {
         private IUnitOfWork db;
+        private IMapper mapper;
 
-        public AuthentificationService(string connectionString)
+        public AuthenticationService(string connectionString)
         {
             db = new UnitOfWork(connectionString);
+            mapper = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<UserDTO, User>();
+            }).CreateMapper();
         }
 
         public bool IsRegistered(UserDTO userDTO)
         {
-            var user = Mapper.Map<UserDTO, User>(userDTO);
+            
+            var user = mapper.Map<UserDTO, User>(userDTO);
             var find = db.Users.Find(u => u.Username == user.Username && u.Email == user.Email);
             return find == null;
         }
@@ -30,16 +36,16 @@ namespace LunchTool.Service.Implementation
         public void Register(UserDTO userDTO)
         {
             if (IsRegistered(userDTO))
-                throw new ValidationException("AuthentificationService", "Пользователь уже зарегестрирован");
-            var user = Mapper.Map<UserDTO, User>(userDTO);
+                throw new ValidationException("AuthenticationService", "Пользователь уже зарегестрирован");
+            var user = mapper.Map<UserDTO, User>(userDTO);
             db.Users.Add(user);
             db.Save();
         }
 
         public bool CheckLogin(UserDTO userDTO)
         {
-            var user = Mapper.Map<UserDTO, User>(userDTO);
-            var find = db.Users.Find(u => u.Username == user.Username && u.Password == user.Password);
+            var user = mapper.Map<UserDTO, User>(userDTO);
+            var find = db.Users.Find(u => u.Email == user.Password && u.Password == user.Password);
             return find != null;
         }
     }

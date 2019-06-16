@@ -5,7 +5,7 @@ using LunchTool.Service.DTO;
 
 namespace LunchTool.Service.Interfaces
 {
-    public interface IAuthentificationService
+    public interface IAuthenticationService
     {
         bool IsRegistered(UserDTO userDTO);
         void Register(UserDTO userDTO);
