@@ -8,31 +8,32 @@ using LunchTool.Logic.Repository.Interfaces;
 using LunchTool.Service.DTO;
 using LunchTool.Service.Interfaces;
 using LunchTool.Service.Implementation;
+using LunchTool.Service.Interfaces.AdministrationServices;
 
 namespace LunchTool.Service.Implementation
 {
-    public partial class AdministrationService// : IAdministrationService
+    public partial class AdministrationService : IAdministrationService
     {
         private readonly string connectionString;
-        private ProviderService providerService;
-        private MenuService menuService;
-        private DishService dishService;
+        private IProviderService providerService;
+        private IMenuService menuService;
+        private IDishService dishService;
 
-        public ProviderService Provider { get
+        public IProviderService Provider { get
             {
                 if (providerService == null)
                     providerService = new ProviderService(connectionString);
                 return providerService;
             } }
 
-        public MenuService Menu { get
+        public IMenuService Menu { get
             {
                 if (menuService == null)
                     menuService = new MenuService(connectionString);
                 return menuService;
             } }
 
-        public DishService Dish { get
+        public IDishService Dish { get
             {
                 if (dishService == null)
                     dishService = new DishService(connectionString);

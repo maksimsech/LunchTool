@@ -6,14 +6,14 @@ using LunchTool.Logic.Entities;
 using LunchTool.Logic.Repository.Implementation;
 using LunchTool.Logic.Repository.Interfaces;
 using LunchTool.Service.DTO;
-using LunchTool.Service.Interfaces;
+using LunchTool.Service.Interfaces.AdministrationServices;
 using LunchTool.Service.Implementation;
 
 namespace LunchTool.Service.Implementation
 {
     partial class AdministrationService
     {
-        public class MenuService
+        public class MenuService : IMenuService
         {
             private IUnitOfWork db;
             private IMapper mapper;

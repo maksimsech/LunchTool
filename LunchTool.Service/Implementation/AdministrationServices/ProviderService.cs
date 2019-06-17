@@ -6,14 +6,14 @@ using LunchTool.Logic.Entities;
 using LunchTool.Logic.Repository.Implementation;
 using LunchTool.Logic.Repository.Interfaces;
 using LunchTool.Service.DTO;
-using LunchTool.Service.Interfaces;
+using LunchTool.Service.Interfaces.AdministrationServices;
 using LunchTool.Service.Implementation;
 
 namespace LunchTool.Service.Implementation
 {
     partial class AdministrationService
     {
-        public class ProviderService
+        public class ProviderService : IProviderService
         {
             private IUnitOfWork db;
             private IMapper mapper;
@@ -37,7 +37,7 @@ namespace LunchTool.Service.Implementation
 
             }
 
-            public void Delete(ProviderDTO providerDTO)
+            public void SetActiveStatus(bool isActive)
             {
 
             }
