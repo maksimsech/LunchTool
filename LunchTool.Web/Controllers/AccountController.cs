@@ -19,6 +19,7 @@ namespace LunchTool.Web.Controllers
     {
         private readonly IConfiguration configuration;
         private Service.Interfaces.IAuthenticationService authentificationService;
+        private LoadDataService dataService;
         private IMapper mapper;
 
 
@@ -27,6 +28,7 @@ namespace LunchTool.Web.Controllers
             this.configuration = configuration;
             var connectionString = this.configuration.GetConnectionString("DefaultConnection");
             authentificationService = new Service.Implementation.AuthenticationService(connectionString);
+            dataService = new LoadDataService(connectionString);
             mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<LoginViewModel, UserDTO>();
@@ -37,6 +39,7 @@ namespace LunchTool.Web.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            dataService.GetProviders(p => p.Active == true);
             return View();
         }
 
@@ -50,7 +53,8 @@ namespace LunchTool.Web.Controllers
                 if (authentificationService.CheckLogin(userDTO))
                 {
                     userDTO.IsAdmin = authentificationService.IsAdmin(userDTO);
-                    await Authentificate(userDTO.Email, userDTO.IsAdmin);
+                    (userDTO.FirstName, userDTO.LastName) = authentificationService.GetFirstAndLastName(userDTO);
+                    await Authentificate(userDTO.Email, userDTO.IsAdmin, userDTO.FirstName, userDTO.LastName);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -78,7 +82,7 @@ namespace LunchTool.Web.Controllers
                 }
                 userDTO.IsAdmin = false;
                 authentificationService.Register(userDTO);
-                await Authentificate(userDTO.Email, userDTO.IsAdmin);
+                await Authentificate(userDTO.Email, userDTO.IsAdmin, userDTO.FirstName, userDTO.LastName);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -87,12 +91,14 @@ namespace LunchTool.Web.Controllers
         }
  
         [NonAction]
-        private async Task Authentificate(string email, bool isAdmin)
+        private async Task Authentificate(string email, bool isAdmin, string firstName, string lastName)
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, email),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, isAdmin.ToString())
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, isAdmin.ToString()),
+                new Claim("FirstName", firstName),
+                new Claim("LastName", lastName)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);

@@ -5,18 +5,15 @@ using LunchTool.Service.DTO;
 
 namespace LunchTool.Service.Interfaces
 {
-    public interface IAdministrationService
+    public interface ILoadDataService
     {
-        void AddProvider(ProviderDTO providerDTO);
-        void RemoveProvider(ProviderDTO providerDTO);
+        IEnumerable<ProviderDTO> GetAllProviders();
         IEnumerable<ProviderDTO> GetProviders(Func<ProviderDTO, bool> predicate);
 
-        void AddMenu(MenuDTO menuDTO);
-        void RemoveMenu(MenuDTO menuDTO);
+        IEnumerable<MenuDTO> GetAllMenus();
         IEnumerable<MenuDTO> GetMenus(Func<MenuDTO, bool> predicate);
 
-        void AddDish(DishDTO dishDTO);
-        void RemoveDish(DishDTO dishDTO);
+        IEnumerable<DishDTO> GetAllDishes();
         IEnumerable<DishDTO> GetDishes(Func<DishDTO, bool> predicate);
     }
 }
