@@ -7,8 +7,6 @@ namespace LunchTool.Service.Interfaces
 {
     public interface IOrderService
     {
-        void MakeOrder(OrderDTO orderDTO, OrderDishDTO orderDishDTO);
-
-
+        void MakeOrder(OrderDTO orderDTO, OrderDishDTO orderDishDTO, int userId);
     }
 }

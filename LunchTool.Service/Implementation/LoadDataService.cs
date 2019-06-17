@@ -40,13 +40,13 @@ namespace LunchTool.Service.Implementation
         public IEnumerable<ProviderDTO> GetProviders(Func<ProviderDTO, bool> predicate)
         {
             Expression<Func<ProviderDTO, bool>> expr = e => predicate(e);
-            //mapper.MapExpressionAsInclude<Expression<Func<Provider, bool>>>(expr);
             var dto = new ProviderDTO
             {
                 Name = "a",
                 Email = "a"
             };
             var entity = mapper.Map<ProviderDTO, Provider>(dto);
+            var a = mapper.Map<Func<ProviderDTO, bool>, Func<Provider, bool>>(predicate);
             var providersExpr = mapper.MapExpressionAsInclude<Expression<Func<ProviderDTO, bool>>, Expression<Func<Provider, bool>>>(expr);
             var fun = providersExpr.Compile();
             var providers = db.Providers.Find(fun);

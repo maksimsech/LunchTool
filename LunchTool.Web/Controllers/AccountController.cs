@@ -39,7 +39,7 @@ namespace LunchTool.Web.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            dataService.GetProviders(p => p.Active == true);
+            dataService.GetProviders(p => p.Active);
             return View();
         }
 

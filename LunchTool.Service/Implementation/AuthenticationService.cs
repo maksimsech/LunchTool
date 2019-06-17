@@ -54,7 +54,7 @@ namespace LunchTool.Service.Implementation
         {
             var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Email == user.Email && u.Password == user.Password).FirstOrDefault();
-            if(find == null)
+            if (find == null)
             {
                 throw new ValidationException("","Пользователь не найден");
             }
@@ -68,7 +68,6 @@ namespace LunchTool.Service.Implementation
         {
             var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Email == user.Email).FirstOrDefault();
-            if(find == null)
             if (find == null)
             {
                 throw new ValidationException("", "Пользователь не найден");
