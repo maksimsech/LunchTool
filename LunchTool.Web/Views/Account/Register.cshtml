@@ -1,0 +1,52 @@
+﻿@model LunchTool.Web.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<form asp-action="Register" asp-controller="Account" method="post">
+
+    <div class="form-group">
+        <label for="LastName">Фамилия</label>
+        <input type="text" name="LastName" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="FirstName">Имя</label>
+        <input type="text" name="FirstName" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Patronymic">Отчество</label>
+        <input type="text" name="Patronymic" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Username">Логин</label>
+        <input type="text" name="Username" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" name="Email" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Пароль</label>
+        <input type="password" name="Password" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="ConfirmPassword">Повторите пароль</label>
+        <input type="password" name="ConfirmPassword" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="PhoneNumber">Номер телефона</label>
+        <input type="text" name="PhoneNumber" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+    </div>
+
+</form>

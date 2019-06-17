@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchTool.Web", "LunchTool.Web\LunchTool.Web.csproj", "{053978F0-CEF1-4FA0-8CB1-DFA834885342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchTool.Web", "LunchTool.Web\LunchTool.Web.csproj", "{053978F0-CEF1-4FA0-8CB1-DFA834885342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchTool.Logic", "LunchTool.Logic\LunchTool.Logic.csproj", "{3952403A-FF94-4EF4-8444-BF20E1CCA09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchTool.Logic", "LunchTool.Logic\LunchTool.Logic.csproj", "{3952403A-FF94-4EF4-8444-BF20E1CCA09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchTool.Service", "LunchTool.Service\LunchTool.Service.csproj", "{6F89E22A-233F-4282-AC3A-603F4B98B07B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchTool.Service", "LunchTool.Service\LunchTool.Service.csproj", "{6F89E22A-233F-4282-AC3A-603F4B98B07B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

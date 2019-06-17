@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using LunchTool.Service.DTO;
 using LunchTool.Service.Interfaces;
 using LunchTool.Logic.Entities;
@@ -28,7 +29,7 @@ namespace LunchTool.Service.Implementation
         public bool IsRegistered(UserDTO userDTO)
         {
             
-            var user = mapper.Map<UserDTO, User>(userDTO);
+            var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Username == user.Username && u.Email == user.Email);
             return find == null;
         }
@@ -36,17 +37,46 @@ namespace LunchTool.Service.Implementation
         public void Register(UserDTO userDTO)
         {
             if (IsRegistered(userDTO))
-                throw new ValidationException("AuthenticationService", "Пользователь уже зарегестрирован");
-            var user = mapper.Map<UserDTO, User>(userDTO);
+                throw new ValidationException("", "Пользователь уже зарегестрирован");
+            var user = MapToUser(userDTO);
             db.Users.Add(user);
             db.Save();
         }
 
         public bool CheckLogin(UserDTO userDTO)
         {
-            var user = mapper.Map<UserDTO, User>(userDTO);
+            var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Email == user.Password && u.Password == user.Password);
             return find != null;
         }
+
+        public bool IsAdmin(UserDTO userDTO)
+        {
+            var user = MapToUser(userDTO);
+            var find = db.Users.Find(u => u.Email == user.Email && u.Password == user.Password).FirstOrDefault();
+            if(find == null)
+            {
+                throw new ValidationException("","Пользователь не найден");
+            }
+            return find.IsAdmin;
+        }
+
+        /// <returns>
+        /// FirstName, LastName
+        /// </returns>
+        public (string, string) GetFirstAndLastName(UserDTO userDTO)
+        {
+            var user = MapToUser(userDTO);
+            var find = db.Users.Find(u => u.Email == user.Email).FirstOrDefault();
+            if(find == null)
+            if (find == null)
+            {
+                throw new ValidationException("", "Пользователь не найден");
+            }
+
+            return (find.FirstName, find.LastName);
+        }
+
+        private User MapToUser(UserDTO userDTO) => mapper.Map<UserDTO, User>(userDTO);
     }
 }

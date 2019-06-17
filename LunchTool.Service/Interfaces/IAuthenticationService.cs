@@ -10,5 +10,6 @@ namespace LunchTool.Service.Interfaces
         bool IsRegistered(UserDTO userDTO);
         void Register(UserDTO userDTO);
         bool CheckLogin(UserDTO userDTO);
+        bool IsAdmin(UserDTO userDTO);
     }
 }
