@@ -23,6 +23,7 @@ namespace LunchTool.Service.Implementation
             mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ProviderDTO, Provider>();
+                cfg.CreateMap<Provider, ProviderDTO>();
                 cfg.CreateMap<MenuDTO, Menu>();
                 cfg.CreateMap<DishDTO, Dish>();
                 cfg.CreateMap<Func<ProviderDTO, bool>, Func<Provider, bool>>();
@@ -37,18 +38,9 @@ namespace LunchTool.Service.Implementation
             return providersDTO;
         }
 
-        public IEnumerable<ProviderDTO> GetProviders(Func<ProviderDTO, bool> predicate)
+        public IEnumerable<ProviderDTO> GetProviders(Expression<Func<ProviderDTO, bool>> predicate)
         {
-            Expression<Func<ProviderDTO, bool>> expr = e => predicate(e);
-            var dto = new ProviderDTO
-            {
-                Name = "a",
-                Email = "a"
-            };
-            var entity = mapper.Map<ProviderDTO, Provider>(dto);
-            var a = mapper.Map<Func<ProviderDTO, bool>, Func<Provider, bool>>(predicate);
-            var providersExpr = mapper.MapExpressionAsInclude<Expression<Func<ProviderDTO, bool>>, Expression<Func<Provider, bool>>>(expr);
-            var fun = providersExpr.Compile();
+            var fun = mapper.MapExpression<Expression<Func<Provider, bool>>>(predicate).Compile();
             var providers = db.Providers.Find(fun);
             var providersDTO = mapper.Map<IEnumerable<Provider>, IEnumerable<ProviderDTO>>(providers);
             return providersDTO;

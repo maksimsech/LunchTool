@@ -37,6 +37,7 @@ namespace LunchTool.Web
             {
                 options.LoginPath = new PathString("/Account/Login");
                 options.AccessDeniedPath = new PathString("/Account/Login");
+                options.Cookie.MaxAge = new TimeSpan(10, 0, 0, 0, 0);
             });
 
 
