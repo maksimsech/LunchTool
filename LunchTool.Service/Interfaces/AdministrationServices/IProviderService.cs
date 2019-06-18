@@ -9,6 +9,8 @@ namespace LunchTool.Service.Interfaces.AdministrationServices
     {
         void Add(ProviderDTO providerDTO);
         void Change(ProviderDTO providerDTO);
-        void SetActiveStatus(bool isActive);
+        void SetActiveStatus(ProviderDTO providerDTO, bool isActive);
+        void Activate(ProviderDTO providerDTO);
+        void Deactivate(ProviderDTO providerDTO);
     }
 }

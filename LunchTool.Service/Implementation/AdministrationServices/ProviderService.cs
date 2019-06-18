@@ -29,18 +29,43 @@ namespace LunchTool.Service.Implementation
 
             public void Add(ProviderDTO providerDTO)
             {
-
+                var provider = Map(providerDTO);
+                db.Providers.Add(provider);
+                db.Save();
             }
 
             public void Change(ProviderDTO providerDTO)
             {
-
+                var provider = Map(providerDTO);
+                db.Providers.Update(provider);
+                db.Save();
             }
 
-            public void SetActiveStatus(bool isActive)
+            public void SetActiveStatus(ProviderDTO providerDTO, bool isActive)
             {
-
+                providerDTO.Active = isActive;
+                var provider = Map(providerDTO);
+                db.Providers.Update(provider);
+                db.Save();
             }
+
+            public void Activate(ProviderDTO providerDTO)
+            {
+                providerDTO.Active = true;
+                var provider = Map(providerDTO);
+                db.Providers.Update(provider);
+                db.Save();
+            }
+
+            public void Deactivate(ProviderDTO providerDTO)
+            {
+                providerDTO.Active = false;
+                var provider = Map(providerDTO);
+                db.Providers.Update(provider);
+                db.Save();
+            }
+
+            private Provider Map(ProviderDTO providerDTO) => mapper.Map<ProviderDTO, Provider>(providerDTO);
         }
     }
 }

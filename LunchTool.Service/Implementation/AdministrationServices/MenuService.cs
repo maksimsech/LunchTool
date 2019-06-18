@@ -29,18 +29,26 @@ namespace LunchTool.Service.Implementation
 
             public void Add(MenuDTO menuDTO)
             {
-
+                var menu = Map(menuDTO);
+                db.Menus.Add(menu);
+                db.Save();
             }
 
             public void Change(MenuDTO menuDTO)
             {
-
+                var menu = Map(menuDTO);
+                db.Menus.Update(menu);
+                db.Save();
             }
 
             public void Delete(MenuDTO menuDTO)
             {
-
+                var menu = Map(menuDTO);
+                db.Menus.Delete(menu);
+                db.Save();
             }
+
+            private Menu Map(MenuDTO menuDTO) => mapper.Map<MenuDTO, Menu>(menuDTO);
         }
     }
 }
