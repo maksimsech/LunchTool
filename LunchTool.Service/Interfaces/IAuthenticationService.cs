@@ -11,6 +11,6 @@ namespace LunchTool.Service.Interfaces
         void Register(UserDTO userDTO);
         bool CheckLogin(UserDTO userDTO);
         bool IsAdmin(UserDTO userDTO);
-        (string, string) GetFirstAndLastName(UserDTO userDTO);
+        AuthUserDTO GetAuthUserDTO(UserDTO userDTO);
     }
 }

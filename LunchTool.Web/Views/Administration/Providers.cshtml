@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Администрирование: поставщики";
+}
+@model IEnumerable<LunchTool.Service.DTO.ProviderDTO>
+
+<table class="table">
+    <tr><td>Id</td><td>Название</td><td>Адрес</td><td>Email</td><td>Начало работы</td><td>Окончание работы</td><td>Номер</td><td>Активен</td></tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Address</td>
+        <td>@item.Email</td>
+        <td>
+            @if (item.StartWork != null) { @String.Format("{0}:{1}", item.StartWork.Value.Hour, item.StartWork.Value.Minute); }
+        </td>
+        <td>
+            @if (item.EndWork != null) { @String.Format("{0}:{1}", item.EndWork.Value.Hour, item.EndWork.Value.Minute); }
+        </td>
+        <td>
+            @if (item.PhoneNumber != null) { @item.PhoneNumber }
+        </td>
+        <td>
+            @if (item.Active)
+            {
+                <div>Да</div>
+            }
+            else
+            {
+                <div>Нет</div>
+            }
+        </td>
+  
+      </tr>
+    }
+</table>

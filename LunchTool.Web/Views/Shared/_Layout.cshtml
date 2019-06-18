@@ -1,15 +1,37 @@
 ﻿<!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
-<body>
-    <!-- Navbar -->
+<body style="padding-top:0px;">
+    <nav class="navbar navbar-light bg-light ">
+        <a href="#" class="navbar-brand">LunchTool</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Заказ</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Личный кабинет</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Администрирование
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Редактирование данных</a>
+                    <a class="dropdown-item" href="#">Работа с пользователями</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Отчет</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
     <div class="container body-content">
         @RenderBody()
     </div>

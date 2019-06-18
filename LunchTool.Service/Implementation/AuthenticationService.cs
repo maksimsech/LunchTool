@@ -23,6 +23,7 @@ namespace LunchTool.Service.Implementation
             mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<UserDTO, User>();
+                cfg.CreateMap<User, AuthUserDTO>();
             }).CreateMapper();
         }
 
@@ -61,10 +62,7 @@ namespace LunchTool.Service.Implementation
             return find.IsAdmin;
         }
 
-        /// <returns>
-        /// FirstName, LastName
-        /// </returns>
-        public (string, string) GetFirstAndLastName(UserDTO userDTO)
+        public AuthUserDTO GetAuthUserDTO(UserDTO userDTO)
         {
             var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Email == user.Email).FirstOrDefault();
@@ -72,8 +70,8 @@ namespace LunchTool.Service.Implementation
             {
                 throw new ValidationException("", "Пользователь не найден");
             }
-
-            return (find.FirstName, find.LastName);
+            var authUser = mapper.Map<User, AuthUserDTO>(find);
+            return authUser;
         }
 
         private User MapToUser(UserDTO userDTO) => mapper.Map<UserDTO, User>(userDTO);
