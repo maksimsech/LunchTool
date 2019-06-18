@@ -46,5 +46,25 @@ namespace LunchTool.Web.Controllers
             var providers = dataService.GetAllProviders();
             return View(providers);
         }
+
+        public IActionResult Menus(int? id)
+        {
+            IEnumerable<MenuDTO> menus;
+            if (id == null)
+                menus = dataService.GetAllMenus();
+            else
+                menus = dataService.GetMenus(m => m.ProviderId == id);
+            return View(menus);
+        }
+
+        public IActionResult Dishes(int? id)
+        {
+            IEnumerable<DishDTO> dishes;
+            if (id == null)
+                dishes = dataService.GetAllDishes();
+            else
+                dishes = dataService.GetDishes(d => d.MenuId == id);
+            return View(dishes);
+        }
     }
 }
