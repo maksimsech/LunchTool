@@ -12,6 +12,7 @@ using LunchTool.Service.Interfaces;
 using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LunchTool.Web.Controllers
 {

@@ -32,6 +32,10 @@ namespace LunchTool.Web.Controllers
             {
                 cfg.CreateMap<ProviderViewModel, ProviderDTO>();
                 cfg.CreateMap<ProviderDTO, ProviderViewModel>();
+                cfg.CreateMap<MenuViewModel, MenuDTO>();
+                cfg.CreateMap<MenuDTO, MenuViewModel>();
+                cfg.CreateMap<DishDTO, DishViewModel>();
+                cfg.CreateMap<DishViewModel, DishDTO>();
             }).CreateMapper();
         }
 
@@ -84,7 +88,7 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteProvider(ProviderViewModel providerModelView)
+        public IActionResult DeactivateProvider(ProviderViewModel providerModelView)
         {
             var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerModelView);
             administrationService.Provider.Deactivate(providerDTO);
@@ -94,11 +98,64 @@ namespace LunchTool.Web.Controllers
         public IActionResult Menus(int? id)
         {
             IEnumerable<MenuDTO> menus;
+            IEnumerable<ProviderDTO> providers;
             if (id == null)
+            {
                 menus = dataService.GetAllMenus();
+                providers = dataService.GetAllProviders();
+            }
             else
+            {
                 menus = dataService.GetMenus(m => m.ProviderId == id);
-            return View(menus);
+                providers = dataService.GetProviders(p => p.Id == id);
+            }
+            var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menus);
+            var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
+            return View(new Tuple<IEnumerable<MenuViewModel>, IEnumerable<ProviderViewModel>>(menusViewModel, providersViewModel));
+        }
+
+        [HttpPost]
+        public IActionResult AddMenu(MenuViewModel menuViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+                administrationService.Menu.Add(menuDTO);
+                return RedirectToAction("Menus", "Administration");
+            }
+            //Temp solution
+            return Content("Проверьте введенные данные");
+        }
+
+        [HttpGet("[controller]/Menu/{id}/Change")]
+        public IActionResult ChangeMenu(int id)
+        {
+            var menuDTO = dataService.GetMenus(p => p.Id == id).FirstOrDefault();
+            if (menuDTO == null)
+            {
+                //Temp solution
+                return Content("Поставщик не найден");
+            }
+
+            var menuViewModel = mapper.Map<MenuDTO, MenuViewModel>(menuDTO);
+
+            return View(menuViewModel);
+        }
+
+        [HttpPost("[controller]/Menu/{id}/Change")]
+        public IActionResult ChangeMenu(MenuViewModel menuViewModel)
+        {
+            var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+            administrationService.Menu.Change(menuDTO);
+            return RedirectToAction("Menus", "Administration");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteMenu(MenuViewModel menuViewModel)
+        {
+            var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+            administrationService.Menu.Delete(menuDTO);
+            return RedirectToAction("Menus","Administration");
         }
 
         public IActionResult Dishes(int? id)
@@ -108,7 +165,8 @@ namespace LunchTool.Web.Controllers
                 dishes = dataService.GetAllDishes();
             else
                 dishes = dataService.GetDishes(d => d.MenuId == id);
-            return View(dishes);
+            var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
+            return View(dishesViewModel);
         }
     }
 }
