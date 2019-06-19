@@ -2,7 +2,7 @@
     ViewData["Title"] = "Администрирование: блюда";
 }
 
-@model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>,IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>>
+@model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>>
 
 <div class="row">
     <form asp-action="AddDish" asp-controller="Administration" method="post" class="card col-md-8 offset-md-2">
@@ -32,6 +32,8 @@
         </div>
     </form>
 </div>
+
+
 
 <table class="table">
     <tr>
