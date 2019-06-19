@@ -27,9 +27,10 @@ namespace LunchTool.Service.Implementation
                 }).CreateMapper();
             }
 
-            public void Add(ProviderDTO providerDTO)
+            public void Add(ProviderDTO providerDTO, bool isActive = true)
             {
-                var provider = Map(providerDTO);
+                providerDTO.Active = true;
+                var provider = Map(providerDTO);               
                 db.Providers.Add(provider);
                 db.Save();
             }

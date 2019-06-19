@@ -8,29 +8,15 @@
     <tr>
         <td>Id</td>
         <td>Название</td>
-        <td>Информация</td>
-        <td>Дата</td>
-        <td>Ограничение по времени</td>
+        <td>Цена</td>
+        <td>Вес</td>
         @foreach (var item in Model)
         {
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
-            <td>
-                @if (item.Info != null)
-                {
-                    @item.Info
-                }
-            </td>
-            <td>
-                @if (item.Date != null)
-                {
-                    @String.Format("{0}, {1} {2}", item.Date.Day, item.Date.Month, item.Date.Year);
-                }
-            </td>
-            <td>
-                @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute);
-            </td>
+            <td>@item.Price</td>
+            <td>@item.Weight</td>
         </tr>
     }
     </table>

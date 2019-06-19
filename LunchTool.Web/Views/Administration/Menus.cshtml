@@ -1,4 +1,4 @@
-﻿@{
+﻿    @{
     ViewData["Title"] = "Администрирование: меню";
 }
 
@@ -10,7 +10,7 @@
     {
         <tr>
             <td>@item.Id</td>
-            <td>@item.Name</td>
+            <td><a asp-action="Dishes" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
             <td>
                 @if(item.Info != null)
                 {
@@ -20,11 +20,11 @@
             <td>
                 @if (item.Date != null)
             {
-                    @String.Format("{0}, {1} {2}", item.Date.Day, item.Date.Month, item.Date.Year);
+                    @String.Format("{0}.{1}.{2} г.", item.Date.Day, item.Date.Month, item.Date.Year);
             }
             </td>
             <td>
-                @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute);
+                @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute)
             </td>            
         </tr>
     }
