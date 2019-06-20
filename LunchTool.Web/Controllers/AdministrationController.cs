@@ -161,12 +161,31 @@ namespace LunchTool.Web.Controllers
         public IActionResult Dishes(int? id)
         {
             IEnumerable<DishDTO> dishes;
+            IEnumerable<ProviderDTO> providers = null;
+
             if (id == null)
+            {
                 dishes = dataService.GetAllDishes();
+                providers = dataService.GetAllProviders();
+            }
             else
                 dishes = dataService.GetDishes(d => d.MenuId == id);
+
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
-            return View(dishesViewModel);
+            IEnumerable<ProviderViewModel> providersViewModel = null;
+            if (providers != null)
+            {
+                providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
+            }
+            return View(new Tuple<IEnumerable<DishViewModel>, IEnumerable<ProviderViewModel>>(dishesViewModel, providersViewModel));
+        }
+
+        [HttpPost]
+        public IActionResult GetMenusById(int id)
+        {
+            var menusDTO = dataService.GetMenus(m => m.ProviderId == id);
+            var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
+            return PartialView("~/Views/Administration/_GetMenusById.cshtml", menusViewModel);
         }
     }
 }

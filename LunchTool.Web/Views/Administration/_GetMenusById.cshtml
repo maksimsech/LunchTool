@@ -1,0 +1,9 @@
+﻿@model IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>
+
+<label for="MenuId">Меню</label>
+<select name="MenuId">
+    @foreach (var menu in Model)
+    {
+        <option value="@menu.Id">@menu.Name</option>
+    }
+</select>
