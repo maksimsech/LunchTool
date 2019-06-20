@@ -90,9 +90,14 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeactivateProvider(ProviderViewModel providerModelView)
+        public IActionResult DeactivateProvider(int id)
         {
-            var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerModelView);
+            var providerDTO = dataService.GetProviders(p => p.Id == id).FirstOrDefault();
+            if(providerDTO == null)
+            {
+                //Temp solution
+                return Content("Поставщик не найден");
+            }
             administrationService.Provider.Deactivate(providerDTO);
             return View("Providers", "Administration");
         }
@@ -153,11 +158,16 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteMenu(MenuViewModel menuViewModel)
+        public IActionResult DeleteMenu(int id)
         {
-            var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+            var menuDTO = dataService.GetMenus(m => m.Id == id).FirstOrDefault();
+            if(menuDTO == null)
+            {
+                //Temp solution
+                return Content("Меню не найдено");
+            }
             administrationService.Menu.Delete(menuDTO);
-            return RedirectToAction("Menus","Administration");
+            return View("Menus", "Administration");
         }
 
         public IActionResult Dishes(int? id)

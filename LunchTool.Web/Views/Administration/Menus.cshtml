@@ -68,8 +68,15 @@
                 <a asp-action="ChangeMenu" asp-controller="Administration" asp-route-id="@item.Id">Изменить</a>
             </td>
             <td>
-                <a asp-action="DeleteMenu" asp-controller="Administration" asp-route-menuViewModel="@item">Удалить</a>
+                <a href="javascript:deleteMenu('@item.Id')">Удалить</a>
             </td>
         </tr>
     }
-    </table>
+</table>
+
+<script>
+    function deleteMenu(id)
+    {
+        $.post("DeleteMenu/", { id: id }).done(function (done) {});
+    }
+</script>

@@ -68,7 +68,7 @@
         @if (item.Active)
         {
             <td>
-                <a asp-action="DeactivateProvider" asp-controller="Administration" asp-route-providerModelView="@item">Деактивировать</a>
+                <a href="javascript:deleteProvider('@item.Id')">Деактивировать</a>
             </td>
         }
         else
@@ -80,3 +80,9 @@
       </tr>
     }
 </table>
+
+<script>
+    function deleteProvider(id) {
+        $.post("DeactivateProvider/", { id: id }).done(function (done) {}); 
+    }
+</script>

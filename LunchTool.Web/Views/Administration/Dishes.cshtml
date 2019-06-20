@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Администрирование: блюда";
+    bool first = true;
 }
 
 @model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
@@ -25,7 +26,15 @@
                 <select name="ProviderId" id="ProviderId">
                     @foreach (var provider in Model.Item2)
                     {
-                        <option value="@provider.Id">@provider.Name</option>
+                        if (first)
+                        {
+                            <option value="@provider.Id" selected="selected">@provider.Name</option>
+                            first = false;
+                        }
+                        else
+                        {
+                            <option value="@provider.Id">@provider.Name</option>
+                        }
                     }
                 </select>
             </div>
@@ -40,6 +49,7 @@
 </div>
 
 <script>
+    $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result)});
     $("#ProviderId").change(function () {
         var id = $(this).val();
         console.log(id);
@@ -59,22 +69,22 @@
     <tr>
         <td>Id</td>
         <td>Название</td>
-        <td>Цена</td>
         <td>Вес</td>
+        <td>Цена</td>
     </tr>
     @foreach (var item in Model.Item1)
     {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Price</td>
-            <td>@item.Weight</td>
-            <td>
-                <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id">Изменить</a>
-            </td>
-            <td>
-                <a asp-action="DeleteDish" asp-controller="Administration" asp-route-menuViewModel="@item">Удалить</a>
-            </td>
-        </tr>
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Weight</td>
+        <td>@item.Price</td>
+        <td>
+            <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id">Изменить</a>
+        </td>
+        <td>
+            <a asp-action="DeleteDish" asp-controller="Administration" asp-route-menuViewModel="@item">Удалить</a>
+        </td>
+    </tr>
     }
 </table>
