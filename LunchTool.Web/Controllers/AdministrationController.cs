@@ -84,9 +84,13 @@ namespace LunchTool.Web.Controllers
         [HttpPost("[controller]/Provider/{id}/Change")]
         public IActionResult ChangeProvider(ProviderViewModel providerViewModel)
         {
-            var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerViewModel);
-            administrationService.Provider.Change(providerDTO);
-            return RedirectToAction("Providers", "Administration");
+            if (ModelState.IsValid)
+            {
+                var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerViewModel);
+                administrationService.Provider.Change(providerDTO);
+                return RedirectToAction("Providers", "Administration");
+            }
+            return Content("Проверьте данные");
         }
 
         [HttpPost]
@@ -99,7 +103,7 @@ namespace LunchTool.Web.Controllers
                 return Content("Поставщик не найден");
             }
             administrationService.Provider.Deactivate(providerDTO);
-            return View("Providers", "Administration");
+            return RedirectToAction("Providers", "Administration");
         }
 
         public IActionResult Menus(int? id)
@@ -152,9 +156,13 @@ namespace LunchTool.Web.Controllers
         [HttpPost("[controller]/Menu/{id}/Change")]
         public IActionResult ChangeMenu(MenuViewModel menuViewModel)
         {
-            var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
-            administrationService.Menu.Change(menuDTO);
-            return RedirectToAction("Menus", "Administration");
+            if (ModelState.IsValid)
+            {
+                var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+                administrationService.Menu.Change(menuDTO);
+                return RedirectToAction("Menus", "Administration");
+            }
+            return Content("Проверьте введенные данные");
         }
 
         [HttpPost]
@@ -188,6 +196,10 @@ namespace LunchTool.Web.Controllers
             if (providers != null)
             {
                 providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
+            }
+            else
+            {
+                TempData["MenuId"] = id;
             }
             return View(new Tuple<IEnumerable<DishViewModel>, IEnumerable<ProviderViewModel>>(dishesViewModel, providersViewModel));
         }
@@ -231,9 +243,13 @@ namespace LunchTool.Web.Controllers
         [HttpPost("[controller]/Dish/{id}/Change")]
         public IActionResult ChangeDish(DishViewModel dishViewModel)
         {
-            var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
-            administrationService.Dish.Change(dishDTO);
-            return RedirectToAction("Dishes", "Administration");
+            if (ModelState.IsValid)
+            {
+                var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
+                administrationService.Dish.Change(dishDTO);
+                return RedirectToAction("Dishes", "Administration");
+            }
+            return Content("Проверьте данные");
         }
 
         [HttpPost]

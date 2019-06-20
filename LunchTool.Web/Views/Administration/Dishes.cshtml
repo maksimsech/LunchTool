@@ -13,11 +13,11 @@
         </div>
         <div class="form-group">
             <label for="Weight">Вес</label>
-            <input type="number" step="any" name="Weight" value="" class="form-control" />
+            <input type="text" name="Weight" value="" class="form-control" />
         </div>
         <div class="form-group">
             <label for="Price">Цена</label>
-            <input type="number" step="0.01" name="Price" value="" class="form-control" />
+            <input type="text" name="Price" value="" class="form-control" />
         </div>
         @if (Model.Item2 != null)
         {
@@ -38,16 +38,22 @@
                     }
                 </select>
             </div>
-        }
-        <div class="form-group" id="menus">
+            <div class="form-group" id="menus">
 
-        </div>
+            </div>
+        }
+        else
+        {
+            <input type="hidden" name="MenuId" value="@TempData["MenuId"]"/>
+        }
         <div class="form-group">
             <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
         </div>
     </form>
 </div>
 
+@if (Model.Item2 != null)
+{
 <script>
     $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result)});
     $("#ProviderId").change(function () {
@@ -63,7 +69,7 @@
         });
     });
 </script>
-
+}
 
 <table class="table">
     <tr>
