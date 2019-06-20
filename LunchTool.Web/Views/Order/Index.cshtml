@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Заказ";
+    bool first = true;
+}
+
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
+
+<div>
+<label for="ProviderId">Поставщик</label>
+    <select name="ProviderId" id="ProviderId">
+        @foreach (var provider in Model)
+        {
+            if (first)
+            {
+                <option value="@provider.Id" selected="selected">@provider.Name</option>
+                first = false;
+            }
+            else
+            {
+                <option value="@provider.Id">@provider.Name</option>
+            }
+        }
+    </select>
+</div>
+
+<div id="menus">
+
+</div>
+
+<div id="dishes">
+    
+</div>
+
+<script>
+    $.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
+        $("#menus").html(result);
+        $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) { $("#dishes").html(result); });
+        $("#MenuId").change(function () {
+            var id = $(this).val();
+            console.log(id);
+            $.ajax({
+                type: "POST",
+                url: "Order/GetDishesById/",
+                data: { "id": id },
+                success: function (result) {
+                    $("#dishes").html(result);
+                }
+            });
+        });
+    });
+
+    $("#ProviderId").change(function () {
+        var id = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: "Order/GetMenusById/",
+            data: { "id": id },
+            success: function (result) {
+                $("#menus").html(result);
+            }
+        });
+    });
+  
+
+</script>
+

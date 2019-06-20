@@ -12,7 +12,7 @@ using AutoMapper;
 
 namespace LunchTool.Service.Implementation
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
         private IUnitOfWork db;
         private IMapper mapper;

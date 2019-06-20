@@ -58,7 +58,6 @@
     $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result)});
     $("#ProviderId").change(function () {
         var id = $(this).val();
-        console.log(id);
         $.ajax({
             type: "POST",
             url: "GetMenusById/",

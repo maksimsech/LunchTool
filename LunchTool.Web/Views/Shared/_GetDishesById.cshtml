@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LunchTool.Web.ViewModels.DishViewModel>
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Название</td>
+        <td>Вес</td>
+        <td>Цена</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Weight</td>
+            <td>@item.Price</td>
+            <td>SelectD</td>
+        </tr>
+    }
+</table>
