@@ -12,9 +12,11 @@ using LunchTool.Service.Interfaces;
 using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LunchTool.Web.Controllers
 {
+    [Authorize(Policy = "AdministrationOnly")]
     public class AdministrationController : Controller
     {
         private readonly IConfiguration configuration;
@@ -186,6 +188,50 @@ namespace LunchTool.Web.Controllers
             var menusDTO = dataService.GetMenus(m => m.ProviderId == id);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
             return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddDish(DishViewModel dishViewModel, int MenuId)
+        {
+            if (ModelState.IsValid)
+            {
+                dishViewModel.MenuId = MenuId;
+                var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
+                administrationService.Dish.Add(dishDTO);
+                return RedirectToAction("Dishes", "Administration");
+            }
+            return Content("Проверьте данные");
+        }
+
+
+        [HttpGet("[controller]/Dish/{id}/Change")]
+        public IActionResult ChangeDish(int id)
+        {
+            var dishDTO = dataService.GetDishes(d => d.Id == id).FirstOrDefault();
+            if(dishDTO == null)
+            {
+                //Temp solution
+                return Content("Блюдо не найдено");
+            }
+
+            var dishViewModel = mapper.Map<DishDTO, DishViewModel>(dishDTO);
+            return View(dishViewModel);
+        }
+
+        [HttpPost("[controller]/Dish/{id}/Change")]
+        public IActionResult ChangeDish(DishViewModel dishViewModel)
+        {
+            var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
+            administrationService.Dish.Change(dishDTO);
+            return RedirectToAction("Dishes", "Administration");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteDish(DishViewModel dishViewModel)
+        {
+            var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
+            administrationService.Dish.Delete(dishDTO);
+            return RedirectToAction("Dishes", "Administration");
         }
     }
 }

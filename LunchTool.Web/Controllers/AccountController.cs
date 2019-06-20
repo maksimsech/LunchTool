@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LunchTool.Web.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly IConfiguration configuration;
@@ -38,6 +39,8 @@ namespace LunchTool.Web.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (User.Identities.Any(u => u.IsAuthenticated))
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -63,6 +66,8 @@ namespace LunchTool.Web.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            if (User.Identities.Any(u => u.IsAuthenticated))
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -94,12 +99,20 @@ namespace LunchTool.Web.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, authUserDTO.Id.ToString()),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, authUserDTO.IsAdmin.ToString()),
+                new Claim(ClaimsIdentity.DefaultNameClaimType, authUserDTO.Id.ToString()),                               
                 new Claim(ClaimTypes.GivenName, authUserDTO.FirstName),
                 new Claim(ClaimTypes.Name, authUserDTO.LastName),
                 new Claim(ClaimTypes.Email, authUserDTO.Email)
             };
+
+            if (authUserDTO.IsAdmin)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, "Administrator"));
+            }
+            else
+            {
+                claims.Add(new Claim(ClaimTypes.Role, "User"));
+            }
 
             var claimsIdentity = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
 

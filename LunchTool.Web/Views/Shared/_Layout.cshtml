@@ -49,6 +49,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Личный кабинет</a>
                 </li>
+                @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+                {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Администрирование
@@ -59,7 +61,8 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Отчет</a>
                     </div>
-                </li>            
+                </li>  
+                }
             </ul>
         </div>
     </nav>

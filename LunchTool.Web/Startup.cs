@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace LunchTool.Web
 {
@@ -36,12 +38,22 @@ namespace LunchTool.Web
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = new PathString("/Account/Login");
-                options.AccessDeniedPath = new PathString("/Account/Login");
+                options.AccessDeniedPath = new PathString("/Home/Index");
                 options.Cookie.Expiration = new TimeSpan(10, 0, 0, 0);    
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdministrationOnly", policy => policy.RequireRole("Administrator"));
+            });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
