@@ -185,7 +185,7 @@ namespace LunchTool.Web.Controllers
         {
             var menusDTO = dataService.GetMenus(m => m.ProviderId == id);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
-            return PartialView("~/Views/Administration/_GetMenusById.cshtml", menusViewModel);
+            return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
         }
     }
 }
