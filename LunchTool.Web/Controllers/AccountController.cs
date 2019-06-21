@@ -36,6 +36,11 @@ namespace LunchTool.Web.Controllers
             }).CreateMapper();
         }
 
+        public IActionResult Index()
+        {
+            return Content("Кабинет");
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
