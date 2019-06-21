@@ -38,7 +38,7 @@ namespace LunchTool.Web
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = new PathString("/Account/Login");
-                options.AccessDeniedPath = new PathString("/Home/Index");
+                options.AccessDeniedPath = new PathString("/Home/AccessDenied");
                 options.Cookie.Expiration = new TimeSpan(10, 0, 0, 0);    
             });
 

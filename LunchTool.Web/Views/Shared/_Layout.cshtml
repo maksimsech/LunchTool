@@ -11,7 +11,7 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
-<body style="padding-top:0px; position: relative;">
+<body style="padding-top:0px; position: relative; background-image: url(/img/bg.jpg)">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" asp-action="Index" asp-controller="Home">LunchTool</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="container body-content bg-white">
         @RenderBody()
     </div>
     @*<footer class="" style="position: absolute; width: 100%; bottom: 0px;">
