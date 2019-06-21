@@ -51,7 +51,9 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult GetMenusById(int id)
         {
-            var menusDTO = dataService.GetMenus(m => m.ProviderId == id);
+            var time = DateTime.Now.TimeOfDay;
+            var date = DateTime.Today;
+            var menusDTO = dataService.GetMenus(m => m.ProviderId == id && m.TimeLimit.TimeOfDay > time && m.Date.Date == date);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
             return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
         }
@@ -65,18 +67,33 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(IList<DishForOrderModel> dishesForOrderModel)
+        public IActionResult MakeOrder(IEnumerable<DishForOrderModel> dishesForOrderModel)
         {
             if (ModelState.IsValid)
             {
-                var sB = new StringBuilder();
+                var orderDTO = new OrderDTO
+                {
+                    CreateDate = DateTime.Now,
+                    UserId = int.Parse(User.Identity.Name)
+                };
+                var id = orderService.MakeOrder(orderDTO);
+
                 foreach(var item in dishesForOrderModel)
                 {
-                    sB.AppendLine($"{item.Id} : {item.Count}");
+                    if (item.Count != 0)
+                    {
+                        var orderDishDTO = new OrderDishDTO
+                        {
+                            OrderId = id,
+                            DishId = item.Id,
+                            Count = item.Count
+                        };
+                        orderService.AddOrderDish(orderDishDTO);
+                    }
                 }
-                return Content(sB.ToString());
+                return Content("Заказ выполнен");
             }
-            return Content("Bad");
+            return Content("Ошибка при проверке данных");
         }
     }
 }

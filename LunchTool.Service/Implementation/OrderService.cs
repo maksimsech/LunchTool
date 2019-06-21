@@ -23,15 +23,20 @@ namespace LunchTool.Service.Implementation
             mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<OrderDTO, Order>();
-                cfg.CreateMap<OrderDishDTO, Order>();
+                cfg.CreateMap<OrderDishDTO, OrderDish>();
             }).CreateMapper();
         }
 
-        public void MakeOrder(OrderDTO orderDTO, OrderDishDTO orderDishDTO, int userId)
+        public int MakeOrder(OrderDTO orderDTO)
         {
-            orderDTO.UserId = userId;
             var order = mapper.Map<OrderDTO, Order>(orderDTO);
             db.Orders.Add(order);
+            db.Save();
+            return order.Id;
+        }
+
+        public void AddOrderDish(OrderDishDTO orderDishDTO)
+        {
             var orderDish = mapper.Map<OrderDishDTO, OrderDish>(orderDishDTO);
             db.OrderDishes.Add(orderDish);
             db.Save();

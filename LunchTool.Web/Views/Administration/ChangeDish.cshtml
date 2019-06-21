@@ -13,11 +13,11 @@
         </div>
         <div class="form-group">
             <label for="Weight">Вес</label>
-            <input type="text" name="Weight" value="@Model.Weight" class="form-control" />
+            <input type="text" name="Weight" id="Weight" value="@Model.Weight" class="form-control" />
         </div>
         <div class="form-group">
             <label for="Price">Цена</label>
-            <input type="text"  name="Price" value="@Model.Price" class="form-control" />
+            <input type="text"  name="Price" id="Price" value="@Model.Price" class="form-control" />
         </div>      
         <input type="hidden" name="MenuId" value="@Model.MenuId"/>
         <div class="form-group">
@@ -25,3 +25,16 @@
         </div>
     </form>
 </div>
+
+<script>
+    $('#Weight').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    $('#Price').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+</script>

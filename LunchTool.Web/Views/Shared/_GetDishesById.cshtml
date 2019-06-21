@@ -2,7 +2,7 @@
 @{ 
     var i = 0;
 }
-<table class="table">
+<table class="table" id="DishesTable">
     <tr>
         <td>Название</td>
         <td>Вес</td>
@@ -13,13 +13,13 @@
     {
         <tr>
             <td style="display:none">
-                <input type="number" readonly value="@item.Id" name="dishesForOrderModel[@i].Id"/>
+                <input type="number" readonly value="@item.Id" name="dishesForOrderModel[@i].Id" />
             </td>
             <td>@item.Name</td>
             <td>@item.Weight</td>
             <td>@item.Price</td>
             <td>
-                <input type="number" step="1" name="dishesForOrderModel[@i].Count" value="0" class="form-control"/>
+                <input type="number" step="1" name="dishesForOrderModel[@i].Count" id="Count" value="0" min="0" class="form-control" onclick="onCountChange()"/>
             </td>
         </tr>
         i++;

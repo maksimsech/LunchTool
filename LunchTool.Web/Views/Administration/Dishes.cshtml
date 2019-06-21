@@ -13,11 +13,11 @@
         </div>
         <div class="form-group">
             <label for="Weight">Вес</label>
-            <input type="text" name="Weight" value="" class="form-control" />
+            <input type="text" name="Weight" id="Weight" value="" class="form-control" />
         </div>
         <div class="form-group">
             <label for="Price">Цена</label>
-            <input type="text" name="Price" value="" class="form-control" />
+            <input type="text" name="Price" id="Price" value="" class="form-control" />
         </div>
         @if (Model.Item2 != null)
         {
@@ -52,6 +52,19 @@
     </form>
 </div>
 
+<script>
+    $('#Weight').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    $('#Price').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+</script>
+
 @if (Model.Item2 != null)
 {
 <script>
@@ -67,6 +80,8 @@
             }
         });
     });
+
+
 </script>
 }
 

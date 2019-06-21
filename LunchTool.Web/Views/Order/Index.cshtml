@@ -31,20 +31,38 @@
     <div id="dishes" class="form-group">
 
     </div>
-    <div class="form-group">
-        <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+    <div class="form-group row" style="margin-left:0; margin-right:0;"> 
+        <div class="col-2">
+            <p>  Цена: <span id="Price"></span></p>
+        </div>
+        <div class="col-6"></div>
+        <input type="submit" name="" value="Потвердить" class="btn btn-primary col-4"/>
     </div>
 </form>
 
 
 <script>
 
+    function onCountChange()
+    {
+        var sum = 0;
+        let temp = $('tr');
+        for (var i = 1; i < temp.length; i++) {
+            var price = parseFloat(temp[i].children[3].innerHTML.replace(',','.'));
+            console.log(price);
+            var count = parseFloat(temp[i].children[4].firstElementChild.value);
+            console.log(count);
+            sum += price * count;
+        }
+        console.log(sum);
+        $("#Price").html(sum.toString().replace('.', ','));
+    }
+
     function addMenuListener()
     {
         $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) { $("#dishes").html(result); });
         $("#MenuId").change(function () {
             var id = $(this).val();
-            console.log(id);
             $.ajax({
                 type: "POST",
                 url: "Order/GetDishesById/",
@@ -54,7 +72,10 @@
                 }
             });
         });
+
     }
+
+
     $.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
         $("#menus").html(result);
         addMenuListener();
@@ -72,6 +93,5 @@
             }
         });
     });
-
 </script>
 
