@@ -13,6 +13,8 @@ using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using LunchTool.Web.Models;
+using System.Text;
 
 namespace LunchTool.Web.Controllers
 {
@@ -60,6 +62,21 @@ namespace LunchTool.Web.Controllers
             var dishesDTO = dataService.GetDishes(d => d.MenuId == id);
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishesDTO);
             return PartialView("~/Views/Shared/_GetDishesById.cshtml", dishesViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult MakeOrder(IList<DishForOrderModel> dishesForOrderModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var sB = new StringBuilder();
+                foreach(var item in dishesForOrderModel)
+                {
+                    sB.AppendLine($"{item.Id} : {item.Count}");
+                }
+                return Content(sB.ToString());
+            }
+            return Content("Bad");
         }
     }
 }

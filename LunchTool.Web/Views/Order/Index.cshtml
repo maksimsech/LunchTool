@@ -27,13 +27,20 @@
 
 </div>
 
-<div id="dishes">
-    
-</div>
+<form asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2">
+    <div id="dishes" class="form-group">
+
+    </div>
+    <div class="form-group">
+        <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+    </div>
+</form>
+
 
 <script>
-    $.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
-        $("#menus").html(result);
+
+    function addMenuListener()
+    {
         $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) { $("#dishes").html(result); });
         $("#MenuId").change(function () {
             var id = $(this).val();
@@ -47,6 +54,10 @@
                 }
             });
         });
+    }
+    $.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
+        $("#menus").html(result);
+        addMenuListener();
     });
 
     $("#ProviderId").change(function () {
@@ -57,12 +68,9 @@
             data: { "id": id },
             success: function (result) {
                 $("#menus").html(result);
+                addMenuListener();
             }
         });
-    });
-
-    $("#Submit").click(function () {
-            
     });
 
 </script>

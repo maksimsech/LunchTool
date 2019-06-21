@@ -1,5 +1,5 @@
 ﻿@{ 
-    bool first = true;
+    bool firstMenu = true;
 }
 @model IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>
 
@@ -7,9 +7,10 @@
 <select name="MenuId" id="MenuId">
     @foreach (var menu in Model)
     {
-        if (first)
+        if (firstMenu)
         {
             <option value="@menu.Id" selected="selected">@menu.Name</option>
+            firstMenu = false;
         }
         else
         {

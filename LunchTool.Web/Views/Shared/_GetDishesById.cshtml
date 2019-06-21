@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<LunchTool.Web.ViewModels.DishViewModel>
-
+@{ 
+    var i = 0;
+}
 <table class="table">
     <tr>
-        <td>Id</td>
         <td>Название</td>
         <td>Вес</td>
         <td>Цена</td>
@@ -11,11 +12,16 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Id</td>
+            <td style="display:none">
+                <input type="number" readonly value="@item.Id" name="dishesForOrderModel[@i].Id"/>
+            </td>
             <td>@item.Name</td>
             <td>@item.Weight</td>
             <td>@item.Price</td>
-            <td><input type="number" step="1" name="DishCount" value="0" class="form-control"/></td>
+            <td>
+                <input type="number" step="1" name="dishesForOrderModel[@i].Count" value="0" class="form-control"/>
+            </td>
         </tr>
+        i++;
     }
 </table>
