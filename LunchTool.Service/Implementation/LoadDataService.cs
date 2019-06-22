@@ -19,6 +19,7 @@ namespace LunchTool.Service.Implementation
         private IProviderService providerService;
         private IMenuService menuService;
         private IDishService dishService;
+        private IUserService userService;
 
         public LoadDataService(string connectionString)
         {
@@ -44,6 +45,13 @@ namespace LunchTool.Service.Implementation
                 if (dishService == null)
                     dishService = new DishService(connectionString);
                 return dishService;
+            } }
+
+        public IUserService Users { get
+            {
+                if (userService == null)
+                    userService = new UserService(connectionString);
+                return userService;
             } }
     }
 }
