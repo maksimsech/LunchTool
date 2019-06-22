@@ -43,7 +43,7 @@ namespace LunchTool.Web.Controllers
         public IActionResult Index()
         {
             var userId = int.Parse(User.Identity.Name);
-            var providersDTO = dataService.GetProviders(p => p.Active);
+            var providersDTO = dataService.Providers.Get(p => p.Active);
             var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
             return View(providersViewModel);
         }
@@ -53,7 +53,7 @@ namespace LunchTool.Web.Controllers
         {
             var time = DateTime.Now.TimeOfDay;
             var date = DateTime.Today;
-            var menusDTO = dataService.GetMenus(m => m.ProviderId == id && m.TimeLimit.TimeOfDay > time && m.Date.Date == date);
+            var menusDTO = dataService.Menus.Get(m => m.ProviderId == id && m.TimeLimit.TimeOfDay > time && m.Date.Date == date);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
             return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
         }
@@ -61,7 +61,7 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult GetDishesById(int id)
         {
-            var dishesDTO = dataService.GetDishes(d => d.MenuId == id);
+            var dishesDTO = dataService.Dishes.Get(d => d.MenuId == id);
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishesDTO);
             return PartialView("~/Views/Shared/_GetDishesById.cshtml", dishesViewModel);
         }

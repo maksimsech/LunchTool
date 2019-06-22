@@ -48,7 +48,7 @@ namespace LunchTool.Web.Controllers
 
         public IActionResult Providers()
         {
-            var providersDTO = dataService.GetAllProviders();
+            var providersDTO = dataService.Providers.GetAll();
             var providers = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
             return View(providers);
         }
@@ -69,7 +69,7 @@ namespace LunchTool.Web.Controllers
         [HttpGet("[controller]/Provider/{id}/Change")]
         public IActionResult ChangeProvider(int id)
         {
-            var providerDTO = dataService.GetProviders(p => p.Id == id).FirstOrDefault();
+            var providerDTO = dataService.Providers.Get(p => p.Id == id).FirstOrDefault();
             if(providerDTO == null)
             {
                 //Temp solution
@@ -96,7 +96,7 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult DeactivateProvider(int id)
         {
-            var providerDTO = dataService.GetProviders(p => p.Id == id).FirstOrDefault();
+            var providerDTO = dataService.Providers.Get(p => p.Id == id).FirstOrDefault();
             if(providerDTO == null)
             {
                 //Temp solution
@@ -112,13 +112,13 @@ namespace LunchTool.Web.Controllers
             IEnumerable<ProviderDTO> providers;
             if (id == null)
             {
-                menus = dataService.GetAllMenus();
-                providers = dataService.GetAllProviders();
+                menus = dataService.Menus.GetAll();
+                providers = dataService.Providers.GetAll();
             }
             else
             {
-                menus = dataService.GetMenus(m => m.ProviderId == id);
-                providers = dataService.GetProviders(p => p.Id == id);
+                menus = dataService.Menus.Get(m => m.ProviderId == id);
+                providers = dataService.Providers.Get(p => p.Id == id);
             }
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menus);
             var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
@@ -141,7 +141,7 @@ namespace LunchTool.Web.Controllers
         [HttpGet("[controller]/Menu/{id}/Change")]
         public IActionResult ChangeMenu(int id)
         {
-            var menuDTO = dataService.GetMenus(p => p.Id == id).FirstOrDefault();
+            var menuDTO = dataService.Menus.Get(p => p.Id == id).FirstOrDefault();
             if (menuDTO == null)
             {
                 //Temp solution
@@ -168,7 +168,7 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult DeleteMenu(int id)
         {
-            var menuDTO = dataService.GetMenus(m => m.Id == id).FirstOrDefault();
+            var menuDTO = dataService.Menus.Get(m => m.Id == id).FirstOrDefault();
             if(menuDTO == null)
             {
                 //Temp solution
@@ -185,11 +185,11 @@ namespace LunchTool.Web.Controllers
 
             if (id == null)
             {
-                dishes = dataService.GetAllDishes();
-                providers = dataService.GetAllProviders();
+                dishes = dataService.Dishes.GetAll();
+                providers = dataService.Providers.GetAll();
             }
             else
-                dishes = dataService.GetDishes(d => d.MenuId == id);
+                dishes = dataService.Dishes.Get(d => d.MenuId == id);
 
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
             IEnumerable<ProviderViewModel> providersViewModel = null;
@@ -207,7 +207,7 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult GetMenusById(int id)
         {
-            var menusDTO = dataService.GetMenus(m => m.ProviderId == id);
+            var menusDTO = dataService.Menus.Get(m => m.ProviderId == id);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
             return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
         }
@@ -229,7 +229,7 @@ namespace LunchTool.Web.Controllers
         [HttpGet("[controller]/Dish/{id}/Change")]
         public IActionResult ChangeDish(int id)
         {
-            var dishDTO = dataService.GetDishes(d => d.Id == id).FirstOrDefault();
+            var dishDTO = dataService.Dishes.Get(d => d.Id == id).FirstOrDefault();
             if(dishDTO == null)
             {
                 //Temp solution
