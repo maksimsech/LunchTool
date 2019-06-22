@@ -12,5 +12,6 @@ namespace LunchTool.Service.Interfaces
         IDishService Dishes { get; }
         IMenuService Menus { get; }
         IProviderService Providers { get; }
+        IUserService Users { get; }
     }
 }
