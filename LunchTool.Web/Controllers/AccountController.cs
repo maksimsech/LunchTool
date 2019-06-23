@@ -21,6 +21,7 @@ namespace LunchTool.Web.Controllers
     {
         private readonly IConfiguration configuration;
         private Service.Interfaces.IAuthenticationService authentificationService;
+        private ILoadDataService dataService;
         private IMapper mapper;
 
 
@@ -29,16 +30,21 @@ namespace LunchTool.Web.Controllers
             this.configuration = configuration;
             var connectionString = this.configuration.GetConnectionString("DefaultConnection");
             authentificationService = new Service.Implementation.AuthenticationService(connectionString);
+            dataService = new LoadDataService(connectionString);
             mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<LoginViewModel, UserDTO>();
                 cfg.CreateMap<RegisterViewModel, UserDTO>();
+                cfg.CreateMap<UserDTO, UserViewModel>();
             }).CreateMapper();
         }
 
         public IActionResult Index()
         {
-            return Content("Кабинет");
+            var userId = int.Parse(User.Identity.Name);
+            var userDTO = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
+            var userViewModel = mapper.Map<UserDTO, UserViewModel> (userDTO);
+            return View(userViewModel);
         }
 
         [HttpGet]

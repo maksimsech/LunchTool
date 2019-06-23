@@ -13,6 +13,7 @@ using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
 
 namespace LunchTool.Web.Controllers
 {
@@ -34,10 +35,15 @@ namespace LunchTool.Web.Controllers
             {
                 cfg.CreateMap<ProviderViewModel, ProviderDTO>();
                 cfg.CreateMap<ProviderDTO, ProviderViewModel>();
+
                 cfg.CreateMap<MenuViewModel, MenuDTO>();
                 cfg.CreateMap<MenuDTO, MenuViewModel>();
+
                 cfg.CreateMap<DishDTO, DishViewModel>();
                 cfg.CreateMap<DishViewModel, DishDTO>();
+
+                cfg.CreateMap<UserViewModel, UserDTO>();
+                cfg.CreateMap<UserDTO, UserViewModel>();
             }).CreateMapper();
         }
 
@@ -258,6 +264,60 @@ namespace LunchTool.Web.Controllers
             var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
             administrationService.Dish.Delete(dishDTO);
             return RedirectToAction("Dishes", "Administration");
+        }
+
+        public IActionResult Users()
+        {
+            var usersDTO = dataService.Users.GetAll();
+            var usersViewModel = mapper.Map<IEnumerable<UserDTO>, IEnumerable<UserViewModel>>(usersDTO);
+            return View(usersViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(UserViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
+                if (!administrationService.Users.IsRegistered(userDTO))
+                {
+                    administrationService.Users.Add(userDTO);
+                    return Content("Зарегестрирован");
+                }
+                return Content("Уже зарегестрирован");
+            }
+            return Content("Проверьте данные");
+        }
+
+        [HttpGet]
+        public IActionResult ChangeUser(int id)
+        {
+            var userDTO = dataService.Users.Get(u => u.Id == id).FirstOrDefault();
+            if(userDTO == null)
+            {
+                return Content("Пользователь не найден");
+            }
+            var userViewModel = mapper.Map<UserDTO, UserViewModel>(userDTO);
+            return View(userViewModel);
+        }
+
+
+        [HttpPost]
+        public IActionResult ChangeUser(UserViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
+                var find = dataService.Users.Get(u => u.Id == userDTO.Id).FirstOrDefault();
+                userDTO.Password = find.Password; 
+                administrationService.Users.Change(userDTO);
+                return RedirectToAction("Users", "Administration");
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            var sb = new StringBuilder();
+            foreach (var error in errors)
+                sb.AppendLine(error.ErrorMessage);
+            return Content(sb.ToString());
         }
     }
 }

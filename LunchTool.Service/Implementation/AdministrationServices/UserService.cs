@@ -8,12 +8,13 @@ using LunchTool.Logic.Repository.Interfaces;
 using LunchTool.Service.DTO;
 using LunchTool.Service.Interfaces.AdministrationServices;
 using LunchTool.Service.Implementation;
+using System.Linq;
 
 namespace LunchTool.Service.Implementation
 {
     partial class AdministrationService
     {
-        class UserService : IUserService
+        public class UserService : IUserService
         {
             private IUnitOfWork db;
             private IMapper mapper;
@@ -39,6 +40,12 @@ namespace LunchTool.Service.Implementation
                 var user = Map(userDTO);
                 db.Users.Update(user);
                 db.Save();
+            }
+
+            public bool IsRegistered(UserDTO userDTO)
+            {
+                var find = db.Users.Find(u => u.Email == userDTO.Email).FirstOrDefault();
+                return find != null;
             }
 
             private User Map(UserDTO userDTO) => mapper.Map<UserDTO, User>(userDTO);
