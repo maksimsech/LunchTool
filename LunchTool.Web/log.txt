@@ -1572,3 +1572,118 @@ Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
 Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 4.1936ms.
 Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 72.027ms
 Request finished in 91.941ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:60665/  
+Request starting HTTP/1.1 DEBUG http://localhost:60665/  0
+Failed to determine the https port for redirect.
+Request finished in 1284.3348ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 81.5565ms
+Request finished in 3237.4318ms 302 
+Request starting HTTP/1.1 GET http://localhost:60665/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Request starting HTTP/1.1 GET http://localhost:60665/  
+Request starting HTTP/1.1 DEBUG http://localhost:60665/  0
+Failed to determine the https port for redirect.
+Request finished in 1306.2315ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 960.1082ms
+Request finished in 4569.0845ms 302 
+Request starting HTTP/1.1 GET http://localhost:60665/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 28.7085ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 1488.4613ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 11392.549ms
+Request starting HTTP/1.1 GET http://localhost:60665/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:60665/css/site.css  
+Request finished in 12366.4986ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:60665/lib/jquery-validation/dist/jquery.validate.min.js  
+Request starting HTTP/1.1 GET http://localhost:60665/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request starting HTTP/1.1 GET http://localhost:60665/lib/bootstrap/dist/js/bootstrap.js  
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Sending file. Request path: '/css/site.css'. Physical path: 'E:\EPOL\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Request finished in 1609.3434ms 304 application/javascript
+Request finished in 1597.1682ms 304 application/javascript
+Request finished in 2798.3744ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:60665/lib/bootstrap/dist/css/bootstrap.css  
+The file /lib/jquery/dist/jquery.min.js was not modified
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+Request finished in 3381.0114ms 304 application/javascript
+Request finished in 2549.3343ms 304 application/javascript
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'E:\EPOL\LunchTool\LunchTool.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Request finished in 1181.6447ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:60665/img/bg.jpg  
+Request starting HTTP/1.1 GET http://localhost:60665/favicon.ico  
+Request finished in 210.4382ms 404 
+Sending file. Request path: '/img/bg.jpg'. Physical path: 'E:\EPOL\LunchTool\LunchTool.Web\wwwroot\img\bg.jpg'
+Request finished in 1244.6881ms 200 image/jpeg
+Request starting HTTP/1.1 POST http://localhost:60665/Account/Login application/x-www-form-urlencoded 209
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 704.4302ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 1329.0167ms
+Request finished in 1627.6113ms 302 
+Request starting HTTP/1.1 GET http://localhost:60665/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3478ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 54.0476ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 68.0353ms
+Request finished in 228.7672ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:60665/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'E:\EPOL\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Request finished in 209.3153ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:60665/Administration  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2523ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 28.9838ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 69.3341ms
+Request finished in 105.1836ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:60665/Administration/Menus  
+Route matched with {action = "Menus", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Menus(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 491.1989ms.
+Executing ViewResult, running view Menus.
+Executed ViewResult - view Menus executed in 159.5467ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) in 960.2194ms
+Request finished in 1251.0241ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:60665/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 485.6859ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 224.7094ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 1238.8583ms
+Request finished in 1669.0041ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:60665/Administration/CopyMenu?ProviderId=1&MenuId=1  
+Route matched with {action = "CopyMenu", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CopyMenu(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.CopyMenu (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.CopyMenu (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 865.2709ms.
+Executing ViewResult, running view CopyMenu.
+Executed ViewResult - view CopyMenu executed in 41.4634ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.CopyMenu (LunchTool.Web) in 982.852ms
+Request finished in 1056.5961ms 200 text/html; charset=utf-8
