@@ -12,5 +12,8 @@ namespace LunchTool.Service.Interfaces
         bool CheckLogin(UserDTO userDTO);
         bool IsAdmin(UserDTO userDTO);
         AuthUserDTO GetAuthUserDTO(UserDTO userDTO);
+        void ChangeInfo(UserDTO userDTO);
+        bool CheckPassword(int id, string password);
+        void ChangePassword(int id, string newPassword);
     }
 }

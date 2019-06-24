@@ -1,0 +1,1523 @@
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 106.0691ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9412ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 205.2471ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 512.2914ms
+Request finished in 1145.3668ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Sending file. Request path: '/img/bg.jpg'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\img\bg.jpg'
+Request finished in 369.4236ms 200 image/jpeg
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 631.0628ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 36.3689ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 7845.3977ms
+Request finished in 7945.466ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 150.126ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 16.7839ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 396.3145ms
+Request finished in 453.2283ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 113.6044ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 19.1452ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 187.401ms
+Request finished in 227.7169ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.9205ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 9.0622ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 109.8038ms
+Request finished in 139.6001ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.0315ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 7.3829ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 68.0132ms
+Request finished in 82.5989ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 361
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 2001.1966ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) in 2120.8619ms
+Request finished in 2241.33ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 29.8586ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 31.1208ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 227.834ms
+Request finished in 277.2118ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.967ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 11.8253ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 85.0592ms
+Request finished in 169.1904ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 17.3456ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 8.6542ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 82.5264ms
+Request finished in 133.8811ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0745ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 9.823ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 82.9449ms
+Request finished in 116.5822ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 321.1738ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.8795ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 198.3297ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 281.8856ms
+Request finished in 1313.8895ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 627.0587ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 56.7328ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 3619.6681ms
+Request finished in 3743.3768ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Logout  
+Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed out.
+Executed action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 41.1494ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) in 69.7378ms
+Request finished in 97.1159ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 53.8934ms
+Request finished in 75.2149ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9374ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 96.3245ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 155.7906ms
+Request finished in 184.6191ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 209
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 91.5496ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 196.7888ms
+Request finished in 305.0137ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0463ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4.2696ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 207.1104ms
+Request finished in 249.1555ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ForbidResult with authentication schemes ().
+AuthenticationScheme: Cookies was forbidden.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 51.338ms
+Request finished in 242.3873ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Home/AccessDenied?ReturnUrl=%2FAdministration%2FDishes  
+Route matched with {action = "AccessDenied", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AccessDenied() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.AccessDenied (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.AccessDenied (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 62.6194ms.
+Executing ViewResult, running view AccessDenied.
+Executed ViewResult - view AccessDenied executed in 30.7918ms.
+Executed action LunchTool.Web.Controllers.HomeController.AccessDenied (LunchTool.Web) in 305.0036ms
+Request finished in 363.7716ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0229ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4.9721ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 31.5501ms
+Request finished in 54.4269ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 79.1395ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9374ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 129.4356ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 223.0842ms
+Request finished in 705.6257ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 439.3155ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 28.7427ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 1591.4617ms
+Request finished in 1651.3674ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Logout  
+Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed out.
+Executed action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 28.6417ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) in 75.133ms
+Request finished in 107.5871ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 79.1071ms
+Request finished in 98.528ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.7656ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 34.999ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 79.6263ms
+Request finished in 119.3564ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 209
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 70.0316ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 205.9688ms
+Request finished in 337.4573ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0766ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 9.0497ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 36.0152ms
+Request finished in 83.2634ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 26.8606ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 6.719ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 95.7806ms
+Request finished in 141.9924ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/ChangeInfo  
+Route matched with {action = "ChangeInfo", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeInfo() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.452ms.
+Executing ViewResult, running view ChangeInfo.
+Executed ViewResult - view ChangeInfo executed in 40.7744ms.
+Executed action LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) in 154.8127ms
+Request finished in 210.7409ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/ChangeInfo application/x-www-form-urlencoded 306
+Route matched with {action = "ChangeInfo", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeInfo(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 379.5905ms.
+Executing RedirectResult, redirecting to /Account.
+Executed action LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) in 423.9868ms
+Request finished in 468.8727ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 22.9708ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 3.6907ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 56.7889ms
+Request finished in 74.3977ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 121.0553ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9454ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 133.9338ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 223.4131ms
+Request finished in 692.8082ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 441.9176ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.4572ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 2008.8577ms
+Request finished in 2050.7853ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/ChangePassword  
+Route matched with {action = "ChangePassword", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangePassword() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3143ms.
+Executing ViewResult, running view ChangePassword.
+Executed ViewResult - view ChangePassword executed in 48.7383ms.
+Executed action LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) in 110.252ms
+Request finished in 155.4173ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/ChangeInfo  
+Route matched with {action = "ChangeInfo", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeInfo() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 49.6193ms.
+Executing ViewResult, running view ChangeInfo.
+Executed ViewResult - view ChangeInfo executed in 21.2263ms.
+Executed action LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) in 146.3843ms
+Request finished in 169.8403ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/ChangeInfo application/x-www-form-urlencoded 306
+Route matched with {action = "ChangeInfo", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeInfo(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 85.9837ms.
+Executing RedirectResult, redirecting to /Account.
+Executed action LunchTool.Web.Controllers.AccountController.ChangeInfo (LunchTool.Web) in 192.8084ms
+Request finished in 282.9053ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 21.8205ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5.3321ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 56.0763ms
+Request finished in 87.9028ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Logout  
+Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed out.
+Executed action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 54.8461ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) in 96.7114ms
+Request finished in 138.1967ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 106.0629ms
+Request finished in 132.4039ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.6757ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 21.0483ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 90.3331ms
+Request finished in 202.844ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 209
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 38.4222ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 115.7963ms
+Request finished in 151.3004ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.039ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 7.8861ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 30.1997ms
+Request finished in 57.0841ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 24.546ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5.8621ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 60.4407ms
+Request finished in 177.7449ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/ChangePassword  
+Route matched with {action = "ChangePassword", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangePassword() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0254ms.
+Executing ViewResult, running view ChangePassword.
+Executed ViewResult - view ChangePassword executed in 11.4654ms.
+Executed action LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) in 67.2883ms
+Request finished in 90.231ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/ChangePassword application/x-www-form-urlencoded 277
+Route matched with {action = "ChangePassword", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangePassword(LunchTool.Web.ViewModels.ChangePasswordViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 193.4806ms.
+Executing RedirectResult, redirecting to /Account.
+Executed action LunchTool.Web.Controllers.AccountController.ChangePassword (LunchTool.Web) in 229.414ms
+Request finished in 252.1671ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 20.3008ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5.7607ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 48.7219ms
+Request finished in 73.3857ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Logout  
+Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed out.
+Executed action method LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 12.892ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Logout (LunchTool.Web) in 69.1227ms
+Request finished in 93.106ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 72.5372ms
+Request finished in 112.7143ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.032ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 5.0937ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 38.2884ms
+Request finished in 75.1354ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 209
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 33.404ms.
+Executing RedirectResult, redirecting to /.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 144.483ms
+Request finished in 159.5385ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0271ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4.364ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 36.2539ms
+Request finished in 65.1225ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 99.2054ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 50.1266ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 288.9274ms
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Request finished in 490.1039ms 200 text/html; charset=utf-8
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 79.1684ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 19.9627ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 207.1307ms
+Request finished in 314.7983ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 138.8798ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 90.3139ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 443.5708ms
+Request finished in 512.7824ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 123.5365ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.1161ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 125.7016ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 197.2721ms
+Request finished in 613.4484ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Request finished in 349.2538ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 416.6432ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 40.8264ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 2013.6434ms
+Request finished in 2218.519ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 127.3081ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 15.59ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 283.7287ms
+Request finished in 322.3621ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 79.841ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 53.5588ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 202.7614ms
+Request finished in 354.342ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.605ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5323.7488ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 5487.4743ms
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation/dist/jquery.validate.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery/dist/jquery.min.js  
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+The file /lib/jquery/dist/jquery.min.js was not modified
+Request finished in 110.0959ms 304 application/javascript
+Request finished in 70.2591ms 304 application/javascript
+The file /css/site.css was not modified
+Request finished in 59.8848ms 304 application/javascript
+Request finished in 119.3665ms 304 text/css
+Request finished in 5537.9819ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/js/bootstrap.js  
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request finished in 69.6364ms 304 application/javascript
+Request finished in 277.4986ms 304 text/css
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Sending file. Request path: '/img/bg.jpg'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\img\bg.jpg'
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Request finished in 163.4188ms 200 image/jpeg
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.7153ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 26.2605ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 252.9919ms
+Request finished in 368.3666ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.6826ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 7.0428ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 206.4424ms
+Request finished in 231.5889ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.0427ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 10.3223ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 96.4437ms
+Request finished in 121.2121ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.0948ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 5.6555ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 57.9752ms
+Request finished in 73.4565ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 149.9831ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.8712ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 121.6958ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 239.0784ms
+Request finished in 749.0215ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Request finished in 98.7789ms 200 text/css
+Request finished in 74.9581ms 200 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Sending file. Request path: '/img/bg.jpg'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\img\bg.jpg'
+Request finished in 78.3537ms 200 image/jpeg
+Request starting HTTP/1.1 GET http://localhost:44309/favicon.ico  
+Request finished in 5.131ms 404 
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 303.748ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9116ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 158.6321ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 340.6811ms
+Request finished in 1406.5686ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 441.2304ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 93.0903ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 1961.73ms
+Request finished in 2004.4445ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 129.9388ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 54.7688ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 514.9409ms
+Request finished in 554.587ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 84.5741ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 15.4621ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 177.93ms
+Request finished in 198.3353ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 131.7641ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9091ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 133.909ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 188.8744ms
+Request finished in 610.325ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 406.923ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 22.8813ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 1590.166ms
+Request finished in 1664.5533ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css.map  
+The file /lib/bootstrap/dist/css/bootstrap.css.map was not modified
+Request finished in 160.3511ms 304 text/plain
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css.map  
+The file /lib/bootstrap/dist/css/bootstrap.css.map was not modified
+Request finished in 198.3691ms 304 text/plain
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 155.7669ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 47.0778ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 419.621ms
+Request finished in 478.0151ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css.map  
+The file /lib/bootstrap/dist/css/bootstrap.css.map was not modified
+Request finished in 347.3459ms 304 text/plain
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 113.7291ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 15.1795ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 261.3213ms
+Request finished in 1289.6017ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 137.137ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 63.8171ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 376.3615ms
+Request finished in 393.5305ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.4754ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 6.4761ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 72.4797ms
+Request finished in 92.0779ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 25.3409ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 6.1981ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 62.0015ms
+Request finished in 80.0616ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 182.0811ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.4193ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 139.7294ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 231.4115ms
+Request finished in 775.9937ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 518.5543ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 51.8224ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 2046.8781ms
+Request finished in 2104.9185ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 67.1775ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 11.1339ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 226.4627ms
+Request finished in 298.5511ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 64.6569ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 14.3389ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 137.206ms
+Request finished in 161.889ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.4591ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 10.6625ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 102.2644ms
+Request finished in 123.0371ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.8953ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 5.4087ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 65.2748ms
+Request finished in 98.6608ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2976ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 16.2817ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 114.6728ms
+Request finished in 172.7533ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Menus  
+Route matched with {action = "Menus", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Menus(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 67.6863ms.
+Executing ViewResult, running view Menus.
+Executed ViewResult - view Menus executed in 80.0578ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) in 248.3278ms
+Request finished in 267.6543ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Account  
+Route matched with {action = "Index", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 31.1068ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 21.6529ms.
+Executed action LunchTool.Web.Controllers.AccountController.Index (LunchTool.Web) in 251.4719ms
+Request finished in 289.738ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0505ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 7.4836ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 184.3849ms
+Request finished in 261.6576ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 42.1196ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 11.0493ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 98.3133ms
+Request finished in 126.3438ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.4828ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 3.7137ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 102.7457ms
+Request finished in 114.9506ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 19.456ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 4.5957ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 61.8531ms
+Request finished in 107.2198ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.0993ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 3.6723ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 78.2342ms
+Request finished in 106.4131ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 18.7856ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 4.4535ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 88.3509ms
+Request finished in 108.0269ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 75.7672ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.0942ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 109.8826ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 174.3772ms
+Request finished in 507.3033ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Connection id "0HLNOJ9BON7LL", Request id "0HLNOJ9BON7LL:00000002": the application aborted the connection.
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+Request finished in 953.8331ms 0 text/css
+Connection id "0HLNOJ9BON7LM", Request id "0HLNOJ9BON7LM:00000002": the application aborted the connection.
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Request finished in 951.4428ms 0 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 614.5761ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 46.1881ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 4274.7951ms
+Request finished in 4293.8493ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 150.8724ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 24.9129ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 333.5237ms
+Request finished in 419.2461ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 69.8427ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 11.6351ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 130.7107ms
+Request finished in 185.247ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 23.9124ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 7.3156ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 80.8784ms
+Request finished in 119.8042ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.6545ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 7.8481ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 66.5875ms
+Request finished in 81.29ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 64.6928ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.9844ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 145.517ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 403.195ms
+Request finished in 753.8288ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 546.9082ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 53.1295ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 2146.1003ms
+Request finished in 2180.4993ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 55.48ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 34.4697ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 247.7305ms
+Request finished in 311.4365ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 52.7225ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 10.9681ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 120.0356ms
+Request finished in 182.8202ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.3611ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 6.3866ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 89.0455ms
+Request finished in 115.8162ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 19.8767ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 4.9118ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 57.4326ms
+Request finished in 76.2705ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Request starting HTTP/1.1 GET http://localhost:44309/favicon.ico  
+Request finished in 174.2294ms 404 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 139.8489ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.8645ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 138.7435ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 285.7356ms
+Request finished in 944.1045ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 416.813ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 50.695ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 1899.3796ms
+Request finished in 1934.0804ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 52.3841ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 12.9586ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 152.7901ms
+Request finished in 210.6981ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Authorization was successful.
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 102.17ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 13.3203ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 182.5135ms
+Request finished in 211.2417ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 33.7393ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 10.4182ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 201.4567ms
+Request finished in 266.2335ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.865ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 11.3026ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 87.7348ms
+Request finished in 127.1757ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.6843ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 4.3215ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 85.4244ms
+Request finished in 115.3907ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 17.1522ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 3.8817ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 53.2257ms
+Request finished in 68.2247ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.4687ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 3.0136ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 54.6865ms
+Request finished in 66.9928ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 18.6396ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 10.2014ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 82.4236ms
+Request finished in 111.1587ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 2761.5899ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) in 2888.1334ms
+Request finished in 3038.0364ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 65.2128ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 26.6243ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 259.8595ms
+Request finished in 291.9878ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.8568ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 7.2069ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 107.3648ms
+Request finished in 146.9666ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.1552ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 4.5156ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 74.8469ms
+Request finished in 129.2362ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0449ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 35.1998ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 222.3987ms
+Request finished in 258.0798ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 13.9699ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 145.4344ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 322.8291ms
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 101.6068ms 200 
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.8516ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 113.5817ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 189.984ms
+Request finished in 607.2266ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 442.7602ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 116.1953ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 2495.7114ms
+Request finished in 2539.611ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 47.5419ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 14.179ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 163.9586ms
+Request finished in 308.8226ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 53.4808ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 31.6055ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 211.7299ms
+Request finished in 249.65ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 23.5497ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 8.2889ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 81.8901ms
+Request finished in 98.5437ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.0784ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 5.4864ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 57.4922ms
+Request finished in 70.6989ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 149.1704ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) in 233.5045ms
+Request finished in 413.5278ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 42.1492ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 6.182ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 125.9532ms
+Request finished in 216.0929ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 19.0351ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 7.2867ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 63.922ms
+Request finished in 117.6645ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.8927ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 8.069ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 87.8205ms
+Request finished in 104.8728ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.047ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 7.2271ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 64.8688ms
+Request finished in 155.1086ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 57.3949ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 3.6405ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 109.5508ms
+Request finished in 231.8565ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.9097ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 3.6496ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 73.446ms
+Request finished in 144.6733ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 33.8588ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 5.6206ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 96.5817ms
+Request finished in 117.6328ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.3415ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 21.5344ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 176.1858ms
+Request finished in 219.7356ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 18.1806ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 3.5872ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 49.8475ms
+Request finished in 68.3042ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css.map  
+The file /lib/bootstrap/dist/css/bootstrap.css.map was not modified
+Request finished in 102.4021ms 304 text/plain
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 142.1011ms 200 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.0273ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 125.3855ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 190.4108ms
+Request finished in 654.2184ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 393.6595ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 100.889ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 2372.4738ms
+Request finished in 2431.337ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 62.1733ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 23.5775ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 309.2401ms
+Request finished in 384.4404ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 64.8584ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 39.477ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 176.796ms
+Request finished in 196.5615ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.8284ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 8.7099ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 86.7047ms
+Request finished in 114.0361ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 19.7279ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 8.8786ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 71.6764ms
+Request finished in 86.5709ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 133.7539ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) in 205.1502ms
+Request finished in 348.3795ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 80.2665ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 9.7153ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 322.6507ms
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Request finished in 404.9329ms 200 text/html; charset=utf-8
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.1117ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 4.3556ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 65.6919ms
+Request finished in 128.5316ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 27.0066ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 3.6684ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 170.0982ms
+Request finished in 195.0223ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.HomeController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0428ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 3.1708ms.
+Executed action LunchTool.Web.Controllers.HomeController.Index (LunchTool.Web) in 29.738ms
+Request finished in 46.5432ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Order  
+Route matched with {action = "Index", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 58.1285ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 8.7385ms.
+Executed action LunchTool.Web.Controllers.OrderController.Index (LunchTool.Web) in 150.3762ms
+Request finished in 194.088ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 25.8441ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 11.3455ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 145.6888ms
+Request finished in 188.7667ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 3
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 28.3744ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 12.9959ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 131.0205ms
+Request finished in 164.9277ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "GetMenusById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.2406ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 5.0808ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetMenusById (LunchTool.Web) in 90.3721ms
+Request finished in 123.5807ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/GetDishesById/ application/x-www-form-urlencoded; charset=UTF-8 5
+Route matched with {action = "GetDishesById", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesById(Int32) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.9263ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetDishesById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetDishesById.cshtml executed in 7.4432ms.
+Executed action LunchTool.Web.Controllers.OrderController.GetDishesById (LunchTool.Web) in 75.1811ms
+Request finished in 107.6561ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Order/MakeOrder application/x-www-form-urlencoded 378
+Route matched with {action = "MakeOrder", controller = "Order"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult MakeOrder(System.Collections.Generic.IEnumerable`1[LunchTool.Web.Models.DishForOrderModel]) on controller LunchTool.Web.Controllers.OrderController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.OrderController.MakeOrder (LunchTool.Web) - Validation state: Valid

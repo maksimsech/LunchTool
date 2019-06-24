@@ -7,12 +7,12 @@
 
     <div class="form-group">
         <label for="LastName">Фамилия</label>
-        <input type="text" name="LastName" value="" class="form-control" />
+        <input type="text" name="LastName" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="FirstName">Имя</label>
-        <input type="text" name="FirstName" value="" class="form-control" />
+        <input type="text" name="FirstName" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
@@ -22,22 +22,22 @@
 
     <div class="form-group">
         <label for="Username">Логин</label>
-        <input type="text" name="Username" value="" class="form-control" />
+        <input type="text" name="Username" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="Email">Email</label>
-        <input type="email" name="Email" value="" class="form-control" />
+        <input type="email" name="Email" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="Password">Пароль</label>
-        <input type="password" name="Password" value="" class="form-control" />
+        <input type="password" name="Password" id="Password" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="ConfirmPassword">Повторите пароль</label>
-        <input type="password" name="ConfirmPassword" value="" class="form-control" />
+        <input type="password" name="ConfirmPassword" id="ConfirmPassword" value="" required class="form-control" />
     </div>
 
     <div class="form-group">
@@ -46,7 +46,21 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+        <input type="submit" name="" id="btnSubmit" value="Потвердить" class="btn btn-primary" />
     </div>
 
 </form>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var password = $("#Password").val();
+            var confirmPassword = $("#ConfirmPassword").val();
+            if (password != confirmPassword) {
+                alert("Пароли не совпадают.");
+                return false;
+            }
+            return true;
+        });
+    });
+</script>

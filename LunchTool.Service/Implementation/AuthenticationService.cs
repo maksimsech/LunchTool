@@ -31,7 +31,7 @@ namespace LunchTool.Service.Implementation
         {
             
             var user = MapToUser(userDTO);
-            var find = db.Users.Find(u => u.Username == user.Username && u.Email == user.Email);
+            var find = db.Users.Find(u => u.Email == user.Email);
             return find == null;
         }
 
@@ -72,6 +72,27 @@ namespace LunchTool.Service.Implementation
             }
             var authUser = mapper.Map<User, AuthUserDTO>(find);
             return authUser;
+        }
+
+        public void ChangeInfo(UserDTO userDTO)
+        {
+            var user = mapper.Map<UserDTO, User>(userDTO);
+            db.Users.Update(user);
+            db.Save();
+        }
+
+        public void ChangePassword(int id, string newPassword)
+        {
+            var user = db.Users.Get(id);
+            user.Password = newPassword;
+            db.Users.Update(user);
+            db.Save();
+        }
+
+        public bool CheckPassword(int id, string password)
+        {
+            var user = db.Users.Get(id);
+            return password == user.Password;
         }
 
         private User MapToUser(UserDTO userDTO) => mapper.Map<UserDTO, User>(userDTO);

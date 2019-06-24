@@ -36,15 +36,71 @@ namespace LunchTool.Web.Controllers
                 cfg.CreateMap<LoginViewModel, UserDTO>();
                 cfg.CreateMap<RegisterViewModel, UserDTO>();
                 cfg.CreateMap<UserDTO, UserViewModel>();
+                cfg.CreateMap<UserViewModel, UserDTO>();
             }).CreateMapper();
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             var userId = int.Parse(User.Identity.Name);
             var userDTO = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
-            var userViewModel = mapper.Map<UserDTO, UserViewModel> (userDTO);
+            var userViewModel = mapper.Map<UserDTO, UserViewModel>(userDTO);
             return View(userViewModel);
+        }
+
+        [Authorize]
+        public IActionResult ChangeInfo()
+        {
+            var userId = int.Parse(User.Identity.Name);
+            var userDTO = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
+            var userViewModel = mapper.Map<UserDTO, UserViewModel>(userDTO);
+            return View(userViewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult ChangeInfo(UserViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                var find = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
+                if (find == null)
+                {
+                    return Content("Пользователь не найден");
+                }
+                userViewModel.Id = userId;
+                userViewModel.Password = find.Password;
+                userViewModel.IsAdmin = find.IsAdmin;
+                var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
+                authentificationService.ChangeInfo(userDTO);
+                return RedirectToAction("Index", "Account");
+            }
+            return Content("Проверьте данные");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                if (authentificationService.CheckPassword(userId, changePasswordViewModel.OldPassword))
+                {
+                    authentificationService.ChangePassword(userId, changePasswordViewModel.NewPassword);
+                    return RedirectToAction("Index", "Account");
+                }
+            }
+            return Content("Проверьте данные");
         }
 
         [HttpGet]

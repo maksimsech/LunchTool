@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using LunchTool.Web.Logger;
+using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace LunchTool.Web
 {
@@ -57,7 +60,7 @@ namespace LunchTool.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -68,6 +71,8 @@ namespace LunchTool.Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            loggerFactory.AddFile(Path.Combine(Environment.CurrentDirectory, "log.txt"));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

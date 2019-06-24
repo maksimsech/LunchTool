@@ -5,34 +5,21 @@
 @model LunchTool.Web.ViewModels.UserViewModel
 
 <div class="row">
-    <form asp-action="ChangeUser" asp-controller="Administration" method="post" class="card col-md-8 offset-md-2">
-        <input type="hidden" name="Id" value="@Model.Id" readonly />
-        <div class="form-group">
-            <label for="LastName">Фамилия</label>
-            <input type="text" name="LastName" value="@Model.LastName" class="form-control" />
+    <div class="card col-md-8 offset-md-2">
+        <div class="card-body">
+            <div class="card-text">Фамилия: @Model.LastName</div>
+            <div class="card-text">Имя: @Model.FirstName</div>
+            <div class="card-text">Отчество: @if (@Model.Patronymic != null)
+            {@Model.Patronymic}</div>
+            <div class="card-text">Логин: @Model.Username</div>
+            <div class="card-text">Email: @Model.Email</div>
+            <div class="card-text">Email: @Model.Email</div>
+            <div class="card-text">Номер телефона: @Model.PhoneNumber</div>
         </div>
-        <div class="form-group">
-            <label for="FirstName">Имя</label>
-            <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="Patronymic">Отчество</label>
-            <input type="text" name="Patronymic" value="@if (@Model.Patronymic != null) {@Model.Patronymic}" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="Username">Логин</label>
-            <input type="text" name="Username" value="@Model.Username" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="email" name="Email" value="@Model.Email" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="PhoneNumber">Номер телефона</label>
-            <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
-        </div>
-        <div class="form-group">
-            <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
-        </div>
-    </form>
+    </div>
+</div>
+<div class="row">
+    <a class="btn btn-primary col-2 offset-2" asp-action="ChangeInfo" asp-controller="Account">Изменить информацию</a>
+    <a class="btn btn-primary col-2 offset-1" asp-action="ChangePassword" asp-controller="Account">Изменить пароль</a>
+    <a class="btn btn-primary col-2 offset-1" asp-action="Logout" asp-controller="Account">Выйти</a>
 </div>

@@ -37,6 +37,7 @@ namespace LunchTool.Web.Controllers
                 cfg.CreateMap<ProviderDTO, ProviderViewModel>();
                 cfg.CreateMap<MenuDTO, MenuViewModel>();
                 cfg.CreateMap<DishDTO, DishViewModel>();
+                cfg.CreateMap<UserDTO, UserForOrderViewModel>().ForMember(dest => dest.Name, src => src.MapFrom(user => $"{user.LastName} {user.FirstName} {user.Patronymic ?? ""}"));
             }).CreateMapper();
         }
 
@@ -45,6 +46,12 @@ namespace LunchTool.Web.Controllers
             var userId = int.Parse(User.Identity.Name);
             var providersDTO = dataService.Providers.Get(p => p.Active);
             var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
+            if(User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+            {
+                var usersDTO = dataService.Users.GetAll();
+                var users = mapper.Map<IEnumerable<UserDTO>, IEnumerable<UserForOrderViewModel>>(usersDTO);
+                TempData["UserForAdmin"] = users;
+            }
             return View(providersViewModel);
         }
 
@@ -71,10 +78,23 @@ namespace LunchTool.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                int userId = -1;
+                if(User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+                {
+                    if(Request.Form.TryGetValue("userIdForAdmin", out var userIdForAdmin))
+                    {
+                        userId = int.Parse(userIdForAdmin);
+                    }
+                    else
+                    {
+                        return Content("Пользователь не найден");
+                    }
+                }
+                else userId = int.Parse(User.Identity.Name);
                 var orderDTO = new OrderDTO
                 {
                     CreateDate = DateTime.Now,
-                    UserId = int.Parse(User.Identity.Name)
+                    UserId = userId
                 };
                 var id = orderService.MakeOrder(orderDTO);
 
