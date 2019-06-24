@@ -171,6 +171,20 @@ namespace LunchTool.Web.Controllers
             return Content("Проверьте введенные данные");
         }
 
+        [HttpGet]
+        public IActionResult CopyMenu(int MenuId)
+        {
+            var menuDTO = dataService.Menus.Get(m => m.Id == MenuId).FirstOrDefault();
+            if(menuDTO == null)
+            {
+                return Content("Меню не найдено");
+            }
+            var menuViewModel = mapper.Map<MenuDTO, MenuViewModel>(menuDTO);
+            var dishesDTO = dataService.Dishes.Get(d => d.MenuId == MenuId);
+            var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishesDTO);
+            return View(new Tuple<MenuViewModel, IEnumerable<DishViewModel>>(menuViewModel, dishesViewModel));
+        }
+
         [HttpPost]
         public IActionResult DeleteMenu(int id)
         {
