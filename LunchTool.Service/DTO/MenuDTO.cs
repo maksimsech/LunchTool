@@ -11,6 +11,7 @@ namespace LunchTool.Service.DTO
         public string Info { get; set; }
         public DateTime Date { get; set; }
         public DateTime TimeLimit { get; set; }
+        public bool IsActive { get; set; }
 
         public int ProviderId { get; set; }
     }

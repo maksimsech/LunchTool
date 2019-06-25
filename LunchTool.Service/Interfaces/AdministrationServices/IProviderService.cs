@@ -7,7 +7,7 @@ namespace LunchTool.Service.Interfaces.AdministrationServices
 {
     public interface IProviderService
     {
-        void Add(ProviderDTO providerDTO, bool isActive = true);
+        int Add(ProviderDTO providerDTO, bool isActive = true);
         void Change(ProviderDTO providerDTO);
         void SetActiveStatus(ProviderDTO providerDTO, bool isActive);
         void Activate(ProviderDTO providerDTO);

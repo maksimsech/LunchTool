@@ -6,6 +6,11 @@
 @model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
 <div>
+    <label for="OrderDate">Дата</label>
+    <input type="date" name="OrderDate" value="" />
+</div>
+
+<div>
     <label for="ProviderId">Поставщик</label>
     <select name="ProviderId" id="ProviderId">
         @foreach (var provider in Model)

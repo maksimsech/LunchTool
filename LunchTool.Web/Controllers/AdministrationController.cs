@@ -18,7 +18,7 @@ using System.Text;
 namespace LunchTool.Web.Controllers
 {
     [Authorize(Roles  = "Administrator")]
-    public class AdministrationController : Controller
+    public class AdministrationController : Controller  
     {
         private readonly IConfiguration configuration;
         private LoadDataService dataService;
@@ -150,6 +150,7 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+                menuDTO.IsActive = true;
                 administrationService.Menu.Add(menuDTO);
                 return RedirectToAction("Menus", "Administration");
             }
@@ -204,6 +205,7 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+                menuDTO.IsActive = true;
                 var menuId = administrationService.Menu.Add(menuDTO);
                 var dishesDTO = new List<DishDTO>();
                 foreach(var dish in copyDishViewModels)
@@ -223,6 +225,30 @@ namespace LunchTool.Web.Controllers
                 return RedirectToAction("Menus","Administration");
             }
             return Content("Проверьте введенные данные");
+        }
+
+        [HttpPost]
+        public IActionResult DeactivateMenu(int id)
+        {
+            var menuDTO = dataService.Menus.Get(m => m.Id == id).FirstOrDefault();
+            if (menuDTO == null)
+            {
+                return Content("Меню не найден");
+            }
+            administrationService.Menu.Deactivate(menuDTO);
+            return RedirectToAction("Menu", "Administration");
+        }
+
+        [HttpPost]
+        public IActionResult ActivateMenu(int id)
+        {
+            var menuDTO = dataService.Menus.Get(m => m.Id == id).FirstOrDefault();
+            if (menuDTO == null)
+            {
+                return Content("Меню не найден");
+            }
+            administrationService.Menu.Activate(menuDTO);
+            return RedirectToAction("Menu", "Administration");
         }
 
         [HttpPost]

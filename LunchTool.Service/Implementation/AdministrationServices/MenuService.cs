@@ -49,6 +49,22 @@ namespace LunchTool.Service.Implementation
                 db.Save();
             }
 
+            public void Activate(MenuDTO menuDTO)
+            {
+                menuDTO.IsActive = true;
+                var menu = Map(menuDTO);
+                db.Menus.Update(menu);
+                db.Save();
+            }
+
+            public void Deactivate(MenuDTO menuDTO)
+            {
+                menuDTO.IsActive = false;
+                var menu = Map(menuDTO);
+                db.Menus.Update(menu);
+                db.Save();
+            }
+
             private Menu Map(MenuDTO menuDTO) => mapper.Map<MenuDTO, Menu>(menuDTO);
         }
     }

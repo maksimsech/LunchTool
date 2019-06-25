@@ -10,5 +10,7 @@ namespace LunchTool.Service.Interfaces.AdministrationServices
         int Add(MenuDTO menuDTO);
         void Change(MenuDTO menuDTO);
         void Delete(MenuDTO menuDTO);
+        void Activate(MenuDTO menuDTO);
+        void Deactivate(MenuDTO menuDTO);
     }
 }
