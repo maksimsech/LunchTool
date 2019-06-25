@@ -5,17 +5,23 @@
 @model LunchTool.Web.ViewModels.UserViewModel
 
 <div class="row">
-    <div class="card col-md-8 offset-md-2">
+    <div class="col-md-8 offset-md-2">
+    <div class="card">
+        <div class="card-header text-center">
+            Информация о пользователе
+        </div>
         <div class="card-body">
             <div class="card-text">Фамилия: @Model.LastName</div>
             <div class="card-text">Имя: @Model.FirstName</div>
-            <div class="card-text">Отчество: @if (@Model.Patronymic != null)
-            {@Model.Patronymic}</div>
+            <div class="card-text">
+                Отчество: @if (@Model.Patronymic != null)
+                {@Model.Patronymic}
+            </div>
             <div class="card-text">Логин: @Model.Username</div>
-            <div class="card-text">Email: @Model.Email</div>
             <div class="card-text">Email: @Model.Email</div>
             <div class="card-text">Номер телефона: @Model.PhoneNumber</div>
         </div>
+    </div>
     </div>
 </div>
 <div class="row">

@@ -47,7 +47,7 @@ namespace LunchTool.Web
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("AdministrationOnly", policy => policy.RequireRole("Administrator"));
+                //options.AddPolicy("AdministrationOnly", policy => policy.RequireRole("Administrator"));
             });
 
             services.AddMvc(config =>

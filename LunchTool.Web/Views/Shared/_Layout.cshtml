@@ -23,23 +23,32 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-action="Index" asp-controller="Order">Заказ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Index" asp-controller="Account">Личный кабинет</a>
-                </li>
                 @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
                 {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Администрирование
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Administration">Редактирование данных</a>
+                            <a class="dropdown-item" asp-action="Users" asp-controller="Administration">Работа с пользователями</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Отчет</a>
+                        </div>
+                    </li>
+                }
                 <li class="nav-item dropdown">
+                    ФИО РОЛЬ
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Администрирование
+                        Личный кабинет
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-action="Index" asp-controller="Administration">Редактирование данных</a>
-                        <a class="dropdown-item" asp-action="Users" asp-controller="Administration">Работа с пользователями</a>
+                        <a class="dropdown-item" asp-action="Index" asp-controller="Account">Профиль</a>
+                        <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">Изменить пароль</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Отчет</a>
+                        <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Выйти</a>
                     </div>
-                </li>  
-                }
+                </li>
             </ul>
         </div>
     </nav>

@@ -17,7 +17,7 @@ using System.Text;
 
 namespace LunchTool.Web.Controllers
 {
-    [Authorize(Policy = "AdministrationOnly")]
+    [Authorize(Roles  = "Administrator")]
     public class AdministrationController : Controller
     {
         private readonly IConfiguration configuration;
@@ -112,6 +112,19 @@ namespace LunchTool.Web.Controllers
             return RedirectToAction("Providers", "Administration");
         }
 
+        [HttpPost]
+        public IActionResult ActivateProvider(int id)
+        {
+            var providerDTO = dataService.Providers.Get(p => p.Id == id).FirstOrDefault();
+            if (providerDTO == null)
+            {
+                //Temp solution
+                return Content("Поставщик не найден");
+            }
+            administrationService.Provider.Activate(providerDTO);
+            return RedirectToAction("Providers", "Administration");
+        }
+
         public IActionResult Menus(int? id)
         {
             IEnumerable<MenuDTO> menus;
@@ -186,6 +199,33 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
+        public IActionResult CopyMenu(MenuViewModel menuViewModel, IEnumerable<CopyDishViewModel> copyDishViewModels)
+        {
+            if (ModelState.IsValid)
+            {
+                var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
+                var menuId = administrationService.Menu.Add(menuDTO);
+                var dishesDTO = new List<DishDTO>();
+                foreach(var dish in copyDishViewModels)
+                {
+                    if (dish.IsSelected)
+                    {
+                        var dishDTO = new DishDTO
+                        {
+                            Name = dish.Name,
+                            Price = dish.Price,
+                            Weight = dish.Weight,
+                            MenuId = menuId
+                        };
+                        administrationService.Dish.Add(dishDTO);
+                    }
+                }
+                return RedirectToAction("Menus","Administration");
+            }
+            return Content("Проверьте введенные данные");
+        }
+
+        [HttpPost]
         public IActionResult DeleteMenu(int id)
         {
             var menuDTO = dataService.Menus.Get(m => m.Id == id).FirstOrDefault();
@@ -225,9 +265,9 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetMenusById(int id)
+        public IActionResult GetMenusById(int idMenu)
         {
-            var menusDTO = dataService.Menus.Get(m => m.ProviderId == id);
+            var menusDTO = dataService.Menus.Get(m => m.ProviderId == idMenu);
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menusDTO);
             return PartialView("~/Views/Shared/_GetMenusById.cshtml", menusViewModel);
         }

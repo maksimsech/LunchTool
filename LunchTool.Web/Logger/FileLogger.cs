@@ -10,7 +10,7 @@ namespace LunchTool.Web.Logger
     public class FileLogger : ILogger
     {
         private string filePath;
-        private object _lock = new object();
+        private static object _lock = new object();
 
         public FileLogger(string filePath)
         {

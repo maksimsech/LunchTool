@@ -27,11 +27,12 @@ namespace LunchTool.Service.Implementation
                 }).CreateMapper();
             }
 
-            public void Add(MenuDTO menuDTO)
+            public int Add(MenuDTO menuDTO)
             {
                 var menu = Map(menuDTO);
                 db.Menus.Add(menu);
                 db.Save();
+                return menu.Id;
             }
 
             public void Change(MenuDTO menuDTO)

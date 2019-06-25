@@ -6,50 +6,58 @@
 @model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
 
 <div class="row">
-    <form asp-action="AddDish" asp-controller="Administration" method="post" class="card col-md-8 offset-md-2">
-        <div class="form-group">
-            <label for="Name">Название</label>
-            <input type="text" name="Name" value="" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="Weight">Вес</label>
-            <input type="text" name="Weight" id="Weight" value="" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="Price">Цена</label>
-            <input type="text" name="Price" id="Price" value="" class="form-control" />
-        </div>
-        @if (Model.Item2 != null)
-        {
-            <div class="form-group">
-                <label for="ProviderId">Поставщик</label>
-                <select name="ProviderId" id="ProviderId">
-                    @foreach (var provider in Model.Item2)
-                    {
-                        if (first)
-                        {
-                            <option value="@provider.Id" selected="selected">@provider.Name</option>
-                            first = false;
-                        }
-                        else
-                        {
-                            <option value="@provider.Id">@provider.Name</option>
-                        }
-                    }
-                </select>
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                Добавить блюдо
             </div>
-            <div class="form-group" id="menus">
+            <form asp-action="AddDish" asp-controller="Administration" method="post" class="card-body">
+                <div class="form-group">
+                    <label for="Name">Название</label>
+                    <input type="text" name="Name" value="" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Weight">Вес</label>
+                    <input type="text" name="Weight" id="Weight" value="" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Price">Цена</label>
+                    <input type="text" name="Price" id="Price" value="" class="form-control" />
+                </div>
+                @if (Model.Item2 != null)
+                {
+                    <div class="form-group">
+                        <label for="ProviderId">Поставщик</label>
+                        <select name="ProviderId" id="ProviderId">
+                            @foreach (var provider in Model.Item2)
+                            {
+                                if (first)
+                                {
+                                    <option value="@provider.Id" selected="selected">@provider.Name</option>
+                                    first = false;
+                                }
+                                else
+                                {
+                                    <option value="@provider.Id">@provider.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group" id="menus">
 
-            </div>
-        }
-        else
-        {
-            <input type="hidden" name="MenuId" value="@TempData["MenuId"]"/>
-        }
-        <div class="form-group">
-            <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" name="MenuId" value="@TempData["MenuId"]" />
+                }
+                <div class="form-group">
+                    <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
-    </form>
+        
+    </div>
 </div>
 
 <script>
@@ -85,6 +93,10 @@
 </script>
 }
 
+<div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
+    Блюда
+</div>
+
 <table class="table">
     <tr>
         <td>Id</td>
@@ -102,11 +114,17 @@
         <td>@item.Weight</td>
         <td>@item.Price</td>
         <td>
-            <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id">Изменить</a>
+            <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
         </td>
         <td>
-            <a asp-action="DeleteDish" asp-controller="Administration" asp-route-menuViewModel="@item">Удалить</a>
+            <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
         </td>
     </tr>
     }
 </table>
+
+<script>
+    function deleteDish(id) {
+        $.post("DeleteDish/", { id: id }).always(function (done) { window.location.reload(true); });
+    }
+</script>

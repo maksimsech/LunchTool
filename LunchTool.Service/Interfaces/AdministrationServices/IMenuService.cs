@@ -7,7 +7,7 @@ namespace LunchTool.Service.Interfaces.AdministrationServices
 {
     public interface IMenuService
     {
-        void Add(MenuDTO menuDTO);
+        int Add(MenuDTO menuDTO);
         void Change(MenuDTO menuDTO);
         void Delete(MenuDTO menuDTO);
     }

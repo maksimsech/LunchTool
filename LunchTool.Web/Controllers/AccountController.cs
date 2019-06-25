@@ -43,6 +43,8 @@ namespace LunchTool.Web.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            if (User.Identity.Name == null)
+                return RedirectToAction("Login", "Account");
             var userId = int.Parse(User.Identity.Name);
             var userDTO = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
             var userViewModel = mapper.Map<UserDTO, UserViewModel>(userDTO);
