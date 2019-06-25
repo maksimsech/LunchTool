@@ -37,12 +37,20 @@
                         </div>
                     </li>
                 }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item dropdown">
-                    ФИО РОЛЬ
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link">
+                    @String.Format("{0} {1}, роль: {2}", User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).Select(c => c.Value).FirstOrDefault(),
+                                       User.Claims.Where(c => c.Type == ClaimTypes.GivenName).Select(c => c.Value).FirstOrDefault(),
+                                       User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).FirstOrDefault())
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Личный кабинет
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown" id="accountDrop">
                         <a class="dropdown-item" asp-action="Index" asp-controller="Account">Профиль</a>
                         <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">Изменить пароль</a>
                         <div class="dropdown-divider"></div>

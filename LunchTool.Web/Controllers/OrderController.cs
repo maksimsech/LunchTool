@@ -69,6 +69,8 @@ namespace LunchTool.Web.Controllers
         public IActionResult GetDishesById(int id)
         {
             var dishesDTO = dataService.Dishes.Get(d => d.MenuId == id);
+            if (dishesDTO.Count() == 0)
+                return Content("");
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishesDTO);
             return PartialView("~/Views/Shared/_GetDishesById.cshtml", dishesViewModel);
         }

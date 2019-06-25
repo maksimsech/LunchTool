@@ -6,7 +6,7 @@
 @model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
 <div>
-<label for="ProviderId">Поставщик</label>
+    <label for="ProviderId">Поставщик</label>
     <select name="ProviderId" id="ProviderId">
         @foreach (var provider in Model)
         {
@@ -27,17 +27,12 @@
 
 </div>
 
-<form asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2">
-    <div id="dishes" class="form-group">
-
-    </div>
-    <div class="form-group row" style="margin-left:0; margin-right:0;">
-        <div class="col-3">
-            <p>  Цена(руб.): <span id="Price">0</span> </p>
-        </div>
-        @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
-        {
-        <div class="col-5">
+@if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+{
+<div class="col-md-8 offset-md-2">
+    <div class="row">
+        <div class="col-4">ФИО сотрудника</div>
+        <div class="col-8">
             <select style="width:100%;" runat="server" name="userIdForAdmin">
                 @foreach (var user in (IEnumerable<LunchTool.Web.ViewModels.UserForOrderViewModel>)TempData["UserForAdmin"])
                 {
@@ -53,9 +48,19 @@
                 }
             </select>
         </div>
-        }
-        <div class="col-4" style="float: right;">
-            <input type="submit" name="" value="Потвердить" class="btn btn-primary"  style="float: right;"/>
+    </div>
+</div>
+}
+<form asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2">
+    <div id="dishes" class="form-group">
+        <div class="text-center"> Блюда не найдены</div>
+    </div>
+    <div class="form-group row" style="margin-left:0; margin-right:0;">
+        <div class="col-3">
+            <p>  Цена(руб.): <span id="Price">0</span> </p>
+        </div>
+        <div class="col-4 offset-5" style="float: right;">
+            <input type="submit" name="" value="Потвердить" class="btn btn-primary" style="float: right;" />
         </div>
     </div>
 </form>
@@ -63,12 +68,11 @@
 
 <script>
 
-    function onCountChange()
-    {
+    function onCountChange() {
         var sum = 0;
         let temp = $('tr');
         for (var i = 1; i < temp.length; i++) {
-            var price = parseFloat(temp[i].children[3].innerHTML.replace(',','.'));
+            var price = parseFloat(temp[i].children[3].innerHTML.replace(',', '.'));
             var count = parseFloat(temp[i].children[4].firstElementChild.value);
             sum += price * count;
         }
@@ -76,9 +80,11 @@
         $("#Price").html(result.toString().replace('.', ','));
     }
 
-    function addMenuListener()
-    {
-        $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) { $("#dishes").html(result); });
+    function addMenuListener() {
+        var notFound = '<div class="text-center"> Блюда не найдены</div>'
+        $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) {
+            if (result === "") result = notFound; $("#dishes").html(result);
+        });
         $("#MenuId").change(function () {
             var id = $(this).val();
             $.ajax({
@@ -86,6 +92,7 @@
                 url: "Order/GetDishesById/",
                 data: { "id": id },
                 success: function (result) {
+                    if (result === "") result = notFound;
                     $("#dishes").html(result);
                 }
             });

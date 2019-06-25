@@ -170,7 +170,7 @@ namespace LunchTool.Web.Controllers
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, authUserDTO.Id.ToString()),                               
                 new Claim(ClaimTypes.GivenName, authUserDTO.FirstName),
-                new Claim(ClaimTypes.Name, authUserDTO.LastName),
+                new Claim(ClaimTypes.NameIdentifier, authUserDTO.LastName),
                 new Claim(ClaimTypes.Email, authUserDTO.Email)
             };
 
