@@ -15,6 +15,8 @@ namespace LunchTool.Logic.Entities
         public DateTime Date { get; set; }
         [Required]
         public DateTime TimeLimit { get; set; }
+        [Required]
+        public bool IsActive { get; set; }
 
         public int ProviderId { get; set; }
         public Provider Provider { get; set; }
