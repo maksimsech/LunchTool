@@ -76,20 +76,58 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(IEnumerable<DishForOrderModel> dishesForOrderModel)
+        public IActionResult GetProvidersByDate(DateTime date)
         {
+            var time = DateTime.Now.TimeOfDay;
+            IEnumerable<int> findedIds;
+            if (date.Date == DateTime.Today)
+            {
+                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date && m.TimeLimit.TimeOfDay > time)
+                                                .GroupBy(m => m.ProviderId)
+                                                .Select(m => m.First())
+                                                .Select(m => m.ProviderId);
+            }
+            else
+            {
+                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date)
+                                                .GroupBy(m => m.ProviderId)
+                                                .Select(m => m.First())
+                                                .Select(m => m.ProviderId);
+            }
+            var providersDTO = dataService.Providers.Get(p => findedIds.Contains(p.Id));
+            var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
+            return PartialView("~/Views/Shared/_GetProvidersByDate.cshtml", providersViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult GetDishesByProviderId(int id, DateTime date)
+        {
+            var menuDTO = dataService.Menus.Get(m => m.ProviderId == id && m.Date.Date == date && m.IsActive).FirstOrDefault();
+            if ( menuDTO == null)
+            {
+                return Content("Меню не найдено");
+            }
+            var dishesDTO = dataService.Dishes.Get(d => d.MenuId == menuDTO.Id);
+            var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishesDTO);
+            return PartialView("~/Views/Shared/_GetDishesById.cshtml", dishesViewModel);
+        }
+
+        [HttpPost]
+        public string MakeOrder(IEnumerable<DishForOrderModel> dishesForOrderModel)
+        {
+            var f = Request.Form;
             if (ModelState.IsValid)
             {
                 int userId = -1;
                 if(User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
                 {
-                    if(Request.Form.TryGetValue("userIdForAdmin", out var userIdForAdmin))
+                    if(Request.Form.TryGetValue("userIdForAdmin", out var userIdForAdmin1))
                     {
-                        userId = int.Parse(userIdForAdmin);
+                        userId = int.Parse(userIdForAdmin1);
                     }
                     else
                     {
-                        return Content("Пользователь не найден");
+                        return "Пользователь не найден";
                     }
                 }
                 else userId = int.Parse(User.Identity.Name);
@@ -113,9 +151,9 @@ namespace LunchTool.Web.Controllers
                         orderService.AddOrderDish(orderDishDTO);
                     }
                 }
-                return Content("Заказ выполнен");
+                return "Заказ выполнен.";
             }
-            return Content("Ошибка при проверке данных");
+            return "Ошибка при проверке данных";
         }
     }
 }

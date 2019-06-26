@@ -1,0 +1,20 @@
+﻿@{ 
+    var first = true;
+}
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
+
+<label for="ProviderId">Поставщик</label>
+<select name="ProviderId" id="ProviderId">
+    @foreach (var provider in Model)
+    {
+        if (first)
+        {
+            <option value="@provider.Id" selected="selected">@provider.Name</option>
+            first = false;
+        }
+        else
+        {
+            <option value="@provider.Id">@provider.Name</option>
+        }
+    }
+</select>

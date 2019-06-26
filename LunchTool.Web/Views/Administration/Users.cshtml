@@ -40,11 +40,11 @@
                     <input type="text" name="PhoneNumber" value="" class="form-control" />
                 </div>
                 <div class="form-check">
-                    <input checked="checked" class="form-check-input" data-val="true" data-val-required="The Active field is required." id="IsAdmin" name="IsAdmin" type="checkbox" value="true" required>
+                    <input checked="checked" class="form-check-input" id="IsAdmin" name="IsAdmin" type="checkbox" value="true">
                     <label for="IsAdmin">Администратор</label>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="" value="Потвердить" class="btn btn-primary" />
+                    <input type="submit" name="" value="Добавить" class="btn btn-primary" />
                 </div>
             </form>
         </div>
@@ -57,7 +57,7 @@
 </div>
 
 <table class="table">
-    <tr><td>Id</td><td>Фамилия</td><td>Имя</td><td>Отчество</td><td>Логин</td><td>Email</td><td>Номер телефона</td><td></td></tr>
+    <tr><td>Id</td><td>Фамилия</td><td>Имя</td><td>Отчество</td><td>Логин</td><td>Email</td><td>Номер телефона</td><td>Админ</td><td></td></tr>
     @foreach (var item in Model)
     {
         <tr onclick="window.location=''">
@@ -76,6 +76,16 @@
             @if (item.PhoneNumber != null)
             {
                 @item.PhoneNumber
+            }
+            </td>
+            <td>
+            @if (item.IsAdmin)
+            {
+                <div>Да</div>
+            }
+            else
+            {
+                <div>Нет</div>
             }
             </td>
             <td>

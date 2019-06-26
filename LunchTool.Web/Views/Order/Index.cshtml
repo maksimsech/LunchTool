@@ -1,62 +1,47 @@
 ﻿@{
     ViewData["Title"] = "Заказ";
-    bool first = true;
 }
-
-@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
 <div>
     <label for="OrderDate">Дата</label>
-    <input type="date" name="OrderDate" value="" />
+    <input type="date" name="OrderDate" id="OrderDate" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
 </div>
 
-<div>
-    <label for="ProviderId">Поставщик</label>
-    <select name="ProviderId" id="ProviderId">
-        @foreach (var provider in Model)
-        {
-            if (first)
-            {
-                <option value="@provider.Id" selected="selected">@provider.Name</option>
-                first = false;
-            }
-            else
-            {
-                <option value="@provider.Id">@provider.Name</option>
-            }
-        }
-    </select>
+<div id="providers">
+
 </div>
 
 <div id="menus">
 
 </div>
 
+@* asp-action="MakeOrder" asp-controller="Order" method="post" *@
 @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
 {
-<div class="col-md-8 offset-md-2">
-    <div class="row">
-        <div class="col-4">ФИО сотрудника</div>
-        <div class="col-8">
-            <select style="width:100%;" runat="server" name="userIdForAdmin">
-                @foreach (var user in (IEnumerable<LunchTool.Web.ViewModels.UserForOrderViewModel>)TempData["UserForAdmin"])
-                {
-                    var userId = int.Parse(User.Identity.Name);
-                    if (user.Id == userId)
+    <div class="col-md-8 offset-md-2">
+        <div class="row">
+            <div class="col-4">ФИО сотрудника</div>
+            <div class="col-8">
+                <select style="width:100%;" runat="server" name="userIdForAdmin">
+                    @foreach (var user in (IEnumerable<LunchTool.Web.ViewModels.UserForOrderViewModel>)TempData["UserForAdmin"])
                     {
-                        <option value="@user.Id" selected="selected">@user.Name</option>
+                        var userId = int.Parse(User.Identity.Name);
+                        if (user.Id == userId)
+                        {
+                            <option value="@user.Id" selected="selected">@user.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@user.Id">@user.Name</option>
+                        }
                     }
-                    else
-                    {
-                        <option value="@user.Id">@user.Name</option>
-                    }
-                }
-            </select>
+                </select>
+            </div>
         </div>
     </div>
-</div>
 }
-<form asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2">
+<form id="MakeOrder" class="card col-md-8 offset-md-2">
+
     <div id="dishes" class="form-group">
         <div class="text-center"> Блюда не найдены</div>
     </div>
@@ -85,7 +70,23 @@
         $("#Price").html(result.toString().replace('.', ','));
     }
 
-    function addMenuListener() {
+    $("#MakeOrder").on("submit", function (e) {
+        e.preventDefault();
+        var table = $("#DishesTable").
+        console.log([$("#MakeOrder").serialize()]);
+        console.log(JSON.stringify($("#MakeOrder").serialize()));
+        $.ajax({
+            type: "POST",
+            url: "Order/MakeOrder",
+            data: { date: $("#MakeOrder").serialize() },
+            success: function (result) {
+                alert(result);
+            }
+        });
+    });
+
+
+    /*function addMenuListener() {
         var notFound = '<div class="text-center"> Блюда не найдены</div>'
         $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) {
             if (result === "") result = notFound; $("#dishes").html(result);
@@ -102,11 +103,56 @@
                 }
             });
         });
+    }*/
 
+    function cleanPrice() {
+        $("#Price").html('0');
+    }
+
+    $.post("Order/GetProvidersByDate", { date: $("#OrderDate").val() }).done(function (result) {
+        $("#providers").html(result);
+        cleanPrice();
+        addProviderListener();
+    });
+    $("#OrderDate").change(function () {
+        var date = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: "Order/GetProvidersByDate",
+            data: { "date": date },
+            success: function (result) {
+                cleanPrice();
+                $("#providers").html(result);
+                addProviderListener();
+            }
+        });
+    });
+
+
+    function addProviderListener() {
+        var notFound = '<div class="text-center"> Блюда не найдены</div>';
+        $.post("Order/GetDishesByProviderId", { id: $("#ProviderId").val(), date: $("#OrderDate").val() }).done(function (result) {
+            if (result === "") result = notFound;
+            cleanPrice();
+            $("#dishes").html(result);
+        });
+        $("#ProviderId").change(function () {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "Order/GetDishesByProviderId",
+                data: { "id": id, date: $("#OrderDate").val() },
+                success: function (result) {
+                    if (result === "") result = notFound;
+                    cleanPrice();
+                    $("#dishes").html(result);
+                }
+            });
+        });
     }
 
 
-    $.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
+    /*$.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
         $("#menus").html(result);
         addMenuListener();
     });
@@ -122,6 +168,6 @@
                 addMenuListener();
             }
         });
-    });
+    });*/
 </script>
 
