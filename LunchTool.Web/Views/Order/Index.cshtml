@@ -15,33 +15,31 @@
 
 </div>
 
-@* asp-action="MakeOrder" asp-controller="Order" method="post" *@
-@if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
-{
-    <div class="col-md-8 offset-md-2">
-        <div class="row">
-            <div class="col-4">ФИО сотрудника</div>
-            <div class="col-8">
-                <select style="width:100%;" runat="server" name="userIdForAdmin">
-                    @foreach (var user in (IEnumerable<LunchTool.Web.ViewModels.UserForOrderViewModel>)TempData["UserForAdmin"])
-                    {
-                        var userId = int.Parse(User.Identity.Name);
-                        if (user.Id == userId)
+<form id="MakeOrder" asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#result">
+    @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+    {
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col-4">ФИО сотрудника</div>
+                <div class="col-8">
+                    <select style="width:100%;" runat="server" name="userIdForAdmin">
+                        @foreach (var user in (IEnumerable<LunchTool.Web.ViewModels.UserForOrderViewModel>)TempData["UserForAdmin"])
                         {
-                            <option value="@user.Id" selected="selected">@user.Name</option>
+                            var userId = int.Parse(User.Identity.Name);
+                            if (user.Id == userId)
+                            {
+                                <option value="@user.Id" selected="selected">@user.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@user.Id">@user.Name</option>
+                            }
                         }
-                        else
-                        {
-                            <option value="@user.Id">@user.Name</option>
-                        }
-                    }
-                </select>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-}
-<form id="MakeOrder" class="card col-md-8 offset-md-2">
-
+    }
     <div id="dishes" class="form-group">
         <div class="text-center"> Блюда не найдены</div>
     </div>
@@ -55,6 +53,9 @@
     </div>
 </form>
 
+<div id="result">
+
+</div>
 
 <script>
 
@@ -70,7 +71,7 @@
         $("#Price").html(result.toString().replace('.', ','));
     }
 
-    $("#MakeOrder").on("submit", function (e) {
+    /*$("#MakeOrder").on("submit", function (e) {
         e.preventDefault();
         var table = $("#DishesTable").
         console.log([$("#MakeOrder").serialize()]);
@@ -83,7 +84,7 @@
                 alert(result);
             }
         });
-    });
+    });*/
 
 
     /*function addMenuListener() {

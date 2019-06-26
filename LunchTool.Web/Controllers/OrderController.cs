@@ -82,14 +82,14 @@ namespace LunchTool.Web.Controllers
             IEnumerable<int> findedIds;
             if (date.Date == DateTime.Today)
             {
-                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date && m.TimeLimit.TimeOfDay > time)
+                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date && m.TimeLimit.TimeOfDay > time && m.IsActive)
                                                 .GroupBy(m => m.ProviderId)
                                                 .Select(m => m.First())
                                                 .Select(m => m.ProviderId);
             }
             else
             {
-                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date)
+                findedIds = dataService.Menus.Get(m => m.Date.Date >= date.Date && m.IsActive)
                                                 .GroupBy(m => m.ProviderId)
                                                 .Select(m => m.First())
                                                 .Select(m => m.ProviderId);
@@ -115,9 +115,12 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public string MakeOrder(IEnumerable<DishForOrderModel> dishesForOrderModel)
         {
-            var f = Request.Form;
             if (ModelState.IsValid)
             {
+                if(dishesForOrderModel.Count() == 0)
+                {
+                    return "Нужно быбрать минимум одно блюдо";
+                }
                 int userId = -1;
                 if(User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
                 {
