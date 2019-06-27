@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Отчет";
+}
+
+<div class="row">
+    <div class="col-3">
+        <label for="ReportDate">Дата:</label>
+        <input type="date" name="ReportDate" id="ReportDate" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-3">
+        <label for="DateType">Тип:</label>
+        <select name="DateType" id="DateType">
+            <option value="0">День</option>
+            <option value="1">Неделя</option>
+            <option value="2">Месяц</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="ReportType">По кому:</label>
+        <select name="ReportType" id="ReportType">
+            <option value="0">Поставщик</option>
+            <option value="1">Сотрудник</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-light" id="MakeReport">Составить отчет</a>
+    </div>
+</div>
+
+<div id="ReportResult">
+
+</div>
+
+
+@section Scripts
+{ 
+    <script>
+        $("#MakeReport").click(function () { 
+            var reportDate = $("#ReportDate").val();
+            console.log(reportDate);
+            var dateType = $("#DateType").val();
+            console.log(dateType);
+            var reportType = $("#ReportType").val();
+            console.log(reportType);
+            $.ajax({
+                type: "POST",
+                url: "Report/MakeReport",
+                data: { ReportDate: reportDate, DateType: dateType, ReportType: reportType },
+                success: function (message) {
+                    alert(message);
+                }
+            });
+        });
+    </script>
+}

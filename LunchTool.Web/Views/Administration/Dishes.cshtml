@@ -56,42 +56,9 @@
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
-
-<script>
-    $('#Weight').keypress(function (event) {
-        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
-            event.preventDefault();
-        }
-    });
-    $('#Price').keypress(function (event) {
-        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
-            event.preventDefault();
-        }
-    });
-</script>
-
-@if (Model.Item2 != null)
-{
-<script>
-    $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result)});
-    $("#ProviderId").change(function () {
-        var id = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: "GetMenusById/",
-            data: { "id": id },
-            success: function (result) {
-                $("#menus").html(result);
-            }
-        });
-    });
-
-
-</script>
-}
 
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список блюд
@@ -108,23 +75,59 @@
     </tr>
     @foreach (var item in Model.Item1)
     {
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.Name</td>
-        <td>@item.Weight</td>
-        <td>@item.Price</td>
-        <td>
-            <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
-        </td>
-        <td>
-            <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
-        </td>
-    </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Weight</td>
+            <td>@item.Price</td>
+            <td>
+                <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
+            </td>
+            <td>
+                <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
+            </td>
+        </tr>
     }
 </table>
 
+
+@section Scripts
+{ 
+<script>
+    $('#Weight').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    $('#Price').keypress(function (event) {
+        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+@if (Model.Item2 != null)
+{
+    <script>
+        $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
+        $("#ProviderId").change(function () {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "GetMenusById/",
+                data: { "id": id },
+                success: function (result) {
+                    $("#menus").html(result);
+                }
+            });
+        });
+
+
+    </script>
+}
 <script>
     function deleteDish(id) {
         $.post("DeleteDish/", { id: id }).always(function (done) { window.location.reload(true); });
     }
 </script>
+}

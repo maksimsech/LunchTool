@@ -15,7 +15,7 @@
 
 </div>
 
-<form id="MakeOrder" asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#result">
+<form id="MakeOrder" asp-action="MakeOrder" asp-controller="Order" method="post" class="card col-md-8 offset-md-2" data-ajax="true" data-ajax-method="POST" data-ajax-success="onComplete">
     @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
     {
         <div class="col-md-8 offset-md-2">
@@ -53,122 +53,145 @@
     </div>
 </form>
 
-<div id="result">
-
+<div class="modal" tabindex="-1" role="dialog" id="modal"> 
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Сообщение</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalText"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script>
 
-    function onCountChange() {
-        var sum = 0;
-        let temp = $('tr');
-        for (var i = 1; i < temp.length; i++) {
-            var price = parseFloat(temp[i].children[3].innerHTML.replace(',', '.'));
-            var count = parseFloat(temp[i].children[4].firstElementChild.value);
-            sum += price * count;
-        }
-        var result = Math.round(sum * 100) / 100;
-        $("#Price").html(result.toString().replace('.', ','));
-    }
-
-    /*$("#MakeOrder").on("submit", function (e) {
-        e.preventDefault();
-        var table = $("#DishesTable").
-        console.log([$("#MakeOrder").serialize()]);
-        console.log(JSON.stringify($("#MakeOrder").serialize()));
-        $.ajax({
-            type: "POST",
-            url: "Order/MakeOrder",
-            data: { date: $("#MakeOrder").serialize() },
-            success: function (result) {
-                alert(result);
+@section Scripts
+    {
+    <script>
+        function onCountChange() {
+            var sum = 0;
+            let temp = $('tr');
+            for (var i = 1; i < temp.length; i++) {
+                var price = parseFloat(temp[i].children[3].innerHTML.replace(',', '.'));
+                var count = parseFloat(temp[i].children[4].firstElementChild.value);
+                sum += price * count;
             }
-        });
-    });*/
+            var result = Math.round(sum * 100) / 100;
+            $("#Price").html(result.toString().replace('.', ','));
+        }
 
+        function onComplete(message) {
+            
+            $("#modalText").html(message);
+            $("#modal").modal('show');
+        }
 
-    /*function addMenuListener() {
-        var notFound = '<div class="text-center"> Блюда не найдены</div>'
-        $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) {
-            if (result === "") result = notFound; $("#dishes").html(result);
-        });
-        $("#MenuId").change(function () {
-            var id = $(this).val();
+        /*$("#MakeOrder").on("submit", function (e) {
+            e.preventDefault();
+            var table = $("#DishesTable").
+            console.log([$("#MakeOrder").serialize()]);
+            console.log(JSON.stringify($("#MakeOrder").serialize()));
             $.ajax({
                 type: "POST",
-                url: "Order/GetDishesById/",
-                data: { "id": id },
+                url: "Order/MakeOrder",
+                data: { date: $("#MakeOrder").serialize() },
                 success: function (result) {
-                    if (result === "") result = notFound;
-                    $("#dishes").html(result);
+                    alert(result);
+                }
+            });
+        });*/
+
+
+        /*function addMenuListener() {
+            var notFound = '<div class="text-center"> Блюда не найдены</div>'
+            $.post("Order/GetDishesById/", { id: $("#MenuId").val() }).done(function (result) {
+                if (result === "") result = notFound; $("#dishes").html(result);
+            });
+            $("#MenuId").change(function () {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "Order/GetDishesById/",
+                    data: { "id": id },
+                    success: function (result) {
+                        if (result === "") result = notFound;
+                        $("#dishes").html(result);
+                    }
+                });
+            });
+        }*/
+
+        function cleanPrice() {
+            $("#Price").html('0');
+        }
+
+        $.post("Order/GetProvidersByDate", { date: $("#OrderDate").val() }).done(function (result) {
+            $("#providers").html(result);
+            cleanPrice();
+            addProviderListener();
+        });
+        $("#OrderDate").change(function () {
+            var date = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "Order/GetProvidersByDate",
+                data: { "date": date },
+                success: function (result) {
+                    cleanPrice();
+                    $("#providers").html(result);
+                    addProviderListener();
                 }
             });
         });
-    }*/
 
-    function cleanPrice() {
-        $("#Price").html('0');
-    }
 
-    $.post("Order/GetProvidersByDate", { date: $("#OrderDate").val() }).done(function (result) {
-        $("#providers").html(result);
-        cleanPrice();
-        addProviderListener();
-    });
-    $("#OrderDate").change(function () {
-        var date = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: "Order/GetProvidersByDate",
-            data: { "date": date },
-            success: function (result) {
+        function addProviderListener() {
+            var notFound = '<div class="text-center"> Блюда не найдены</div>';
+            $.post("Order/GetDishesByProviderId", { id: $("#ProviderId").val(), date: $("#OrderDate").val() }).done(function (result) {
+                if (result === "") result = notFound;
                 cleanPrice();
-                $("#providers").html(result);
-                addProviderListener();
-            }
-        });
-    });
+                $("#dishes").html(result);
+            });
+            $("#ProviderId").change(function () {
+                var id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "Order/GetDishesByProviderId",
+                    data: { "id": id, date: $("#OrderDate").val() },
+                    success: function (result) {
+                        if (result === "") result = notFound;
+                        cleanPrice();
+                        $("#dishes").html(result);
+                    }
+                });
+            });
+        }
 
 
-    function addProviderListener() {
-        var notFound = '<div class="text-center"> Блюда не найдены</div>';
-        $.post("Order/GetDishesByProviderId", { id: $("#ProviderId").val(), date: $("#OrderDate").val() }).done(function (result) {
-            if (result === "") result = notFound;
-            cleanPrice();
-            $("#dishes").html(result);
+        /*$.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
+            $("#menus").html(result);
+            addMenuListener();
         });
+
         $("#ProviderId").change(function () {
             var id = $(this).val();
             $.ajax({
                 type: "POST",
-                url: "Order/GetDishesByProviderId",
-                data: { "id": id, date: $("#OrderDate").val() },
+                url: "Order/GetMenusById/",
+                data: { "id": id },
                 success: function (result) {
-                    if (result === "") result = notFound;
-                    cleanPrice();
-                    $("#dishes").html(result);
+                    $("#menus").html(result);
+                    addMenuListener();
                 }
             });
-        });
-    }
-
-
-    /*$.post("Order/GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) {
-        $("#menus").html(result);
-        addMenuListener();
-    });
-
-    $("#ProviderId").change(function () {
-        var id = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: "Order/GetMenusById/",
-            data: { "id": id },
-            success: function (result) {
-                $("#menus").html(result);
-                addMenuListener();
-            }
-        });
-    });*/
-</script>
-
+        });*/
+    </script>
+}

@@ -13,43 +13,51 @@ using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using System.Text;
+using LunchTool.Web.Models;
 
 namespace LunchTool.Web.Controllers
 {
-    [Authorize(Roles  = "Administrator")]
-    public partial class AdministrationController : Controller  
+    [Authorize(Roles = "Administrator")]
+    public class ReportController : Controller
     {
         private readonly IConfiguration configuration;
         private ILoadDataService dataService;
-        private IAdministrationService administrationService;
+        private IReportService reportService;
         private IMapper mapper;
 
-        public AdministrationController(IConfiguration configuration)
+        public ReportController(IConfiguration configuration)
         {
             this.configuration = configuration;
             var connectionString = this.configuration.GetConnectionString("DefaultConnection");
             dataService = new LoadDataService(connectionString);
-            administrationService = new AdministrationService(connectionString);
+            reportService = new ReportService(connectionString);
             mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ProviderViewModel, ProviderDTO>();
-                cfg.CreateMap<ProviderDTO, ProviderViewModel>();
 
-                cfg.CreateMap<MenuViewModel, MenuDTO>();
-                cfg.CreateMap<MenuDTO, MenuViewModel>();
-
-                cfg.CreateMap<DishDTO, DishViewModel>();
-                cfg.CreateMap<DishViewModel, DishDTO>();
-
-                cfg.CreateMap<UserViewModel, UserDTO>();
-                cfg.CreateMap<UserDTO, UserViewModel>();
             }).CreateMapper();
         }
 
         public IActionResult Index()
         {
             return View();
-        }           
+        }
+
+        [HttpPost]
+        public IActionResult MakeReport(DateTime ReportDate, int dateType, int reportType)
+        {
+            if (ModelState.IsValid)
+            {
+                switch ((ReportType)reportType)
+                {
+                    case ReportType.Provider:
+                        reportService.Make(DateTime.Now.Date);
+                        break;
+                    case ReportType.User:
+
+                        break;
+                }
+            }
+            return Content("ops");
+        }
     }
 }

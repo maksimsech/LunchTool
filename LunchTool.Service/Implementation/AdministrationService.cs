@@ -41,7 +41,7 @@ namespace LunchTool.Service.Implementation
                 return dishService;
             } }
 
-        public IUserService Users { get
+        public IUserService User { get
             {
                 if (userService == null)
                     userService = new UserService(connectionString);

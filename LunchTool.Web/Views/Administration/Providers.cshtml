@@ -41,9 +41,11 @@
         </div>
     </div>
 </div>
+
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список поставщиков
 </div>
+
 <table class="table">
     <tr><td>Id</td><td>Название</td><td>Адрес</td><td>Email</td><td>Начало работы</td><td>Окончание работы</td><td>Номер</td><td>Активен</td><td></td><td></td></tr>
     @foreach (var item in Model)
@@ -91,6 +93,8 @@
     }
 </table>
 
+@section Scripts
+{ 
 <script>
     function deactivateProvider(id) {
         $.post("DeactivateProvider/", { id: id }).always(function (done) { window.location.reload(true); }); 
@@ -99,3 +103,4 @@
         $.post("ActivateProvider/", { id: id }).always(function (done) { window.location.reload(true); });
     }
 </script>
+}

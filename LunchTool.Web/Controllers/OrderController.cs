@@ -22,7 +22,7 @@ namespace LunchTool.Web.Controllers
     public class OrderController : Controller
     {
         private readonly IConfiguration configuration;
-        private LoadDataService dataService;
+        private ILoadDataService dataService;
         private IOrderService orderService;
         private IMapper mapper;
 
@@ -117,16 +117,16 @@ namespace LunchTool.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(dishesForOrderModel.Count() == 0)
+                if(dishesForOrderModel.Count() == 0 || dishesForOrderModel.All(d => d.Count == 0))
                 {
                     return "Нужно быбрать минимум одно блюдо";
                 }
                 int userId = -1;
                 if(User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
                 {
-                    if(Request.Form.TryGetValue("userIdForAdmin", out var userIdForAdmin1))
+                    if(Request.Form.TryGetValue("userIdForAdmin", out var userIdForAdmin))
                     {
-                        userId = int.Parse(userIdForAdmin1);
+                        userId = int.Parse(userIdForAdmin);
                     }
                     else
                     {

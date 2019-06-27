@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LunchTool.Web.ViewModels.ProviderReportViewModel>
+
+<div>
+    Отчет по поставщикам
+</div>
+
+<table>
+    <tr>
+        <td>
+            Название
+        </td>
+        <td>
+            Дата заказа
+        </td>
+        <td>
+            Фио сотрудника
+        </td>
+        <td>
+            Блюда
+        </td>
+        <td>
+            Стоймость
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ProviderName
+            </td>
+            <td>
+                @item.Date
+            </td>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                <select>
+                    @foreach(var dish in item.Dishes)
+                    {
+                        <option>
+                            @dish.Name
+                        </option>
+                    }
+                </select>
+            </td>
+            <td>
+                @item.Price
+            </td>
+        </tr>
+    }
+</table>

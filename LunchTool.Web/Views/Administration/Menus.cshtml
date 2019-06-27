@@ -82,22 +82,6 @@
     </div>
     </div>
 </div>
-<script>
-    $.post("/Administration/GetMenusById/", { idMenu: $("#ProviderId").val() }).done(function (result) { console.log(result); $("#menus").html(result) });
-    $("#ProviderId").change(function () {
-        var id = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: "/Administration/GetMenusById/",
-            data: { "idMenu": id },
-            success: function (result) {
-                $("#menus").html(result);
-            }
-        });
-    });
-
-
-</script>
 
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список меню
@@ -112,6 +96,7 @@
         <td>Активен</td>
         <td></td>
         <td></td>
+    </tr>
         @foreach (var item in Model.Item1)
         {
     <tr>
@@ -161,6 +146,25 @@
     }
 </table>
 
+@section Scripts
+{ 
+<script>
+    $.post("/Administration/GetMenusById/", { idMenu: $("#ProviderId").val() }).done(function (result) { console.log(result); $("#menus").html(result) });
+    $("#ProviderId").change(function () {
+        var id = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: "/Administration/GetMenusById/",
+            data: { "idMenu": id },
+            success: function (result) {
+                $("#menus").html(result);
+            }
+        });
+    });
+
+
+</script>
+
 <script>
     function deleteMenu(id)
     {
@@ -174,3 +178,4 @@
         $.post("ActivateMenu/", { id: id }).always(function (done) { window.location.reload(true); });
     }
 </script>
+}

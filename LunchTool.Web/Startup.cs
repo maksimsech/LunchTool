@@ -72,7 +72,7 @@ namespace LunchTool.Web
                 app.UseHsts();
             }
 
-            loggerFactory.AddFile(Path.Combine(Environment.CurrentDirectory, "log.txt"));
+            loggerFactory.AddFile(Path.Combine(Environment.CurrentDirectory, $"log-{DateTime.Now.Date.ToString("yyyy-MM-dd")}.txt"));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

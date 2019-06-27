@@ -6,5 +6,6 @@ namespace LunchTool.Service.Interfaces
 {
     public interface IReportService
     {
+        void Make(DateTime date);
     }
 }

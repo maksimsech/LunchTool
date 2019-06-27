@@ -32,9 +32,9 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
-                if (!administrationService.Users.IsRegistered(userDTO))
+                if (!administrationService.User.IsRegistered(userDTO))
                 {
-                    administrationService.Users.Add(userDTO);
+                    administrationService.User.Add(userDTO);
                     return Content("Зарегестрирован");
                 }
                 return Content("Уже зарегестрирован");
@@ -63,7 +63,7 @@ namespace LunchTool.Web.Controllers
                 var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
                 var find = dataService.Users.Get(u => u.Id == userDTO.Id).FirstOrDefault();
                 userDTO.Password = find.Password;
-                administrationService.Users.Change(userDTO);
+                administrationService.User.Change(userDTO);
                 return RedirectToAction("Users", "Administration");
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
