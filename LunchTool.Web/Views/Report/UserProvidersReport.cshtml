@@ -1,0 +1,28 @@
+﻿@{ 
+    ViewData["Title"] = "Отчет по пользователю за период";
+}
+
+@model IEnumerable<LunchTool.Web.ViewModels.UserViewModel>
+
+<div class="row">
+    <div class="col-3">
+        <label for="UserId">Сотрудник</label>
+        <select name="UserId" id="UserId">
+            @foreach(var user in Model)
+            {
+                <option value="@user.Id">@string.Format("{0} {1} {2}", user.LastName, user.FirstName, user.Patronymic?? "")</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="FromDate">От</label>
+        <input type="date" name="FromDate" id="FromDate" />
+    </div>
+    <div class="col-3">
+        <label for="ToDate">До</label>
+        <input type="date" name="ToDate" id="ToDate" />
+    </div>
+    <div class="col-3">
+
+    </div>
+</div>

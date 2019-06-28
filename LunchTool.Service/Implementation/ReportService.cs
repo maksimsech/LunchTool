@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using LunchTool.Service.Infrastracture;
 
 namespace LunchTool.Service.Implementation
 {
@@ -35,7 +36,10 @@ namespace LunchTool.Service.Implementation
             else
             {
                 /* Find by provider */
-                orders = db.Orders.Find(o => o.CreateDate.Month == date.Month && o.CreateDate.Year == date.Year && o.UserId == userId && GetOrderProviderId(o.Id) == providerId);
+                orders = db.Orders.Find(o => o.CreateDate.Month == date.Month && 
+                                        o.CreateDate.Year == date.Year && 
+                                        o.UserId == userId && 
+                                        GetOrderProviderId(o.Id) == providerId);
             }
 
             var daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
@@ -46,23 +50,11 @@ namespace LunchTool.Service.Implementation
             {
                 var item = new UserMonthReportDTO { Day = i};
 
-                var currentDateOrders = orders.Where(o => o.CreateDate.Day == i);
+                var currentDateOrdersId = orders.Where(o => o.CreateDate.Day == i).Select(o => o.Id);
 
-                var count = currentDateOrders.Count();
+                var count = currentDateOrdersId.Count();
 
-                decimal price = 0;
-                foreach(var order in currentDateOrders)
-                {
-                    var orderDishes = db.OrderDishes.Find(od => od.OrderId == order.Id);
-                    decimal orderPrice = 0;
-                    foreach(var orderDish in orderDishes)
-                    {
-                        var dishPrice = db.Dishes.Find(d => d.Id == orderDish.DishId).Select(d => d.Price).SingleOrDefault();
-                        dishPrice *= orderDish.Count;
-                        orderPrice += dishPrice;
-                    }
-                    price += orderPrice;
-                }
+                decimal price = PriceOfOrders(currentDateOrdersId);
                 item.OrderCount = count;
                 item.Price = price;
                 result.Add(item);
@@ -71,23 +63,23 @@ namespace LunchTool.Service.Implementation
             return result;
         }
 
-        public void UserProvidersReport(int userId, DateTime fromDate, DateTime toDate)
+        public IEnumerable<UserProvidersReportDTO> UserProvidersReport(int userId, DateTime fromDate, DateTime toDate)
         {
-            var orders = db.Orders.Find(o => o.UserId == userId && o.CreateDate.Date >= fromDate.Date && o.CreateDate.Date <= toDate.Date);
+            var ordersId = db.Orders.Find(o => o.UserId == userId && o.CreateDate.Date >= fromDate.Date && o.CreateDate.Date <= toDate.Date).Select(o => o.Id);
 
             //Make more readable (provider id, OrderId)
             var providerOrders = new Dictionary<int, List<int>>();
 
-            foreach (var order in orders)
+            foreach (var orderId in ordersId)
             {
-                var orderProviderId = GetOrderProviderId(order.Id);
+                var orderProviderId = GetOrderProviderId(orderId);
                 if (!providerOrders.Keys.Contains(orderProviderId))
                 {
-                    providerOrders.Add(orderProviderId, new List<int> { order.Id });
+                    providerOrders.Add(orderProviderId, new List<int> { orderId });
                 }
                 else
                 {
-                    providerOrders[orderProviderId].Add(order.Id);
+                    providerOrders[orderProviderId].Add(orderId);
                 }
             }
 
@@ -100,25 +92,110 @@ namespace LunchTool.Service.Implementation
                 var provider = db.Providers.Get(providerOrder.Key);
                 item.ProviderName = provider.Name;
 
-                decimal price = 0;
-                foreach(var orderId in providerOrder.Value)
-                {
-                    var orderDishes = db.OrderDishes.Find(od => od.OrderId == orderId);
-                    decimal orderPrice = 0;
-                    foreach (var orderDish in orderDishes)
-                    {
-                        var dishPrice = db.Dishes.Find(d => d.Id == orderDish.DishId).Select(d => d.Price).SingleOrDefault();
-                        dishPrice *= orderDish.Count;
-                        orderPrice += dishPrice;
-                    }
-                    price += orderPrice;
-                }
+                decimal price = PriceOfOrders(providerOrder.Value);
 
                 item.OrderCount = providerOrder.Value.Count;
                 item.Price = price;
+                result.Add(item);
             }
+
+            return result;
         }
 
+        public IEnumerable<AllUsersReportDTO> AllUsersReport(int providerId, DateTime fromDate, DateTime toDate)
+        {
+            var orders = db.Orders.Find(o => o.CreateDate.Date >= fromDate && o.CreateDate.Date <= toDate && GetOrderProviderId(o.Id) == providerId);
+
+            var userOrders = new Dictionary<int, List<int>>();
+            foreach(var order in orders)
+            {
+                var userId = order.UserId;
+                if (!userOrders.Keys.Contains(userId))
+                {
+                    userOrders.Add(userId, new List<int> { order.Id });
+                }
+                else
+                {
+                    userOrders[userId].Add(order.Id);
+                }
+            }
+
+            var result = new List<AllUsersReportDTO>();
+
+            foreach(var userOrder in userOrders)
+            {
+                var item = new AllUsersReportDTO();
+
+                var user = db.Users.Get(userOrder.Key);
+                var userName = $"{user.LastName} {user.FirstName} {user.Patronymic?? ""}";
+                item.UserName = userName;
+
+                decimal price = PriceOfOrders(userOrder.Value);
+                var count = userOrder.Value.Count;
+                item.Price = price;
+                item.OrderCount = count;
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+        public IEnumerable<UserPageReportDTO> GetUserOrders(int userId, DateTime fromDate, DateTime toDate)
+        {
+            var orders = db.Orders.Find(o => o.UserId == userId && o.CreateDate.Date >= fromDate.Date && o.CreateDate.Date <= toDate.Date);
+
+            var result = new List<UserPageReportDTO>();
+            foreach(var order in orders)
+            {
+                var item = new UserPageReportDTO();
+                item.OrderDate = order.CreateDate;
+                var providerId = GetOrderProviderId(order.Id);
+                var provider = db.Providers.Get(providerId);
+                item.ProviderName = provider.Name;
+
+                var dishNamesSB = new StringBuilder();
+                decimal price = 0;
+                var orderDishes = order.OrderDishes;
+                foreach(var orderDish in orderDishes)
+                {
+                    var dish = orderDish.Dish;
+                    var dishPrice = dish.Price;
+                    var dishName = dish.Name;
+                    dishNamesSB.Append(dishName + ", ");
+                    price += dishPrice * orderDish.Count;
+                }
+                var dishNames = dishNamesSB.ToString();
+                dishNames = dishNames.Substring(0, dishNames.Length - 2);
+                dishNames += '.';
+                item.Price = price;
+                item.Dishes = dishNames;
+                result.Add(item);
+            }
+
+            result.Sort((i, j) => DateTime.Compare(i.OrderDate, j.OrderDate));
+            return result;
+        }
+
+        private decimal PriceOfOrders(IEnumerable<int> ordersId)
+        {
+            decimal price = 0;
+            foreach(var orderId in ordersId)
+            {
+                var orderDishes = db.OrderDishes.Find(od => od.OrderId == orderId);
+                decimal orderPrice = 0;
+                foreach(var orderDish in orderDishes)
+                {
+                    decimal? dishPrice = db.Dishes.Find(d => d.Id == orderDish.DishId).Select(d => d.Price).SingleOrDefault();
+                    if (!dishPrice.HasValue)
+                    {
+                        throw new ValidationException("dish", "Нет заказанного блюда");
+                    }
+                    orderPrice += dishPrice.Value * orderDish.Count;
+                }
+                price += orderPrice;
+            }
+            return price;
+        }
 
         private int GetOrderProviderId(int orderId)
         {

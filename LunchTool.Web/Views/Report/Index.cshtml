@@ -44,7 +44,7 @@
             console.log(reportType);
             $.ajax({
                 type: "POST",
-                url: "Report/MakeReport",
+                url: "Report/UserMonthReport",
                 data: { ReportDate: reportDate, DateType: dateType, ReportType: reportType },
                 success: function (message) {
                     alert(message);

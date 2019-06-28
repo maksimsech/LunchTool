@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Отчет за месяц";
+}
+
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
+
+<div class="row">
+    <div class="col-3">
+        <select id="ProviderId">
+            <option value="-1">Все</option>
+            @foreach(var provider in Model)
+            {
+                <option value="@provider.Id">@provider.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <select id="Month">
+            @for(int i = 1; i <= 12; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <select id="Year">
+            @for(int i = DateTime.Today.Year - 2; i <= DateTime.Today.Year + 4; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-primary" html="javascript:void(0);" onclick="makeReport()">Составить</a>
+    </div>
+</div>
+
+<div id="result">
+
+</div>
+
+@section Scripts
+{ 
+<script>
+    function makeReport() {
+        var providerId = $("#ProviderId").val();
+        var month = $("#Month").val();
+        var year = $("#Year").val();
+
+        $.ajax({
+            url: "/Report/UserMonthReport",
+            method: "POST",
+            data: { "ProviderId": providerId, "Month": month, "Year": year },
+            success: function (result) {
+                $("#result").html(result);
+            }
+        });
+    }
+</script>
+}

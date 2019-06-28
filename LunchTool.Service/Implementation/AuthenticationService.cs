@@ -47,7 +47,7 @@ namespace LunchTool.Service.Implementation
         public bool CheckLogin(UserDTO userDTO)
         {
             var user = MapToUser(userDTO);
-            var find = db.Users.Find(u => u.Email == user.Email && u.Password == user.Password);
+            var find = db.Users.Find(u => u.Email == user.Email && u.Password == user.Password).FirstOrDefault();
             return find != null;
         }
 
