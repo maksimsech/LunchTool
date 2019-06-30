@@ -149,7 +149,7 @@
 @section Scripts
 { 
 <script>
-    $.post("/Administration/GetMenusById/", { idMenu: $("#ProviderId").val() }).done(function (result) { console.log(result); $("#menus").html(result) });
+    $.post("/Administration/GetMenusById/", { idMenu: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
     $("#ProviderId").change(function () {
         var id = $(this).val();
         $.ajax({

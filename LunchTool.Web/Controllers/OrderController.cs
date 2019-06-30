@@ -80,6 +80,8 @@ namespace LunchTool.Web.Controllers
         {
             var time = DateTime.Now.TimeOfDay;
             IEnumerable<int> findedIds;
+            if (date.Date < DateTime.Today)
+                return Content("Неверная дата");
             if (date.Date == DateTime.Today)
             {
                 findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date && m.TimeLimit.TimeOfDay > time && m.IsActive)
@@ -89,7 +91,7 @@ namespace LunchTool.Web.Controllers
             }
             else
             {
-                findedIds = dataService.Menus.Get(m => m.Date.Date >= date.Date && m.IsActive)
+                findedIds = dataService.Menus.Get(m => m.Date.Date == date.Date && m.IsActive)
                                                 .GroupBy(m => m.ProviderId)
                                                 .Select(m => m.First())
                                                 .Select(m => m.ProviderId);

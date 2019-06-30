@@ -67,6 +67,10 @@ namespace LunchTool.Service.Implementation
         {
             var ordersId = db.Orders.Find(o => o.UserId == userId && o.CreateDate.Date >= fromDate.Date && o.CreateDate.Date <= toDate.Date).Select(o => o.Id);
 
+            var user = db.Users.Get(userId);
+
+            var userName = $"{user.LastName} {user.FirstName} {user.Patronymic?? ""}";
+
             //Make more readable (provider id, OrderId)
             var providerOrders = new Dictionary<int, List<int>>();
 
@@ -96,6 +100,7 @@ namespace LunchTool.Service.Implementation
 
                 item.OrderCount = providerOrder.Value.Count;
                 item.Price = price;
+                item.UserName = userName;
                 result.Add(item);
             }
 
@@ -104,8 +109,15 @@ namespace LunchTool.Service.Implementation
 
         public IEnumerable<AllUsersReportDTO> AllUsersReport(int providerId, DateTime fromDate, DateTime toDate)
         {
-            var orders = db.Orders.Find(o => o.CreateDate.Date >= fromDate && o.CreateDate.Date <= toDate && GetOrderProviderId(o.Id) == providerId);
-
+            IEnumerable<Order> orders;
+            if (providerId == -1)
+            {
+                orders = db.Orders.Find(o => o.CreateDate.Date >= fromDate && o.CreateDate.Date <= toDate);
+            }
+            else
+            {
+                orders = db.Orders.Find(o => o.CreateDate.Date >= fromDate && o.CreateDate.Date <= toDate && GetOrderProviderId(o.Id) == providerId);
+            }
             var userOrders = new Dictionary<int, List<int>>();
             foreach(var order in orders)
             {

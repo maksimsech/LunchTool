@@ -14,7 +14,7 @@
 </head>
 <body style="padding-top:0px; position: relative; background-image: url(/img/bg.jpg); background-size: cover;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" asp-action="Index" asp-controller="Home">LunchTool</a>
+        <a class="navbar-brand" asp-action="UserReport" asp-controller="Report">LunchTool</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,12 +32,24 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" asp-action="Index" asp-controller="Administration">Редактирование данных</a>
-                            <a class="dropdown-item" asp-action="Users" asp-controller="Administration">Работа с пользователями</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-action="Index" asp-controller="Report">Отчет</a>
+                            <a class="dropdown-item" asp-action="Users" asp-controller="Administration">Работа с пользователями</a>                     
                         </div>
                     </li>
                 }
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Отчет
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="reportDropdown">
+                        <a class="dropdown-item" asp-action="UserMonthReport" asp-controller="Report">Мой отчет за месяц</a>
+                        @if (User.Identities.Any(u => u.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Administrator")))
+                        {
+                            <a class="dropdown-item" asp-action="UserProvidersReport" asp-controller="Report">Отчет по сотруднику за период</a>
+                            <a class="dropdown-item" asp-action="AllUsersReport" asp-controller="Report">Отчет по всем сотрудникам</a>
+                        }
+                            <a class="dropdown-item" asp-action="UserReport" asp-controller="Report">Заказы за текущую неделю</a>
+                        </div>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item dropdown">

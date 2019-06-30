@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Последние заказы";
+}
+
+@model ValueTuple<DateTime, DateTime>
+
+<div class="row">
+    <div class="col-4">
+        <label for="FromDate">От</label>
+        <input type="date" name="FromDate" id="FromDate" value="@Model.Item1.ToString("yyyy-MM-dd")"/>
+    </div>
+    <div class="col-4">
+        <label for="ToDate">До</label>
+        <input type="date" name="ToDate" id="ToDate" value="@Model.Item2.ToString("yyyy-MM-dd")"/>
+    </div>
+    <div class="col-4">
+        <a class="btn btn-primary" html="javascript:void(0);" onclick="makeReport()">Составить</a>
+    </div>
+</div>
+
+<div id="result">
+
+</div>
+
+@section Scripts
+    {
+    <script>
+        
+        function makeReport() {
+            var fromDate = $("#FromDate").val();
+            var toDate = $("#ToDate").val();
+
+            $.ajax({
+                url: "/Report/UserReport",
+                method: "POST",
+                data: { "FromDate": fromDate, "ToDate": toDate },
+                success: function (result) {
+                    $("#result").html(result);
+                }
+            });
+        }
+    </script>
+}

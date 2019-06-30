@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LunchTool.Web.ViewModels.UserPageReportViewModel>
+
+
+<table class="table">
+    <tr>
+        <td>
+            Дата
+        </td>
+        <td>
+            Поставщик
+        </td>
+        <td>
+            Блюда
+        </td>
+        <td>
+            Цена
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.OrderDate
+            </td>
+            <td>
+                @item.ProviderName
+            </td>
+            <td>
+                @item.Dishes
+            </td>
+            <td>
+                @item.Price
+            </td>
+        </tr>
+    }
+</table>

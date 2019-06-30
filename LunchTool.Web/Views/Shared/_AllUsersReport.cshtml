@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LunchTool.Web.ViewModels.AllUsersReportViewModel>
+
+
+<table class="table">
+    <tr>
+        <td>
+            ФИО сотрудника
+        </td>
+        <td>
+            Количество заказов
+        </td>
+        <td>
+            Стоймость заказов
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.OrderCount
+            </td>
+            <td>
+                @item.Price
+            </td>
+        </tr>
+    }
+</table>
+

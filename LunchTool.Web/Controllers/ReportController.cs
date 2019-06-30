@@ -36,6 +36,9 @@ namespace LunchTool.Web.Controllers
                 cfg.CreateMap<ProviderDTO, ProviderViewModel>();
                 cfg.CreateMap<UserMonthReportDTO, UserMonthReportViewModel>();
                 cfg.CreateMap<UserDTO, UserViewModel>();
+                cfg.CreateMap<UserProvidersReportDTO, UserProvidersReportViewModel>();
+                cfg.CreateMap<AllUsersReportDTO, AllUsersReportViewModel>();
+                cfg.CreateMap<UserPageReportDTO, UserPageReportViewModel>();
             }).CreateMapper();
         }
 
@@ -77,11 +80,56 @@ namespace LunchTool.Web.Controllers
             return PartialView("~/Views/Shared/_UserMonthReport.cshtml", reportViewModel);
         }
 
-        public IActionResult UserProvidersReport(int userId, DateTime fromDate, DateTime toDate)
+        [Authorize(Roles = "Administrator")]
+        public IActionResult UserProvidersReport()
         {
             var usersDTO = dataService.Users.GetAll();
             var usersViewModel = mapper.Map<IEnumerable<UserDTO>, IEnumerable<UserViewModel>>(usersDTO);
             return View(usersViewModel);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public IActionResult UserProvidersReport(int UserId, DateTime FromDate, DateTime ToDate)
+        {
+            var reportDTO = reportService.UserProvidersReport(UserId, FromDate, ToDate);
+            var reportViewModel = mapper.Map<IEnumerable<UserProvidersReportDTO>, IEnumerable<UserProvidersReportViewModel>>(reportDTO);
+            return PartialView("~/Views/Shared/_UserProvidersReport.cshtml", reportViewModel);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult AllUsersReport()
+        {
+            var providersDTO = dataService.Providers.GetAll();
+            var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
+            return View(providersViewModel);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public IActionResult AllUsersReport(int ProviderId, DateTime FromDate, DateTime ToDate)
+        {
+            var reportDTO = reportService.AllUsersReport(ProviderId, FromDate, ToDate);
+            var reportViewModel = mapper.Map<IEnumerable<AllUsersReportDTO>, IEnumerable<AllUsersReportViewModel>>(reportDTO);
+            return PartialView("~/Views/Shared/_AllUsersReport.cshtml", reportViewModel);
+        }
+
+        public IActionResult UserReport()
+        {
+            var date = DateTime.Today;
+            int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
+            var startOfWeek = date.AddDays(-1 * diff).Date;
+            var endOfWeek = startOfWeek.AddDays(6).Date;
+            return View((startOfWeek, endOfWeek));
+        }
+
+        [HttpPost]
+        public IActionResult UserReport(DateTime FromDate, DateTime ToDate)
+        {
+            var userId = int.Parse(User.Identity.Name);
+            var reportDTO = reportService.GetUserOrders(userId, FromDate, ToDate);
+            var reportViewModel = mapper.Map<IEnumerable<UserPageReportDTO>, IEnumerable<UserPageReportViewModel>>(reportDTO);  
+            return PartialView("~/Views/Shared/_UserReport.cshtml", reportViewModel);
         }
     }
 }

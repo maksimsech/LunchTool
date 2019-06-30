@@ -66,7 +66,7 @@
                 <p id="modalText"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <a class="btn btn-secondary" asp-action="UserReport" asp-controller="Report">Закрыть</a>
             </div>
         </div>
     </div>
@@ -133,7 +133,7 @@
             $("#Price").html('0');
         }
 
-        $.post("Order/GetProvidersByDate", { date: $("#OrderDate").val() }).done(function (result) {
+        $.post("/Order/GetProvidersByDate", { date: $("#OrderDate").val() }).done(function (result) {
             $("#providers").html(result);
             cleanPrice();
             addProviderListener();
@@ -142,7 +142,7 @@
             var date = $(this).val();
             $.ajax({
                 type: "POST",
-                url: "Order/GetProvidersByDate",
+                url: "/Order/GetProvidersByDate",
                 data: { "date": date },
                 success: function (result) {
                     cleanPrice();
@@ -155,7 +155,7 @@
 
         function addProviderListener() {
             var notFound = '<div class="text-center"> Блюда не найдены</div>';
-            $.post("Order/GetDishesByProviderId", { id: $("#ProviderId").val(), date: $("#OrderDate").val() }).done(function (result) {
+            $.post("/Order/GetDishesByProviderId", { id: $("#ProviderId").val(), date: $("#OrderDate").val() }).done(function (result) {
                 if (result === "") result = notFound;
                 cleanPrice();
                 $("#dishes").html(result);
@@ -164,7 +164,7 @@
                 var id = $(this).val();
                 $.ajax({
                     type: "POST",
-                    url: "Order/GetDishesByProviderId",
+                    url: "/Order/GetDishesByProviderId",
                     data: { "id": id, date: $("#OrderDate").val() },
                     success: function (result) {
                         if (result === "") result = notFound;

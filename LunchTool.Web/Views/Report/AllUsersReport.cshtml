@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Отчет по пользователям";
+}
+
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
+
+<div class="row">
+    <div class="col-3">
+        <label for="ProviderId">Поставщик</label>
+        <select name="ProviderId" id="ProviderId">
+            <option value="-1">Все</option>
+            @foreach (var provider in Model)
+            {
+                <option value="@provider.Id">@provider.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="FromDate">От</label>
+        <input type="date" name="FromDate" id="FromDate" />
+    </div>
+    <div class="col-3">
+        <label for="ToDate">До</label>
+        <input type="date" name="ToDate" id="ToDate" />
+    </div>
+    <div class="col-3">
+        <div class="col-3">
+            <a class="btn btn-primary" html="javascript:void(0);" onclick="makeReport()">Составить</a>
+        </div>
+    </div>
+</div>
+
+<div id="result">
+
+</div>
+
+@section Scripts
+{
+    <script>
+        function makeReport() {
+            var providerId = $("#ProviderId").val();
+            var fromDate = $("#FromDate").val();
+            var toDate = $("#ToDate").val();
+
+            $.ajax({
+                url: "/Report/AllUsersReport",
+                method: "POST",
+                data: { "ProviderId": providerId, "FromDate": fromDate, "ToDate": toDate },
+                success: function (result) {
+                    $("#result").html(result);
+                }
+            });
+        }
+    </script>
+}
