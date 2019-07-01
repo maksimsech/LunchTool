@@ -12,7 +12,7 @@ using LunchTool.Service.Infrastracture;
 
 namespace LunchTool.Service.Implementation
 {
-    public class ReportService 
+    public class ReportService : IReportService
     {
         private IUnitOfWork db;
         private IMapper mapper;

@@ -21,7 +21,7 @@ namespace LunchTool.Web.Controllers
     {
         private readonly IConfiguration configuration;
         private ILoadDataService dataService;
-        private ReportService reportService;
+        private IReportService reportService;
         private IMapper mapper;
 
         public ReportController(IConfiguration configuration)
