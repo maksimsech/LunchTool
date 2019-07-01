@@ -60,17 +60,16 @@ namespace LunchTool.Web.Controllers
         
 
         [HttpPost]
-        public IActionResult AddMenu(MenuViewModel menuViewModel)
+        public string AddMenu(MenuViewModel menuViewModel)
         {
             if (ModelState.IsValid)
             {
                 var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
                 menuDTO.IsActive = true;
                 administrationService.Menu.Add(menuDTO);
-                return RedirectToAction("Menus", "Administration");
+                return "Успешно добавлено";
             }
-            //Temp solution
-            return Content("Проверьте введенные данные");
+            return "Проверьте данные";
         }
 
         [HttpGet("[controller]/Menu/{id}/Change")]

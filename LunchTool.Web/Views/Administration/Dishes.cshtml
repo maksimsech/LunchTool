@@ -5,7 +5,7 @@
 
 @model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
 
-<div class="btn btn-primary" data-toggle="modal" data-target="#addDishModal">Добавить меню</div>
+<div class="btn btn-primary" data-toggle="modal" data-target="#addDishModal">Добавить блюдо</div>
 
 <div class="modal" tabindex="-1" role="dialog" id="addDishModal">
     <div class="modal-dialog" role="document">
@@ -188,7 +188,6 @@
 
 
     function onAddComplete(message) {
-        console.log(message);
         $("#addDishModal").modal("hide");
         $("input[name=Name]").val('');
         $("input[name=Weight]").val('');
