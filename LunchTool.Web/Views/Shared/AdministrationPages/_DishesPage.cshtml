@@ -18,7 +18,7 @@
             <td>@item.Weight</td>
             <td>@item.Price</td>
             <td>
-                <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
+                <button class="btn btn-light" onclick="onChangeDish(@item.Id)">Изменить</button>
             </td>
             <td>
                 <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>

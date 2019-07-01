@@ -86,65 +86,10 @@
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список меню
 </div>
-<table class="table">
-    <tr>
-        <td>Id</td>
-        <td>Название</td>
-        <td>Информация</td>
-        <td>Дата</td>
-        <td>Ограничение по времени</td>
-        <td>Активен</td>
-        <td></td>
-        <td></td>
-    </tr>
-        @foreach (var item in Model.Item1)
-        {
-    <tr>
-        <td>@item.Id</td>
-        <td><a asp-action="Dishes" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
-        <td>
-            @if (item.Info != null)
-            {
-                @item.Info
-            }
-        </td>
-        <td>
-            @if (item.Date != null)
-            {
-                @String.Format("{0}.{1}.{2} г.", item.Date.Day, item.Date.Month, item.Date.Year);
-            }
-        </td>
-        <td>
-            @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute > 9 ? item.TimeLimit.Minute.ToString() : "0" + item.TimeLimit.Minute.ToString())
-        </td>
-        <td>
-            @if (item.IsActive)
-            {
-                <div>Да</div>
-            }
-            else
-            {
-                <div>Нет</div>
-            }
-        </td>
-        <td>
-            <a asp-action="ChangeMenu" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
-        </td>
-        @if (item.IsActive)
-        {
-            <td>
-                <a href="javascript:deactivateMenu('@item.Id')" class="btn btn-light">Деактивировать</a>
-            </td>
-        }
-        else
-        {
-            <td>
-                <a href="javascript:activateMenu('@item.Id')" class="btn btn-light">Активировать</a>
-            </td>
-        }
-    </tr>
-    }
-</table>
+
+<div id="result">
+
+</div>
 
 @section Scripts
 { 
@@ -162,20 +107,56 @@
         });
     });
 
+    function loadMenusPage(page) {
+        $.post("/Administration/GetMenusPage",
+            { "pageNumber": page, "providerId": @TempData["ProviderId"].ToString()})
+            .done(function (result) {
+                $("#result").html(result);
+                addMenusListener();
+            });
+    }
 
-</script>
+    loadMenusPage(1);
 
-<script>
-    function deleteMenu(id)
-    {
-        $.post("DeleteMenu/", { id: id }).always(function (done) { window.location.reload(true); });
+    function addMenusListener() {
+        $("#prevPage").click(function (e) {
+            e.preventDefault();
+            $.post("/Administration/GetMenusPage",
+                { "pageNumber": $("#prevPageNumber").text(), "providerId": @TempData["ProviderId"].ToString()})
+                .done(function (result) {
+                    $("#result").html(result);
+                    addMenusListener();
+                });
+        });
+        $("#nextPage").click(function (e) {
+            e.preventDefault();
+            $.post("/Administration/GetMenusPage",
+                { "pageNumber": $("#nextPageNumber").text(), "providerId": @TempData["ProviderId"].ToString()})
+                .done(function (result) {
+                    $("#result").html(result);
+                    addMenusListener();
+                });
+        });
+    }
+
+    function deleteMenu(id) {
+        $.post("DeleteMenu/", { id: id }).always(function (done) {
+            var currentPage = $("#currentPageNumber").text();
+            loadMenusPage(currentPage);
+        });
     }
 
     function deactivateMenu(id) {
-        $.post("DeactivateMenu/", { id: id }).always(function (done) { window.location.reload(true); });
+        $.post("DeactivateMenu/", { id: id }).always(function (done) {
+            var currentPage = $("#currentPageNumber").text();
+            loadMenusPage(currentPage);
+        });
     }
     function activateMenu(id) {
-        $.post("ActivateMenu/", { id: id }).always(function (done) { window.location.reload(true); });
+        $.post("ActivateMenu/", { id: id }).always(function (done) {
+            var currentPage = $("#currentPageNumber").text();
+            loadMenusPage(currentPage);
+        });
     }
 </script>
 }

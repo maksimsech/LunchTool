@@ -27,16 +27,37 @@ namespace LunchTool.Web.Controllers
             {
                 menus = dataService.Menus.GetAll();
                 providers = dataService.Providers.GetAll();
+                TempData["ProviderId"] = -1;
             }
             else
             {
                 menus = dataService.Menus.Get(m => m.ProviderId == id);
                 providers = dataService.Providers.Get(p => p.Id == id);
+                TempData["ProviderId"] = id;
             }
             var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menus);
             var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
             return View(new Tuple<IEnumerable<MenuViewModel>, IEnumerable<ProviderViewModel>>(menusViewModel, providersViewModel));
         }
+
+        [HttpPost]
+        public IActionResult GetMenusPage(int pageNumber, int providerId)
+        {
+            IEnumerable<MenuDTO> menus;
+            if (providerId == -1)
+            {
+                menus = dataService.Menus.GetAll();
+            }
+            else
+                menus = dataService.Menus.Get(m => m.ProviderId == providerId);
+
+            var count = menus.Count();
+            var currentPageItemsDTO = menus.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            var currentPageItems = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(currentPageItemsDTO);
+            var pageViewModel = new PageViewModel<IEnumerable<MenuViewModel>>(currentPageItems, count, pageNumber, pageSize);
+            return PartialView("~/Views/Shared/AdministrationPages/_MenusPage.cshtml", pageViewModel);
+        }
+        
 
         [HttpPost]
         public IActionResult AddMenu(MenuViewModel menuViewModel)

@@ -33,7 +33,6 @@ namespace LunchTool.Web.Controllers
             else
             {
                 dishes = dataService.Dishes.Get(d => d.MenuId == id);
-                TempData["MenuId"] = id;
             }
             
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
@@ -68,43 +67,40 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddDish(DishViewModel dishViewModel, int MenuId)
+        public string AddDish(DishViewModel dishViewModel, int MenuId)
         {
             if (ModelState.IsValid)
             {
                 dishViewModel.MenuId = MenuId;
                 var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
                 administrationService.Dish.Add(dishDTO);
-                return RedirectToAction("Dishes", "Administration");
+                return "Успешно добавлено";
             }
-            return Content("Проверьте данные");
+            return "Проверьте данные";
         }
 
-
-        [HttpGet("[controller]/Dish/{id}/Change")]
         public IActionResult ChangeDish(int id)
         {
             var dishDTO = dataService.Dishes.Get(d => d.Id == id).FirstOrDefault();
             if (dishDTO == null)
             {
-                //Temp solution
                 return Content("Блюдо не найдено");
             }
 
             var dishViewModel = mapper.Map<DishDTO, DishViewModel>(dishDTO);
-            return View(dishViewModel);
+            return PartialView("~/Views/Shared/AdministrationPages/_ChangeDish.cshtml", dishViewModel);
         }
 
-        [HttpPost("[controller]/Dish/{id}/Change")]
-        public IActionResult ChangeDish(DishViewModel dishViewModel)
+        [HttpPost]
+        public string ChangeDish(DishViewModel dishViewModel)
         {
             if (ModelState.IsValid)
             {
                 var dishDTO = mapper.Map<DishViewModel, DishDTO>(dishViewModel);
                 administrationService.Dish.Change(dishDTO);
-                return RedirectToAction("Dishes", "Administration");
+                return "Успешно изменено";
             }
-            return Content("Проверьте данные");
+            return "Проверьте данные";
         }
 
         [HttpPost]
