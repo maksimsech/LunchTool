@@ -84,6 +84,9 @@ namespace LunchTool.Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Report}/{action=UserReport}");
+                routes.MapRoute(
+                    name: "home",
+                    template: "Report/UserReport");
             });
         }
     }

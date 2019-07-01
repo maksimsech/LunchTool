@@ -25,7 +25,10 @@
 @section Scripts
     {
     <script>
-        
+
+        $.post("/Report/UserReport", { "FromDate": $("#FromDate").val(), "ToDate": $("#ToDate").val() }).done(function (result) {
+            $("#result").html(result)
+        });
         function makeReport() {
             var fromDate = $("#FromDate").val();
             var toDate = $("#ToDate").val();

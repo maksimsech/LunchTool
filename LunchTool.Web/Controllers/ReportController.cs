@@ -17,7 +17,6 @@ using LunchTool.Web.Models;
 
 namespace LunchTool.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
     public class ReportController : Controller
     {
         private readonly IConfiguration configuration;
@@ -55,12 +54,6 @@ namespace LunchTool.Web.Controllers
             var report4 = reportService.GetUserOrders(1, fromDate, toDate);
             int a = 1;
             return Content("hi");
-        }
-
-        [HttpPost]
-        public IActionResult MakeReport(DateTime ReportDate, int dateType, int reportType)
-        {
-            return Content("ops");
         }
 
         public IActionResult UserMonthReport()

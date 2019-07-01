@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using LunchTool.Service.Implementation;
@@ -13,6 +14,7 @@ using LunchTool.Web.ViewModels;
 using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
 
 namespace LunchTool.Web.Controllers
 {
@@ -96,9 +98,13 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userId = int.Parse(User.Identity.Name);
-                if (authentificationService.CheckPassword(userId, changePasswordViewModel.OldPassword))
+                var userEmail = dataService.Users.Get(u => u.Id == userId).Select(u => u.Email).FirstOrDefault();
+
+                var oldPassword = GetHash(userEmail, changePasswordViewModel.OldPassword);
+                if (authentificationService.CheckPassword(userId, oldPassword))
                 {
-                    authentificationService.ChangePassword(userId, changePasswordViewModel.NewPassword);
+                    var newPassword = GetHash(userEmail, changePasswordViewModel.NewPassword);
+                    authentificationService.ChangePassword(userId, newPassword);
                     return RedirectToAction("Index", "Account");
                 }
             }
@@ -120,12 +126,13 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userDTO = mapper.Map<LoginViewModel, UserDTO>(loginViewModel);
+                userDTO.Password = GetHash(loginViewModel.Email, loginViewModel.Password);
                 if (authentificationService.CheckLogin(userDTO))
                 {
                     var authUserDTO = authentificationService.GetAuthUserDTO(userDTO);
                     await Authentificate(authUserDTO);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToRoute("home");
                 }
             }
 
@@ -136,7 +143,7 @@ namespace LunchTool.Web.Controllers
         public IActionResult Register()
         {
             if (User.Identities.Any(u => u.IsAuthenticated))
-                return RedirectToAction("Index", "Home");
+                return RedirectToRoute("home");
             return View();
         }
 
@@ -146,6 +153,7 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userDTO = mapper.Map<RegisterViewModel, UserDTO>(registerViewModel);
+                userDTO.Password = GetHash(registerViewModel.Email, registerViewModel.Password);
                 if (authentificationService.IsRegistered(userDTO))
                 {
                     ModelState.AddModelError("", "Пользователь уже существует");
@@ -157,10 +165,22 @@ namespace LunchTool.Web.Controllers
                 var authUserDTO = mapper.Map<UserDTO, AuthUserDTO>(userDTO);
                 await Authentificate(authUserDTO);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToRoute("home");
             }
 
             return RedirectToAction("Register", "Account");
+        }
+
+        [NonAction]
+        private string GetHash(string email, string password)
+        {
+            byte[] result;
+            using(var sha256 = SHA256.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(email + password);
+                result = sha256.ComputeHash(bytes);
+            }
+            return BitConverter.ToString(result);
         }
  
         [NonAction]
@@ -191,7 +211,7 @@ namespace LunchTool.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
         
     }

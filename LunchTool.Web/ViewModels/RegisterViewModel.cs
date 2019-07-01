@@ -25,11 +25,15 @@ namespace LunchTool.Web.ViewModels
 
         [Required]
         [DataType((DataType.Password))]
+        [MinLength(8)]
+        [MaxLength(12)]
         public string Password { get; set; }
 
         [Required]
         [DataType((DataType.Password))]
         [Compare("Password")]
+        [MinLength(8)]
+        [MaxLength(12)]
         public string ConfirmPassword { get; set; }
  
         public bool IsAdmin { get; set; }
