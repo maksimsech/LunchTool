@@ -1,16 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Изменить: поставщик";
-}
+﻿@model LunchTool.Web.ViewModels.ProviderViewModel
 
-@model LunchTool.Web.ViewModels.ProviderViewModel
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header">
-                Изменить поставщика
-            </div>
-            <form asp-action="ChangeProvider" asp-controller="Administration" method="post" class="card-body">
+<form asp-action="ChangeProvider" asp-controller="Administration" method="post" data-ajax="true" data-ajax-method="POST" data-ajax-success="onChangeComplete">
                 <input type="hidden" name="Id" value="@Model.Id" readonly />
                 <div class="form-group">
                     <label for="Name">Название</label>
@@ -43,7 +34,4 @@
                 <div class="form-group">
                     <input type="submit" name="" value="Изменить" class="btn btn-primary" />
                 </div>
-            </form>
-        </div>
-    </div>    
-</div>
+</form>

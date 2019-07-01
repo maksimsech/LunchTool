@@ -27,19 +27,31 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProvider(ProviderViewModel providerViewModel)
+        public IActionResult GetProvidersPage(int pageNumber)
+        {
+            var providers = dataService.Providers.GetAll();
+
+            var count = providers.Count();
+            var currentPageItemsDTO = providers.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            var currentPageItems = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(currentPageItemsDTO);
+            var pageViewModel = new PageViewModel<IEnumerable<ProviderViewModel>>(currentPageItems, count, pageNumber, pageSize);
+            return PartialView("~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml", pageViewModel);
+        }
+
+        [HttpPost]
+        public string AddProvider(ProviderViewModel providerViewModel)
         {
             if (ModelState.IsValid)
             {
                 var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerViewModel);
                 administrationService.Provider.Add(providerDTO);
-                return RedirectToAction("Providers", "Administration");
+                return "Успешно добавлено";
             }
             //Temp solution
-            return Content("Проверьте введеные данные");
+            return "Проверьте введеные данные";
         }
 
-        [HttpGet("[controller]/Provider/{id}/Change")]
+        [HttpGet]
         public IActionResult ChangeProvider(int id)
         {
             var providerDTO = dataService.Providers.Get(p => p.Id == id).FirstOrDefault();
@@ -51,19 +63,19 @@ namespace LunchTool.Web.Controllers
 
             var providerViewModel = mapper.Map<ProviderDTO, ProviderViewModel>(providerDTO);
 
-            return View(providerViewModel);
+            return PartialView("~/Views/Shared/AdministrationPages/_ChangeProvider.cshtml", providerViewModel);
         }
 
-        [HttpPost("[controller]/Provider/{id}/Change")]
-        public IActionResult ChangeProvider(ProviderViewModel providerViewModel)
+        [HttpPost]
+        public string ChangeProvider(ProviderViewModel providerViewModel)
         {
             if (ModelState.IsValid)
             {
                 var providerDTO = mapper.Map<ProviderViewModel, ProviderDTO>(providerViewModel);
                 administrationService.Provider.Change(providerDTO);
-                return RedirectToAction("Providers", "Administration");
+                return "Успешно изменено";
             }
-            return Content("Проверьте данные");
+            return "Проверьте данные";
         }
 
         [HttpPost]

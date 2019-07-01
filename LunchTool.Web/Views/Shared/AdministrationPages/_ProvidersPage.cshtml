@@ -1,0 +1,70 @@
+﻿@model LunchTool.Web.ViewModels.PageViewModel<IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
+
+
+<table class="table">
+    <tr><td>Id</td><td>Название</td><td>Адрес</td><td>Email</td><td>Начало работы</td><td>Окончание работы</td><td>Номер</td><td>Активен</td><td></td><td></td></tr>
+    @foreach (var item in Model.Item)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td><a asp-action="Menus" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
+            <td>@item.Address</td>
+            <td>@item.Email</td>
+            <td>
+                @if (item.StartWork != null)
+                {@String.Format("{0}:{1}", item.StartWork.Value.Hour, item.StartWork.Value.Minute > 9 ? item.StartWork.Value.Minute.ToString() : "0" + item.StartWork.Value.Minute.ToString());
+            }
+            </td>
+            <td>
+                @if (item.EndWork != null)
+                {@String.Format("{0}:{1}", item.EndWork.Value.Hour, item.EndWork.Value.Minute > 9 ? item.EndWork.Value.Minute.ToString() : "0" + item.EndWork.Value.Minute.ToString());
+            }
+            </td>
+            <td>
+                @if (item.PhoneNumber != null)
+                {@item.PhoneNumber}
+            </td>
+            <td>
+                @if (item.Active)
+                {
+                    <div>Да</div>
+                }
+                else
+                {
+                    <div>Нет</div>
+                }
+            </td>
+            <td>
+                <button onclick="onChangeProvider(@item.Id)" class="btn btn-light">Изменить</button>
+            </td>
+            @if (item.Active)
+            {
+                <td>
+                    <a href="javascript:deactivateProvider('@item.Id')" class="btn btn-light">Деактивировать</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a href="javascript:activateProvider('@item.Id')" class="btn btn-light">Активировать</a>
+                </td>
+            }
+        </tr>
+    }
+</table>
+@if (Model.Info.HasPreviousPage)
+{
+    <button class="btn btn-primary" id="prevPage">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+        <div hidden="hidden" id="prevPageNumber">@(Model.Info.PageNumber - 1)</div>
+    </button>
+}
+@if (Model.Info.HasNextPage)
+{
+    <button class="btn btn-primary" id="nextPage">
+        <div hidden="hidden" id="nextPageNumber">@(Model.Info.PageNumber + 1)</div>
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </button>
+}

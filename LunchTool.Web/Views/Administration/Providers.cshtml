@@ -1,43 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Администрирование: поставщики";
 }
-@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header text-center">
-                Добавить поставщика
+<div class="btn btn-primary" data-toggle="modal" data-target="#addProviderModal">Добавить меню</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="addProviderModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить поставщика</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
-            <form asp-action="AddProvider" asp-controller="Administration" method="post" class="card-body">
-                <div class="form-group">
-                    <label for="Name">Название</label>
-                    <input type="text" name="Name" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="Address">Адрес</label>
-                    <input type="text" name="Address" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" name="Email" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="StartWork">Начало работы</label>
-                    <input type="time" name="StartWork" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="EndWork">Окончание работы</label>
-                    <input type="time" name="EndWork" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="PhoneNumber">Номер</label>
-                    <input type="text" name="PhoneNumber" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="" value="Добавить" class="btn btn-primary" />
-                </div>
-            </form>
+            <div class="modal-body">
+                <form asp-action="AddProvider" asp-controller="Administration" method="post" data-ajax="true" data-ajax-method="POST" data-ajax-success="onAddComplete">
+                    <div class="form-group">
+                        <label for="Name">Название</label>
+                        <input type="text" name="Name" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Адрес</label>
+                        <input type="text" name="Address" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" name="Email" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="StartWork">Начало работы</label>
+                        <input type="time" name="StartWork" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="EndWork">Окончание работы</label>
+                        <input type="time" name="EndWork" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber">Номер</label>
+                        <input type="text" name="PhoneNumber" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="" value="Добавить" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="changeProviderModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Изменить поставщика</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="changeProviderModalText">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="addChangeResult">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Сообщение</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="addChangeMessage"></p>
+            </div>
         </div>
     </div>
 </div>
@@ -46,61 +84,86 @@
     Список поставщиков
 </div>
 
-<table class="table">
-    <tr><td>Id</td><td>Название</td><td>Адрес</td><td>Email</td><td>Начало работы</td><td>Окончание работы</td><td>Номер</td><td>Активен</td><td></td><td></td></tr>
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>@item.Id</td>
-        <td><a asp-action="Menus" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
-        <td>@item.Address</td>
-        <td>@item.Email</td>
-        <td>
-            @if (item.StartWork != null) { @String.Format("{0}:{1}", item.StartWork.Value.Hour, item.StartWork.Value.Minute > 9? item.StartWork.Value.Minute.ToString() : "0" + item.StartWork.Value.Minute.ToString()); }
-        </td>
-        <td>
-            @if (item.EndWork != null) { @String.Format("{0}:{1}", item.EndWork.Value.Hour, item.EndWork.Value.Minute > 9? item.EndWork.Value.Minute.ToString() : "0" + item.EndWork.Value.Minute.ToString()); }
-        </td>
-        <td>
-            @if (item.PhoneNumber != null) { @item.PhoneNumber }
-        </td>
-        <td>
-            @if (item.Active)
-            {
-                <div>Да</div>
-            }
-            else
-            {
-                <div>Нет</div>
-            }
-        </td>
-        <td>
-            <a asp-action="ChangeProvider" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
-        </td>
-        @if (item.Active)
-        {
-            <td>
-                <a href="javascript:deactivateProvider('@item.Id')" class="btn btn-light">Деактивировать</a>
-            </td>
-        }
-        else
-        {
-            <td>
-                <a href="javascript:activateProvider('@item.Id')" class="btn btn-light">Активировать</a>
-            </td>
-        }
-      </tr>
-    }
-</table>
+<div id="result">
+
+</div>
 
 @section Scripts
-{ 
-<script>
-    function deactivateProvider(id) {
-        $.post("DeactivateProvider/", { id: id }).always(function (done) { window.location.reload(true); }); 
-    }
-    function activateProvider(id) {
-        $.post("ActivateProvider/", { id: id }).always(function (done) { window.location.reload(true); });
-    }
-</script>
+    {
+    <script>
+
+        function loadProvidersPage(page) {
+            $.post("/Administration/GetProvidersPage",
+                { "pageNumber": page })
+                .done(function (result) {
+                    $("#result").html(result);
+                    addProvidersListener();
+                });
+        }
+
+        loadProvidersPage(1);
+
+        function addProvidersListener() {
+            $("#prevPage").click(function (e) {
+                e.preventDefault();
+                $.post("/Administration/GetProvidersPage",
+                    { "pageNumber": $("#prevPageNumber").text() })
+                    .done(function (result) {
+                        $("#result").html(result);
+                        addProvidersListener();
+                    });
+            });
+            $("#nextPage").click(function (e) {
+                e.preventDefault();
+                $.post("/Administration/GetProvidersPage",
+                    { "pageNumber": $("#nextPageNumber").text() })
+                    .done(function (result) {
+                        $("#result").html(result);
+                        addProvidersListener();
+                    });
+            });
+        }
+
+        function onChangeProvider(id) {
+            $.get("/Administration/ChangeProvider", { "id": id }).done(function (message) {
+                $("#changeProviderModalText").html(message);
+                $("#changeProviderModal").modal('show');
+            });
+        }
+
+        function onChangeComplete(message) {
+            $("#changeProviderModal").modal("hide");
+            var currentPage = $("#currentPageNumber").text();
+            loadProvidersPage(currentPage);
+            $("#addChangeMessage").html(message);
+            $("#addChangeResult").modal('show');
+        }
+
+
+        function onAddComplete(message) {
+            $("#addProviderModal").modal("hide");
+            $("input[name=Name]").val('');
+            $("input[name=Address]").val('');
+            $("input[name=StartWork]").val('');
+            $("input[name=EndWork]").val('');
+            $("input[name=PhoneNumber]").val('');
+            var currentPage = $("#currentPageNumber").text();
+            loadProvidersPage(currentPage);
+            $("#addChangeMessage").html(message);
+            $("#addChangeResult").modal('show');
+        }
+
+        function deactivateProvider(id) {
+            $.post("DeactivateProvider/", { id: id }).always(function (done) {
+                var currentPage = $("#currentPageNumber").text();
+                loadProvidersPage(currentPage);
+            });
+        }
+        function activateProvider(id) {
+            $.post("ActivateProvider/", { id: id }).always(function (done) {
+                var currentPage = $("#currentPageNumber").text();
+                loadProvidersPage(currentPage);
+            });
+        }
+    </script>
 }
