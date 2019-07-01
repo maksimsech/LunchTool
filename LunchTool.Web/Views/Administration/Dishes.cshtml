@@ -64,31 +64,9 @@
     Список блюд
 </div>
 
-<table class="table">
-    <tr>
-        <td>Id</td>
-        <td>Название</td>
-        <td>Вес</td>
-        <td>Цена</td>
-        <td></td>
-        <td></td>
-    </tr>
-    @foreach (var item in Model.Item1)
-    {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Weight</td>
-            <td>@item.Price</td>
-            <td>
-                <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
-            </td>
-            <td>
-                <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
-            </td>
-        </tr>
-    }
-</table>
+<div id="result">
+
+</div>
 
 
 @section Scripts
@@ -126,6 +104,34 @@
     </script>
 }
 <script>
+    $.post("/Administration/GetDishesPage",
+        { "pageNumber": 1, "menuId": @TempData["MenuId"].ToString()})
+        .done(function (result) {
+            $("#result").html(result);
+            addDishesListener();
+        });
+    function addDishesListener() {
+        $("#prevPage").click(function (e) {
+            e.preventDefault();
+            $.post("/Administration/GetDishesPage",
+                { "pageNumber": $("#prevPageNumber").text(), "menuId": @TempData["MenuId"].ToString()})
+                .done(function (result) {
+                    $("#result").html(result);
+                    addDishesListener();
+                });
+        });
+        $("#nextPage").click(function (e) {
+            e.preventDefault();
+            $.post("/Administration/GetDishesPage",
+                { "pageNumber": $("#nextPageNumber").text(), "menuId": @TempData["MenuId"].ToString()})
+                .done(function (result) {
+                    $("#result").html(result);
+                    addDishesListener();
+                });
+        });
+    }
+
+
     function deleteDish(id) {
         $.post("DeleteDish/", { id: id }).always(function (done) { window.location.reload(true); });
     }

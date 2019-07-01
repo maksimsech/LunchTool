@@ -1,0 +1,43 @@
+﻿@model LunchTool.Web.ViewModels.PageViewModel<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>>
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Название</td>
+        <td>Вес</td>
+        <td>Цена</td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model.Item)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Weight</td>
+            <td>@item.Price</td>
+            <td>
+                <a asp-action="ChangeDish" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
+            </td>
+            <td>
+                <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+@if (Model.Info.HasPreviousPage)
+{
+    <button class="btn btn-primary" id="prevPage">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+        <div hidden="hidden" id="prevPageNumber">@(Model.Info.PageNumber - 1)</div>
+    </button>
+}
+@if (Model.Info.HasNextPage)
+{
+    <button class="btn btn-primary" id="nextPage">
+        <div hidden="hidden" id="nextPageNumber">@(Model.Info.PageNumber + 1)</div>
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </button>
+}

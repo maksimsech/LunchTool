@@ -24,6 +24,7 @@ namespace LunchTool.Web.Controllers
         private ILoadDataService dataService;
         private IAdministrationService administrationService;
         private IMapper mapper;
+        private int pageSize = 5;
 
         public AdministrationController(IConfiguration configuration)
         {

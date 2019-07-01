@@ -28,10 +28,14 @@ namespace LunchTool.Web.Controllers
             {
                 dishes = dataService.Dishes.GetAll();
                 providers = dataService.Providers.GetAll();
+                TempData["MenuId"] = -1;
             }
             else
+            {
                 dishes = dataService.Dishes.Get(d => d.MenuId == id);
-
+                TempData["MenuId"] = id;
+            }
+            
             var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
             IEnumerable<ProviderViewModel> providersViewModel = null;
             if (providers != null)
@@ -43,6 +47,24 @@ namespace LunchTool.Web.Controllers
                 TempData["MenuId"] = id;
             }
             return View(new Tuple<IEnumerable<DishViewModel>, IEnumerable<ProviderViewModel>>(dishesViewModel, providersViewModel));
+        }
+
+        [HttpPost]
+        public IActionResult GetDishesPage(int pageNumber, int menuId)
+        {
+            IEnumerable<DishDTO> dishes;
+            if (menuId == -1)
+            {
+                dishes = dataService.Dishes.GetAll();
+            }
+            else
+                dishes = dataService.Dishes.Get(d => d.MenuId == menuId);
+
+            var count = dishes.Count();
+            var currentPageItemsDTO = dishes.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            var currentPageItems = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(currentPageItemsDTO);
+            var pageViewModel = new PageViewModel<IEnumerable<DishViewModel>>(currentPageItems, count, pageNumber, pageSize);
+            return PartialView("~/Views/Shared/AdministrationPages/_DishesPage.cshtml", pageViewModel);
         }
 
         [HttpPost]
