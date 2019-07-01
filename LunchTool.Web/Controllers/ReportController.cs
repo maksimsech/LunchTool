@@ -41,21 +41,6 @@ namespace LunchTool.Web.Controllers
             }).CreateMapper();
         }
 
-        public IActionResult Index()
-        {
-            var month = 6;
-            var year = 2019;
-            var date = DateTime.Now;
-            var fromDate = new DateTime(year, month, 25, 0, 0, 0);
-            var toDate = new DateTime(year, month, 28, 0, 0, 0);
-            var report = reportService.UserMonthReport(date, 1, -1);
-            var report2 = reportService.UserProvidersReport(1, fromDate, toDate);
-            var report3 = reportService.AllUsersReport(2, fromDate, toDate);
-            var report4 = reportService.GetUserOrders(1, fromDate, toDate);
-            int a = 1;
-            return Content("hi");
-        }
-
         public IActionResult UserMonthReport()
         {
             var providersDTO = dataService.Providers.GetAll();
@@ -110,9 +95,7 @@ namespace LunchTool.Web.Controllers
         public IActionResult UserReport()
         {
             var date = DateTime.Today;
-            int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
-            var startOfWeek = date.AddDays(-1 * diff).Date;
-            var endOfWeek = startOfWeek.AddDays(6).Date;
+            var (startOfWeek, endOfWeek) = GetStartAndEndOfWeek(date);
             return View((startOfWeek, endOfWeek));
         }
 
@@ -123,6 +106,15 @@ namespace LunchTool.Web.Controllers
             var reportDTO = reportService.GetUserOrders(userId, FromDate, ToDate);
             var reportViewModel = mapper.Map<IEnumerable<UserPageReportDTO>, IEnumerable<UserPageReportViewModel>>(reportDTO);  
             return PartialView("~/Views/Shared/_UserReport.cshtml", reportViewModel);
+        }
+
+        [NonAction]
+        private (DateTime startOfWeek, DateTime endOfWeek) GetStartAndEndOfWeek(DateTime date)
+        {
+            int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
+            var startOfWeek = date.AddDays(-1 * diff).Date;
+            var endOfWeek = startOfWeek.AddDays(6).Date;
+            return (startOfWeek, endOfWeek);
         }
     }
 }

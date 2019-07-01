@@ -5,60 +5,67 @@
 
 @model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header">
-                Добавить блюдо
+<div class="btn btn-primary" data-toggle="modal" data-target="#addDishModal">Добавить меню</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="addDishModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить блюдо</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
-            <form asp-action="AddDish" asp-controller="Administration" method="post" class="card-body">
-                <div class="form-group">
-                    <label for="Name">Название</label>
-                    <input type="text" name="Name" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="Weight">Вес</label>
-                    <input type="text" name="Weight" id="Weight" value="" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="Price">Цена</label>
-                    <input type="text" name="Price" id="Price" value="" class="form-control" />
-                </div>
-                @if (Model.Item2 != null)
-                {
+            <div class="modal-body">
+                <form asp-action="AddDish" asp-controller="Administration" method="post" data-ajax="true" data-ajax-method="POST" data-ajax-success="onAddComplete">
                     <div class="form-group">
-                        <label for="ProviderId">Поставщик</label>
-                        <select name="ProviderId" id="ProviderId">
-                            @foreach (var provider in Model.Item2)
-                            {
-                                if (first)
-                                {
-                                    <option value="@provider.Id" selected="selected">@provider.Name</option>
-                                    first = false;
-                                }
-                                else
-                                {
-                                    <option value="@provider.Id">@provider.Name</option>
-                                }
-                            }
-                        </select>
+                        <label for="Name">Название</label>
+                        <input type="text" name="Name"  value="" class="form-control" />
                     </div>
-                    <div class="form-group" id="menus">
+                    <div class="form-group">
+                        <label for="Weight">Вес</label>
+                        <input type="text" name="Weight" id="Weight" value="" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Цена</label>
+                        <input type="text" name="Price" id="Price" value="" class="form-control" />
+                    </div>
+                    @if (Model.Item2 != null)
+                    {
+                        <div class="form-group">
+                            <label for="ProviderId">Поставщик</label>
+                            <select name="ProviderId" id="ProviderId">
+                                @foreach (var provider in Model.Item2)
+                                {
+                                    if (first)
+                                    {
+                                        <option value="@provider.Id" selected="selected">@provider.Name</option>
+                                        first = false;
+                                    }
+                                    else
+                                    {
+                                        <option value="@provider.Id">@provider.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group" id="menus">
 
+                        </div>
+                    }
+                    else
+                    {
+                        <input type="hidden" name="MenuId" value="@TempData["MenuId"]" />
+                    }
+                    <div class="form-group">
+                        <input type="submit" name="" value="Добавить" class="btn btn-primary" />
                     </div>
-                }
-                else
-                {
-                    <input type="hidden" name="MenuId" value="@TempData["MenuId"]" />
-                }
-                <div class="form-group">
-                    <input type="submit" name="" value="Добавить" class="btn btn-primary" />
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-
     </div>
 </div>
+
 
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список блюд
@@ -87,14 +94,16 @@
 @if (Model.Item2 != null)
 {
     <script>
-        $.post("GetMenusById/", { id: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
-        $("#ProviderId").change(function () {
+        $.post("GetMenusById/", { "idMenu": $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
+        $("#ProviderId").change(function () {          
             var id = $(this).val();
+            console.log(id);
             $.ajax({
                 type: "POST",
                 url: "GetMenusById/",
-                data: { "id": id },
+                data: { "idMenu": id },
                 success: function (result) {
+                    console.log(document.getElementById("menus").innerHTML);
                     $("#menus").html(result);
                 }
             });
@@ -104,12 +113,18 @@
     </script>
 }
 <script>
-    $.post("/Administration/GetDishesPage",
-        { "pageNumber": 1, "menuId": @TempData["MenuId"].ToString()})
+
+    function loadDishesPage(page) {
+        $.post("/Administration/GetDishesPage",
+        { "pageNumber": page, "menuId": @TempData["MenuId"].ToString()})
         .done(function (result) {
             $("#result").html(result);
             addDishesListener();
         });
+    }
+
+    loadDishesPage(1);
+
     function addDishesListener() {
         $("#prevPage").click(function (e) {
             e.preventDefault();
@@ -131,9 +146,20 @@
         });
     }
 
+    function onAddComplete() {
+        $("#addDishModal").modal("hide");
+        $("input[name=Name]").val('');
+        $("input[name=Weight]").val('');
+        $("input[name=Price]").val('');
+        var currentPage = $("#currentPageNumber").text();
+        loadDishesPage(currentPage);
+    }
+
 
     function deleteDish(id) {
-        $.post("DeleteDish/", { id: id }).always(function (done) { window.location.reload(true); });
+        $.post("DeleteDish/", { id: id }).always(function (done) {
+            var currentPage = $("#currentPageNumber").text();
+            loadDishesPage(currentPage); });
     }
 </script>
 }

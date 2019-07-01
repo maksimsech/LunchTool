@@ -173,7 +173,7 @@ namespace LunchTool.Service.Implementation
                     var dish = orderDish.Dish;
                     var dishPrice = dish.Price;
                     var dishName = dish.Name;
-                    dishNamesSB.Append(dishName + ", ");
+                    dishNamesSB.Append(dishName + (orderDish.Count > 1? "(" + orderDish.Count.ToString() + ")" : "") + ", ");
                     price += dishPrice * orderDish.Count;
                 }
                 var dishNames = dishNamesSB.ToString();
