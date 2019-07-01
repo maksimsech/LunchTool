@@ -72,31 +72,30 @@ namespace LunchTool.Web.Controllers
             return "Проверьте данные";
         }
 
-        [HttpGet("[controller]/Menu/{id}/Change")]
+        [HttpGet]
         public IActionResult ChangeMenu(int id)
         {
             var menuDTO = dataService.Menus.Get(p => p.Id == id).FirstOrDefault();
             if (menuDTO == null)
             {
-                //Temp solution
-                return Content("Поставщик не найден");
+                return Content("Меню не найдено");
             }
 
             var menuViewModel = mapper.Map<MenuDTO, MenuViewModel>(menuDTO);
 
-            return View(menuViewModel);
+            return PartialView("~/Views/Shared/AdministrationPages/_ChangeMenu.cshtml", menuViewModel);
         }
 
-        [HttpPost("[controller]/Menu/{id}/Change")]
-        public IActionResult ChangeMenu(MenuViewModel menuViewModel)
+        [HttpPost]
+        public string ChangeMenu(MenuViewModel menuViewModel)
         {
             if (ModelState.IsValid)
             {
                 var menuDTO = mapper.Map<MenuViewModel, MenuDTO>(menuViewModel);
                 administrationService.Menu.Change(menuDTO);
-                return RedirectToAction("Menus", "Administration");
+                return "Успешно изменено";
             }
-            return Content("Проверьте введенные данные");
+            return "Проверьте данные";
         }
 
         [HttpGet]

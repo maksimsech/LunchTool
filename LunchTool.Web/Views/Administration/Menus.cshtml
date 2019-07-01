@@ -6,6 +6,7 @@
 @model Tuple<IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
 
 <div class="btn btn-primary" data-toggle="modal" data-target="#addMenuModal">Добавить меню</div>
+<div class="btn btn-primary" data-toggle="modal" data-target="#copyMenuModal">Копировать меню</div>
 
 <div class="modal" tabindex="-1" role="dialog" id="addMenuModal">
     <div class="modal-dialog" role="document">
@@ -52,14 +53,16 @@
     </div>
 </div>
 
-
-
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header text-center">
-                Копировать меню
+<div class="modal" tabindex="-1" role="dialog" id="copyMenuModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Копировать меню</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
+            <div class="modal-body">
             <form asp-action="CopyMenu" asp-controller="Administration" method="get" class="card-body">
                 <div class="form-group">
                     <label for="ProviderId">Поставщик</label>
@@ -88,7 +91,22 @@
         </div>
     </div>
 </div>
+</div>
 
+<div class="modal" tabindex="-1" role="dialog" id="changeMenuModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Изменить меню</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="changeMenuModalText">
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal" tabindex="-1" role="dialog" id="addChangeResult">
     <div class="modal-dialog" role="document">
@@ -106,6 +124,7 @@
     </div>
 </div>
 
+
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список меню
 </div>
@@ -115,8 +134,8 @@
 </div>
 
 @section Scripts
-    {
-    <script>
+{
+<script>
     $.post("/Administration/GetMenusById/", { idMenu: $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
     $("#ProviderId").change(function () {
         var id = $(this).val();
@@ -162,12 +181,27 @@
         });
     }
 
+    function onChangeMenu(id) {
+        $.get("/Administration/ChangeMenu", { "id": id }).done(function (message) {
+            $("#changeMenuModalText").html(message);
+            $("#changeMenuModal").modal('show');
+        });
+    }
+
     function onAddComplete(message) {
         $("#addMenuModal").modal("hide");
         $("input[name=Name]").val('');
         $("input[name=Info]").val('');
         $("input[name=Date]").val('');
         $("input[name=TimeLimit]").val('');
+        var currentPage = $("#currentPageNumber").text();
+        loadMenusPage(currentPage);
+        $("#addChangeMessage").html(message);
+        $("#addChangeResult").modal('show');
+    }
+
+    function onChangeComplete(message) {
+        $("#changeMenuModal").modal("hide");
         var currentPage = $("#currentPageNumber").text();
         loadMenusPage(currentPage);
         $("#addChangeMessage").html(message);
@@ -181,6 +215,8 @@
         });
     }
 
+    
+
     function deactivateMenu(id) {
         $.post("DeactivateMenu/", { id: id }).always(function (done) {
             var currentPage = $("#currentPageNumber").text();
@@ -193,5 +229,5 @@
             loadMenusPage(currentPage);
         });
     }
-    </script>
+</script>
 }

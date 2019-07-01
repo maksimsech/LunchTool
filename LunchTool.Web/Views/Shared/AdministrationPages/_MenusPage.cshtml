@@ -43,7 +43,7 @@
                 }
             </td>
             <td>
-                <a asp-action="ChangeMenu" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
+                <button onclick="onChangeMenu(@item.Id)" class="btn btn-light">Изменить</button>
             </td>
             @if (item.IsActive)
             {
