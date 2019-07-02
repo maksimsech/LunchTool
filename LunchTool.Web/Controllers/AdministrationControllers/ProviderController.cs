@@ -21,9 +21,7 @@ namespace LunchTool.Web.Controllers
     {
         public IActionResult Providers()
         {
-            var providersDTO = dataService.Providers.GetAll();
-            var providers = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providersDTO);
-            return View(providers);
+            return View();
         }
 
         [HttpPost]

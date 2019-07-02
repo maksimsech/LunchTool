@@ -21,9 +21,7 @@ namespace LunchTool.Web.Controllers
     {
         public IActionResult Users()
         {
-            var usersDTO = dataService.Users.GetAll();
-            var usersViewModel = mapper.Map<IEnumerable<UserDTO>, IEnumerable<UserViewModel>>(usersDTO);
-            return View(usersViewModel);
+            return View();
         }
 
         [HttpPost]

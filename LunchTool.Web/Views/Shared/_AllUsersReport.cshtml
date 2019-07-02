@@ -2,30 +2,34 @@
 
 
 <table class="table">
-    <tr>
-        <td>
-            ФИО сотрудника
-        </td>
-        <td>
-            Количество заказов
-        </td>
-        <td>
-            Стоймость заказов
-        </td>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <thead class="thead-light">
         <tr>
-            <td>
-                @item.UserName
-            </td>
-            <td>
-                @item.OrderCount
-            </td>
-            <td>
-                @item.Price
-            </td>
+            <th scope="col">
+                ФИО сотрудника
+            </th>
+            <th scope="col">
+                Количество заказов
+            </th>
+            <th scope="col">
+                Стоймость заказов
+            </th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @item.UserName
+                </td>
+                <td>
+                    @item.OrderCount
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 

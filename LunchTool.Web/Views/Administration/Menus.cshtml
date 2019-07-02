@@ -3,7 +3,7 @@
     var first = true;
 }
 
-@model Tuple<IEnumerable<LunchTool.Web.ViewModels.MenuViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
 <div class="btn btn-primary" data-toggle="modal" data-target="#addMenuModal">Добавить меню</div>
 <div class="btn btn-primary" data-toggle="modal" data-target="#copyMenuModal">Копировать меню</div>
@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label for="ProviderId">Поставщик</label>
                         <select name="ProviderId">
-                            @foreach (var provider in Model.Item2)
+                            @foreach (var provider in Model)
                             {
                                 <option value="@provider.Id">@provider.Name</option>
                             }
@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <label for="ProviderId">Поставщик</label>
                     <select name="ProviderId" id="ProviderId">
-                        @foreach (var provider in Model.Item2)
+                        @foreach (var provider in Model)
                         {
                             if (first)
                             {

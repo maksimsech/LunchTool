@@ -3,25 +3,29 @@
     var i = 0;
 }
 <table class="table" id="DishesTable">
-    <tr>
-        <td>Название</td>
-        <td>Вес</td>
-        <td>Цена</td>
-        <td></td>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <thead class="thead-light">
         <tr>
-            <td style="display:none">
-                <input type="number" readonly value="@item.Id" name="dishesForOrderModel[@i].Id" />
-            </td>
-            <td>@item.Name</td>
-            <td>@item.Weight</td>
-            <td>@item.Price</td>
-            <td>
-                <input type="number" step="1" name="dishesForOrderModel[@i].Count" id="Count" value="0" min="0" class="form-control" onclick="onCountChange()"/>
-            </td>
+            <th scope="col">Название</th>
+            <th scope="col">Вес</th>
+            <th scope="col">Цена</th>
+            <th scope="col"></th>
         </tr>
-        i++;
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="display:none">
+                    <input type="number" readonly value="@item.Id" name="dishesForOrderModel[@i].Id" />
+                </td>
+                <td scope="col">@item.Name</td>
+                <td>@item.Weight</td>
+                <td>@item.Price</td>
+                <td>
+                    <input type="number" step="1" name="dishesForOrderModel[@i].Count" id="Count" value="0" min="0" class="form-control" onclick="onCountChange()" />
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
 </table>

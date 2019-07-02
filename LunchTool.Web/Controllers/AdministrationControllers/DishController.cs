@@ -21,21 +21,14 @@ namespace LunchTool.Web.Controllers
     {
         public IActionResult Dishes(int? id)
         {
-            IEnumerable<DishDTO> dishes;
             IEnumerable<ProviderDTO> providers = null;
 
             if (id == null)
             {
-                dishes = dataService.Dishes.GetAll();
                 providers = dataService.Providers.GetAll();
                 TempData["MenuId"] = -1;
             }
-            else
-            {
-                dishes = dataService.Dishes.Get(d => d.MenuId == id);
-            }
             
-            var dishesViewModel = mapper.Map<IEnumerable<DishDTO>, IEnumerable<DishViewModel>>(dishes);
             IEnumerable<ProviderViewModel> providersViewModel = null;
             if (providers != null)
             {
@@ -45,7 +38,7 @@ namespace LunchTool.Web.Controllers
             {
                 TempData["MenuId"] = id;
             }
-            return View(new Tuple<IEnumerable<DishViewModel>, IEnumerable<ProviderViewModel>>(dishesViewModel, providersViewModel));
+            return View(providersViewModel);
         }
 
         [HttpPost]

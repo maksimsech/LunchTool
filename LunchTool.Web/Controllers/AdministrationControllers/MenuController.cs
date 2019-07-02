@@ -21,23 +21,19 @@ namespace LunchTool.Web.Controllers
     {
         public IActionResult Menus(int? id)
         {
-            IEnumerable<MenuDTO> menus;
             IEnumerable<ProviderDTO> providers;
             if (id == null)
             {
-                menus = dataService.Menus.GetAll();
                 providers = dataService.Providers.GetAll();
                 TempData["ProviderId"] = -1;
             }
             else
             {
-                menus = dataService.Menus.Get(m => m.ProviderId == id);
                 providers = dataService.Providers.Get(p => p.Id == id);
                 TempData["ProviderId"] = id;
             }
-            var menusViewModel = mapper.Map<IEnumerable<MenuDTO>, IEnumerable<MenuViewModel>>(menus);
             var providersViewModel = mapper.Map<IEnumerable<ProviderDTO>, IEnumerable<ProviderViewModel>>(providers);
-            return View(new Tuple<IEnumerable<MenuViewModel>, IEnumerable<ProviderViewModel>>(menusViewModel, providersViewModel));
+            return View(providersViewModel);
         }
 
         [HttpPost]

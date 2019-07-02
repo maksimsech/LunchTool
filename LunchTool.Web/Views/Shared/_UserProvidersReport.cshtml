@@ -2,29 +2,35 @@
 
 @foreach (var item in Model)
 {
-    <div class="text-right">@item.ProviderName</div>
+    <div class="text-right">
+        <h1>@item.ProviderName</h1>
+    </div>
     <table class="table">
-        <tr>
-            <td>
-                ФИО
-            </td>
-            <td>
-                Заказов
-            </td>
-            <td>
-                Стоймость
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @item.UserName
-            </td>
-            <td>
-                @item.OrderCount
-            </td>
-            <td>
-                @item.Price
-            </td>
-        </tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">
+                    ФИО
+                </th>
+                <th scope="col">
+                    Заказов
+                </th>
+                <th scope="col">
+                    Стоймость
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    @item.OrderCount
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        </tbody>
     </table>
 }

@@ -3,7 +3,7 @@
     bool first = true;
 }
 
-@model Tuple<IEnumerable<LunchTool.Web.ViewModels.DishViewModel>, IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
+@model IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>
 
 <div class="btn btn-primary" data-toggle="modal" data-target="#addDishModal">Добавить блюдо</div>
 
@@ -30,12 +30,12 @@
                         <label for="Price">Цена</label>
                         <input type="text" name="Price" id="Price" value="" class="form-control" />
                     </div>
-                    @if (Model.Item2 != null)
+                    @if (Model != null)
                     {
                         <div class="form-group">
                             <label for="ProviderId">Поставщик</label>
                             <select name="ProviderId" id="ProviderId">
-                                @foreach (var provider in Model.Item2)
+                                @foreach (var provider in Model)
                                 {
                                     if (first)
                                     {
@@ -109,7 +109,7 @@
 
 @section Scripts
 { 
-@if (Model.Item2 != null)
+@if (Model != null)
 {
     <script>
         $.post("GetMenusById/", { "idMenu": $("#ProviderId").val() }).done(function (result) { $("#menus").html(result) });
