@@ -1,0 +1,71 @@
+﻿@model LunchTool.Web.ViewModels.PageViewModel<IEnumerable<LunchTool.Web.ViewModels.UserViewModel>>
+
+<div hidden="hidden" id="currentPageNumber">@Model.Info.PageNumber</div>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Отчество</th>
+            <th scope="col">Логин</th>
+            <th scope="col">Email</th>
+            <th scope="col">Номер телефона</th>
+            <th scope="col">Админ</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
+                <td>
+                    @if (item.Patronymic != null)
+                    {
+                        @item.Patronymic
+                    }
+                </td>
+                <td>@item.Username</td>
+                <td>@item.Email</td>
+                <td>
+                    @if (item.PhoneNumber != null)
+                    {
+                        @item.PhoneNumber
+                    }
+                </td>
+                <td>
+                    @if (item.IsAdmin)
+                    {
+                        <div>Да</div>
+                    }
+                    else
+                    {
+                        <div>Нет</div>
+                    }
+                </td>
+                <td>
+                    <button onclick="onChangeUser(@item.Id)" class="btn btn-light">Изменить</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.Info.HasPreviousPage)
+{
+    <button class="btn btn-primary" id="prevPage">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+        <div hidden="hidden" id="prevPageNumber">@(Model.Info.PageNumber - 1)</div>
+    </button>
+}
+@if (Model.Info.HasNextPage)
+{
+    <button class="btn btn-primary" id="nextPage">
+        <div hidden="hidden" id="nextPageNumber">@(Model.Info.PageNumber + 1)</div>
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </button>
+}

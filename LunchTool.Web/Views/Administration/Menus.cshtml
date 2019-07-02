@@ -218,12 +218,14 @@
     
 
     function deactivateMenu(id) {
+        if (confirm('Вы уверенны что хотите деактивировать меню?'))
         $.post("DeactivateMenu/", { id: id }).always(function (done) {
             var currentPage = $("#currentPageNumber").text();
             loadMenusPage(currentPage);
         });
     }
     function activateMenu(id) {
+        if (confirm('Вы уверенны что хотите активировать меню?'))
         $.post("ActivateMenu/", { id: id }).always(function (done) {
             var currentPage = $("#currentPageNumber").text();
             loadMenusPage(currentPage);

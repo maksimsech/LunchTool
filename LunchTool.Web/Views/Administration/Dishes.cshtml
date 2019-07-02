@@ -208,6 +208,7 @@
 
 
     function deleteDish(id) {
+        if (confirm('Вы уверенны что хотите удалить меню?'))
         $.post("DeleteDish/", { id: id }).always(function (done) {
             var currentPage = $("#currentPageNumber").text();
             loadDishesPage(currentPage); });

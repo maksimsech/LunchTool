@@ -4,13 +4,19 @@
 
 @model IEnumerable<LunchTool.Web.ViewModels.UserViewModel>
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header">
-                Добавить пользователя
+<div class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">Добавить пользователя</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="addUserModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить сотрудника</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
-            <form asp-action="AddUser" asp-controller="Administration" method="post" class="card-body">
+            <div class="modal-body">
+            <form asp-action="AddUser" asp-controller="Administration" method="post" data-ajax="true" data-ajax-method="POST" data-ajax-success="onAddComplete" >
                 <div class="form-group">
                     <label for="LastName">Фамилия</label>
                     <input type="text" name="LastName" value="" class="form-control" />
@@ -49,48 +55,113 @@
             </form>
         </div>
     </div>
-    
+    </div>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" id="changeUserModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Изменить сотрудника</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="changeUserModalText">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="addChangeResult">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Сообщение</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="addChangeMessage"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="text-center" style="margin-top: 10px; margin-bottom: 10px">
     Список пользователей
 </div>
 
-<table class="table">
-    <tr><td>Id</td><td>Фамилия</td><td>Имя</td><td>Отчество</td><td>Логин</td><td>Email</td><td>Номер телефона</td><td>Админ</td><td></td></tr>
-    @foreach (var item in Model)
-    {
-        <tr onclick="window.location=''">
-            <td>@item.Id</td>
-            <td>@item.LastName</td>
-            <td>@item.FirstName</td>
-            <td>
-            @if (item.Patronymic != null)
-            {
-                @item.Patronymic
-            }
-            </td>
-            <td>@item.Username</td>
-            <td>@item.Email</td>
-            <td>
-            @if (item.PhoneNumber != null)
-            {
-                @item.PhoneNumber
-            }
-            </td>
-            <td>
-            @if (item.IsAdmin)
-            {
-                <div>Да</div>
-            }
-            else
-            {
-                <div>Нет</div>
-            }
-            </td>
-            <td>
-                <a asp-action="ChangeUser" asp-controller="Administration" asp-route-id="@item.Id" class="btn btn-light">Изменить</a>
-            </td>
-        </tr>
+<div id="result">
+
+</div>
+
+@section Scripts
+{ 
+<script>
+    function loadUsersPage(page) {
+        $.post("/Administration/GetUsersPage",
+            { "pageNumber": page })
+            .done(function (result) {
+                $("#result").html(result);
+                addUsersListener();
+            });
     }
-</table>
+
+    loadUsersPage(1);
+
+    function addUsersListener() {
+         $("#prevPage").click(function (e) {
+            e.preventDefault();
+             $.post("/Administration/GetUsersPage",
+                { "pageNumber": $("#prevPageNumber").text() })
+                .done(function (result) {
+                    $("#result").html(result);
+                    addUsersListener();
+                });
+        });
+        $("#nextPage").click(function (e) {
+            e.preventDefault();
+            $.post("/Administration/GetUsersPage",
+                { "pageNumber": $("#nextPageNumber").text() })
+                .done(function (result) {
+                    $("#result").html(result);
+                    addUsersListener();
+                });
+        });
+    }
+
+    function onChangeUser(id) {
+        $.get("/Administration/ChangeUser", { "id": id })
+            .done(function (message) {
+                $("#changeUserModalText").html(message);
+                $("#changeUserModal").modal('show');
+            });
+    }
+
+    function onAddComplete(message) {
+        $("#addUserModal").modal('hide');
+        $("input[name=LastName]").val('');
+        $("input[name=FirstName]").val('');
+        $("input[name=Patronymic]").val('');
+        $("input[name=Username]").val('');
+        $("input[name=Email]").val('');
+        $("input[name=Password]").val('');
+        $("input[name=PhoneNumber").val('');
+        var currentPage = $("#currentPageNumber").text();
+        loadUsersPage(currentPage);
+        $("#addChangeMessage").html(message);
+        $("#addChangeResult").modal('show');
+    }
+
+    function onChangeComplete(message) {
+        $("#changeUserModal").modal("hide");
+        var currentPage = $("#currentPageNumber").text();
+        loadUsersPage(currentPage);
+        $("#addChangeMessage").html(message);
+        $("#addChangeResult").modal('show');
+    }
+</script>
+}

@@ -2,29 +2,33 @@
 
 <div hidden="hidden" id="currentPageNumber">@Model.Info.PageNumber</div>
 <table class="table">
-    <tr>
-        <td>Id</td>
-        <td>Название</td>
-        <td>Вес</td>
-        <td>Цена</td>
-        <td></td>
-        <td></td>
-    </tr>
-    @foreach (var item in Model.Item)
-    {
+    <thead class="thead-light">
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Weight</td>
-            <td>@item.Price</td>
-            <td>
-                <button class="btn btn-light" onclick="onChangeDish(@item.Id)">Изменить</button>
-            </td>
-            <td>
-                <a href="javascript:deleteDish('@item.Id')" class="btn btn-light">Удалить</a>
-            </td>
+            <th scope="col">Id</th>
+            <th scope="col">Название</th>
+            <th scope="col">Вес</th>
+            <th scope="col">Цена</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Weight</td>
+                <td>@item.Price</td>
+                <td>
+                    <button class="btn btn-light" onclick="onChangeDish(@item.Id)">Изменить</button>
+                </td>
+                <td>
+                    <a href="javascript:deleteDish('@item.Id')" class="btn btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 @if (Model.Info.HasPreviousPage)
 {

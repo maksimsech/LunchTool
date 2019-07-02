@@ -27,6 +27,17 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
+        public IActionResult GetUsersPage(int pageNumber)
+        {
+            var users = dataService.Users.GetAll();
+            var count = users.Count();
+            var currentPageItemsDTO = users.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            var currentPageItems = mapper.Map<IEnumerable<UserDTO>, IEnumerable<UserViewModel>>(currentPageItemsDTO);
+            var pageViewModel = new PageViewModel<IEnumerable<UserViewModel>>(currentPageItems, count, pageNumber, pageSize);
+            return PartialView("~/Views/Shared/AdministrationPages/_UsersPage.cshtml", pageViewModel);
+        }
+
+        [HttpPost]
         public IActionResult AddUser(UserViewModel userViewModel)
         {
             if (ModelState.IsValid)
@@ -51,7 +62,7 @@ namespace LunchTool.Web.Controllers
                 return Content("Пользователь не найден");
             }
             var userViewModel = mapper.Map<UserDTO, UserViewModel>(userDTO);
-            return View(userViewModel);
+            return PartialView("~/Views/Shared/AdministrationPages/_ChangeUser.cshtml", userViewModel);
         }
 
 
@@ -64,13 +75,9 @@ namespace LunchTool.Web.Controllers
                 var find = dataService.Users.Get(u => u.Id == userDTO.Id).FirstOrDefault();
                 userDTO.Password = find.Password;
                 administrationService.User.Change(userDTO);
-                return RedirectToAction("Users", "Administration");
+                return Content("Данные изменены");
             }
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
-            var sb = new StringBuilder();
-            foreach (var error in errors)
-                sb.AppendLine(error.ErrorMessage);
-            return Content(sb.ToString());
+            return Content("Проверьте данные");
         }
     }
 }

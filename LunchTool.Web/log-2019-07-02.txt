@@ -1,0 +1,1532 @@
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 50.0897ms 200 
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 113.3448ms
+Request finished in 572.0721ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.4468ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 286.4884ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 6090.7074ms
+Request finished in 6172.0427ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js  
+The file /lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js was not modified
+Request finished in 63.3156ms 304 application/javascript
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\css\site.css'
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Request finished in 210.6841ms 200 text/css
+Connection id "0HLNUMSQLILLF", Request id "0HLNUMSQLILLF:00000002": the application aborted the connection.
+Sending file. Request path: '/img/bg.jpg'. Physical path: 'C:\Users\emergency\source\repos\git\LunchTool\LunchTool.Web\wwwroot\img\bg.jpg'
+Request finished in 81.052ms 200 image/jpeg
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 216
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToRouteResult in 269.9992ms.
+Executing RedirectToRouteResult, redirecting to /Report/UserReport from route home.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 436.0882ms
+Request finished in 664.9973ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Report/UserReport  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.1454ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 27.4234ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 58.6467ms
+Request finished in 83.3777ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 302.79ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 13.5737ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 437.971ms
+Request finished in 495.6668ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.331ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.6983ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 113.4483ms
+Request finished in 251.5199ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 36.1602ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 15.7729ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 97.5874ms
+Request finished in 119.0895ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 41.3299ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 19.1888ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 136.0229ms
+Request finished in 161.7458ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 80.7711ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 50.7386ms
+Request finished in 393.0528ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.8696ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 245.2375ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 1393.2814ms
+Request finished in 1419.5562ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 216
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToRouteResult in 382.6105ms.
+Executing RedirectToRouteResult, redirecting to /Report/UserReport from route home.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 509.8946ms
+Request finished in 621.491ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Report/UserReport  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.16ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 50.143ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 81.9173ms
+Request finished in 116.4971ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 316.5871ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 17.9757ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 398.9766ms
+Request finished in 422.5936ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3523ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 15.6151ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 112.7952ms
+Request finished in 173.038ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 40.4009ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 18.0771ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 90.0526ms
+Request finished in 138.9829ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 38.8254ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 33.1754ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 192.7579ms
+Request finished in 220.014ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 106.4274ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 58.0532ms
+Request finished in 428.0776ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2.7293ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 248.814ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 1540.7544ms
+Request finished in 1569.5069ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 216
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToRouteResult in 312.3712ms.
+Executing RedirectToRouteResult, redirecting to /Report/UserReport from route home.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 485.2998ms
+Request finished in 542.2166ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Report/UserReport  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.189ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 25.1095ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 83.1599ms
+Request finished in 106.1343ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 275.7764ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 34.5951ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 391.3319ms
+Request finished in 445.7227ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3244ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 24.6564ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 127.4088ms
+Request finished in 152.2799ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 41.4372ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 14.3278ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 84.8553ms
+Request finished in 109.5592ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 29.7788ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 19.4808ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 143.8408ms
+Request finished in 188.2412ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 161.9305ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization failed.
+Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+Executing ChallengeResult with authentication schemes ().
+AuthenticationScheme: Cookies was challenged.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 43.7808ms
+Request finished in 600.9644ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Account/Login?ReturnUrl=%2F  
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.3702ms.
+Executing ViewResult, running view Login.
+Executed ViewResult - view Login executed in 176.1837ms.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 1444.6528ms
+Request finished in 1478.6413ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Account/Login application/x-www-form-urlencoded 216
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(LunchTool.Web.ViewModels.LoginViewModel) on controller LunchTool.Web.Controllers.AccountController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) - Validation state: Valid
+AuthenticationScheme: Cookies signed in.
+Executed action method LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToRouteResult in 318.555ms.
+Executing RedirectToRouteResult, redirecting to /Report/UserReport from route home.
+Executed action LunchTool.Web.Controllers.AccountController.Login (LunchTool.Web) in 473.1189ms
+Request finished in 561.3309ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Report/UserReport  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.9668ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 23.1343ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 86.9776ms
+Request finished in 123.2057ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 309.5478ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 15.1593ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 457.7268ms
+Request finished in 523.8673ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3979ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 19.133ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 185.4634ms
+Request finished in 324.3558ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 41.7453ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 25.2123ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 110.4632ms
+Request finished in 157.9599ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 28.695ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 19.3909ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 88.6116ms
+Request finished in 196.1939ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/DeactivateProvider/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "DeactivateProvider", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeactivateProvider(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.DeactivateProvider (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.DeactivateProvider (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 577.5276ms.
+Executing RedirectResult, redirecting to /Administration/Providers.
+Executed action LunchTool.Web.Controllers.AdministrationController.DeactivateProvider (LunchTool.Web) in 635.699ms
+Request finished in 698.1944ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers application/x-www-form-urlencoded; charset=UTF-8 
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 22.9377ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 6.1277ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 71.0491ms
+Request finished in 88.7106ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.9977ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 4.096ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 59.2537ms
+Request finished in 79.1343ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/ActivateProvider/ application/x-www-form-urlencoded; charset=UTF-8 4
+Route matched with {action = "ActivateProvider", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ActivateProvider(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ActivateProvider (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ActivateProvider (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.RedirectToActionResult in 33.1106ms.
+Executing RedirectResult, redirecting to /Administration/Providers.
+Executed action LunchTool.Web.Controllers.AdministrationController.ActivateProvider (LunchTool.Web) in 93.3666ms
+Request finished in 132.1795ms 302 
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers application/x-www-form-urlencoded; charset=UTF-8 
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.4782ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 6.6309ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 76.4506ms
+Request finished in 142.7915ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 25.1252ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 10.4959ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 69.8127ms
+Request finished in 88.8419ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 23.4946ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 3.7939ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 67.2078ms
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js  
+The file /lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js was not modified
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request finished in 127.4001ms 304 text/css
+Request finished in 79.3357ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/js/bootstrap.js  
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation/dist/jquery.validate.min.js  
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+Request finished in 103.7584ms 304 application/javascript
+Request finished in 19.5756ms 304 application/javascript
+The file /lib/jquery/dist/jquery.min.js was not modified
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+Request finished in 202.3355ms 304 application/javascript
+Request finished in 215.4179ms 304 application/javascript
+Request finished in 214.384ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+The file /css/site.css was not modified
+Request finished in 11.6685ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+The file /img/bg.jpg was not modified
+Request finished in 53.37ms 304 image/jpeg
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 35.5036ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 4.2197ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 112.2355ms
+Request finished in 183.3631ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 79.7859ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.6821ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 139.7154ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1217.0429ms
+Request finished in 1534.0179ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 737.1675ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 10.4819ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 877.4758ms
+Request finished in 1000.3345ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3641ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 19.517ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 91.3838ms
+Request finished in 192.408ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 103.8138ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 38.3448ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 183.3527ms
+Request finished in 212.4534ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 34.3185ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 15.1586ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 118.6086ms
+Request finished in 203.3963ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 127.4454ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 68.5369ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 296.5194ms
+Request finished in 371.5539ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 80.8181ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.9274ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 178.3241ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1325.9926ms
+Request finished in 1694.8298ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 454.6375ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 12.8879ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 770.7856ms
+Request finished in 812.7526ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.4056ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 18.8953ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 136.3052ms
+Request finished in 194.0354ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 118.8407ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 43.0539ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 206.1741ms
+Request finished in 290.4558ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Authorization was successful.
+Authorization was successful.
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 54.1837ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 17.362ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 132.4269ms
+Request finished in 236.1125ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 143.2748ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 14.4937ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 211.0054ms
+Request finished in 290.3199ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 100.4506ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.9278ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 200.3642ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 2145.9818ms
+Request finished in 2507.3189ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 556.0186ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 15.0181ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 761.2138ms
+Request finished in 852.6534ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.5154ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 22.1181ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 81.5346ms
+Request finished in 121.3393ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 116.7344ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 40.0468ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 195.5945ms
+Request finished in 350.8666ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 30.2447ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 17.9098ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 100.6112ms
+Request finished in 216.0891ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 115.5691ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 41.8091ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 231.1062ms
+Request finished in 360.2718ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 44.2816ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 9.464ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 97.3606ms
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Request finished in 225.1036ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation/dist/jquery.validate.min.js  
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+The file /lib/jquery/dist/jquery.min.js was not modified
+Request finished in 84.4793ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request finished in 73.6297ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/js/bootstrap.js  
+The file /css/site.css was not modified
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request finished in 166.7677ms 304 text/css
+Request finished in 42.6601ms 304 application/javascript
+The file /lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js was not modified
+Request finished in 67.2186ms 304 application/javascript
+Request finished in 173.6447ms 304 application/javascript
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+Request finished in 206.0532ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+The file /img/bg.jpg was not modified
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Request finished in 33.327ms 304 image/jpeg
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 45.7577ms.
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 77.1382ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 5.2171ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 167.5828ms
+Request finished in 283.7883ms 200 text/html; charset=utf-8
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 3045.7762ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 3164.5751ms
+Request finished in 3307.1199ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 94.4382ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.6483ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 143.24ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1432.6183ms
+Request finished in 1789.7015ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 489.1885ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 13.3402ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 617.9508ms
+Request finished in 874.7848ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.4704ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.1846ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 102.5017ms
+Request finished in 164.0092ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 70.3477ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 35.9919ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 158.9976ms
+Request finished in 221.0874ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.6003ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 16.9027ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 113.91ms
+Request finished in 177.7843ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0407ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 24.3784ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 77.3323ms
+Request finished in 122.039ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Menus  
+Route matched with {action = "Menus", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Menus(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 56.4739ms.
+Executing ViewResult, running view Menus.
+Executed ViewResult - view Menus executed in 35.3569ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) in 235.8278ms
+Request finished in 276.6957ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusPage application/x-www-form-urlencoded; charset=UTF-8 26
+Route matched with {action = "GetMenusPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.7951ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_MenusPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_MenusPage.cshtml executed in 19.3491ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web) in 213.5964ms
+Request finished in 250.4491ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 97.2693ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 18.2872ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 249.7904ms
+Request finished in 290.0666ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.025ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 6.5998ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 87.1741ms
+Request finished in 138.8766ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 55.588ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 22.1979ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 114.4923ms
+Request finished in 150.3128ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 30.2506ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 17.9558ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 103.0806ms
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 41.2045ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Request finished in 197.4415ms 200 text/html; charset=utf-8
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 33.5149ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 195.522ms
+Request finished in 297.4077ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 72.4577ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 6.6734ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 231.0623ms
+Request finished in 261.8165ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.4147ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.2417ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 18.6134ms.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 5.4554ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 113.6047ms
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 117.0529ms
+Request finished in 281.634ms 200 text/html; charset=utf-8
+Request finished in 287.9659ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0216ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5.2711ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 75.0654ms
+Request finished in 164.4301ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Menus  
+Route matched with {action = "Menus", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Menus(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 44.0638ms.
+Executing ViewResult, running view Menus.
+Executed ViewResult - view Menus executed in 4.7093ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Menus (LunchTool.Web) in 84.7975ms
+Request finished in 119.8673ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusPage application/x-www-form-urlencoded; charset=UTF-8 26
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Route matched with {action = "GetMenusPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Authorization was successful.
+Authorization was successful.
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 32.0683ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 6.3423ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 92.2438ms
+Request finished in 196.9417ms 200 text/html; charset=utf-8
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 55.6198ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_MenusPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_MenusPage.cshtml executed in 2444.0524ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusPage (LunchTool.Web) in 2626.9416ms
+Request finished in 2759.3198ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0261ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 5.92ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 77.9278ms
+Request finished in 109.862ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Providers  
+Route matched with {action = "Providers", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Providers() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 23.7884ms.
+Executing ViewResult, running view Providers.
+Executed ViewResult - view Providers executed in 4.2939ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Providers (LunchTool.Web) in 76.2746ms
+Request finished in 118.9947ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetProvidersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetProvidersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProvidersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 28.3866ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ProvidersPage.cshtml executed in 361.1782ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetProvidersPage (LunchTool.Web) in 493.3786ms
+Request finished in 527.8909ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0487ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 5.4181ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 67.5371ms
+Request finished in 281.8891ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 27.5436ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 4.4232ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 76.3503ms
+Request finished in 184.327ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0229ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 11.6054ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 76.2126ms
+Request finished in 117.1829ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Report/UserMonthReport  
+Route matched with {action = "UserMonthReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserMonthReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 28.2043ms.
+Executing ViewResult, running view UserMonthReport.
+Executed ViewResult - view UserMonthReport executed in 21.1005ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web) in 114.4407ms
+Request finished in 166.1718ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserMonthReport application/x-www-form-urlencoded; charset=UTF-8 31
+Route matched with {action = "UserMonthReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserMonthReport(Int32, Int32, Int32) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 45.2991ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserMonthReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserMonthReport.cshtml executed in 20.3548ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserMonthReport (LunchTool.Web) in 169.5521ms
+Request finished in 218.0664ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 98.9535ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.741ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 145.8491ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1189.6843ms
+Request finished in 1537.3685ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 477.2101ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 10.7642ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 730.6394ms
+Request finished in 793.8868ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 74.788ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 40.2482ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 191.0054ms
+Request finished in 282.2857ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 30.82ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 15.9754ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 208.2935ms
+Request finished in 247.2068ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css.map  
+The file /lib/bootstrap/dist/css/bootstrap.css.map was not modified
+Request finished in 41.4693ms 304 text/plain
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 143.6602ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.8368ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 162.5692ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1493.9923ms
+Request finished in 1894.2925ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 452.7317ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 11.6859ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 667.9242ms
+Request finished in 997.439ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 78.4955ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 65.1229ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 377.5882ms
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Request finished in 449.9274ms 200 text/html; charset=utf-8
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 233.8425ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.7967ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 139.7938ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1327.0503ms
+Request finished in 1848.8706ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 466.6647ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 12.4408ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 688.5107ms
+Request finished in 842.6896ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 97.5965ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 26.9028ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 177.1082ms
+Request finished in 299.8105ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 2066.0585ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 22.606ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 2139.6659ms
+Request finished in 2457.4676ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3934ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 19.6237ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 96.6103ms
+Request finished in 138.333ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Dishes  
+Route matched with {action = "Dishes", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dishes(System.Nullable`1[System.Int32]) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 91.2012ms.
+Executing ViewResult, running view Dishes.
+Executed ViewResult - view Dishes executed in 99.3323ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Dishes (LunchTool.Web) in 233.7495ms
+Request finished in 258.5422ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetMenusById/ application/x-www-form-urlencoded; charset=UTF-8 8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetDishesPage application/x-www-form-urlencoded; charset=UTF-8 22
+Route matched with {action = "GetMenusById", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetMenusById(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Route matched with {action = "GetDishesPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDishesPage(Int32, Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) - Validation state: Valid
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 32.4935ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_DishesPage.cshtml executed in 12.0801ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetDishesPage (LunchTool.Web) in 91.1848ms
+Request finished in 174.6497ms 200 text/html; charset=utf-8
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 143.8153ms.
+Executing PartialViewResult, running view ~/Views/Shared/_GetMenusById.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_GetMenusById.cshtml executed in 19.6704ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetMenusById (LunchTool.Web) in 239.6064ms
+Request finished in 300.949ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0358ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 8.4336ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 53.3442ms
+Request finished in 144.6109ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 21.3215ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 5.6227ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 59.8113ms
+Request finished in 96.5545ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 7212.1617ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 63.6321ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 7377.6129ms
+Request finished in 7434.5824ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=1  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 28.9149ms.
+Executing ViewResult, running view ChangeUser.
+Executed ViewResult - view ChangeUser executed in 68.4937ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 174.4437ms
+Request finished in 317.2503ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 99.9163ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.626ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 166.3489ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1532.8905ms
+Request finished in 1888.1073ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 427.1179ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 11.2855ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 561.3577ms
+Request finished in 820.2404ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 84.3692ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 22.8318ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 190.0247ms
+Request finished in 232.956ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 37.2088ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 28.6197ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 159.4026ms
+Request finished in 240.0775ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/AddUser application/x-www-form-urlencoded; charset=UTF-8 405
+Route matched with {action = "AddUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 23.5131ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) in 105.0275ms
+Request finished in 214.7262ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.2139ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 22.9308ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 122.4276ms
+Request finished in 231.723ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/AddUser application/x-www-form-urlencoded; charset=UTF-8 369
+Route matched with {action = "AddUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 16.103ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) in 80.286ms
+Request finished in 115.8876ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.2983ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 6.0078ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 77.0092ms
+Request finished in 91.0248ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/AddUser application/x-www-form-urlencoded; charset=UTF-8 370
+Route matched with {action = "AddUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 130.1527ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.AddUser (LunchTool.Web) in 184.0542ms
+Request finished in 365.0815ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.9324ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 6.2454ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 66.1565ms
+Request finished in 85.9649ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request finished in 93.6304ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.7047ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 225.8344ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1454.9177ms
+Request finished in 1814.5166ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 402.5614ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 13.8117ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 629.5633ms
+Request finished in 769.5764ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.7795ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.2637ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 69.405ms
+Request finished in 237.466ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 125.1715ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 23.7086ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 210.581ms
+Request finished in 278.3677ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 34.0487ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 19.7561ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 143.019ms
+Request finished in 170.8474ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=3  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 79.2231ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml executed in 57.8225ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 186.2656ms
+Request finished in 209.0808ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/ChangeUser application/x-www-form-urlencoded; charset=UTF-8 382
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 147.6518ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 215.7427ms
+Request finished in 243.9105ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 22.1401ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 4.2783ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 119.7927ms
+Request finished in 144.0052ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.7213ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 4.9439ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 77.2629ms
+Request finished in 137.5684ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 25.9678ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 5.3836ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 80.8418ms
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation/dist/jquery.validate.min.js  
+Request finished in 61.2491ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery/dist/jquery.min.js  
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Request finished in 59.207ms 304 application/javascript
+The file /css/site.css was not modified
+The file /lib/jquery/dist/jquery.min.js was not modified
+Request finished in 101.2263ms 304 text/css
+Request finished in 108.6922ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/js/bootstrap.js  
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request finished in 148.1989ms 304 application/javascript
+Request finished in 110.0272ms 304 application/javascript
+Request finished in 214.1327ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js  
+The file /lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js was not modified
+Request finished in 17.6049ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+The file /img/bg.jpg was not modified
+Request finished in 28.3737ms 304 image/jpeg
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 26.3236ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 7.0717ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 123.1113ms
+Request finished in 204.9906ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=3  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 25.8517ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml executed in 4.4292ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 104.3811ms
+Request finished in 124.7952ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/ChangeUser application/x-www-form-urlencoded; charset=UTF-8 369
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 35.1158ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 62.0259ms
+Request finished in 121.1309ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 25.1576ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 6.6751ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 71.8179ms
+Request finished in 92.2159ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=3  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 20.9566ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml executed in 6.9612ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 97.6286ms
+Request finished in 154.8842ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 22.6861ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 6.5497ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 127.06ms
+Request finished in 208.281ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery/dist/jquery.min.js  
+The file /lib/jquery/dist/jquery.min.js was not modified
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+Request finished in 66.0031ms 304 application/javascript
+Request finished in 78.6987ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/js/bootstrap.js  
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-validation/dist/jquery.validate.min.js  
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request finished in 15.4896ms 304 application/javascript
+The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/bootstrap/dist/css/bootstrap.css  
+Request finished in 126.2511ms 304 application/javascript
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/css/site.css  
+Request finished in 144.3025ms 304 text/css
+The file /css/site.css was not modified
+Request starting HTTP/1.1 GET http://localhost:44309/lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js  
+The file /lib/jquery-unobrusive-ajax/dist/jquery.unobtrusive-ajax.min.js was not modified
+Request finished in 172.9927ms 304 text/css
+Request finished in 142.0551ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:44309/img/bg.jpg  
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+The file /img/bg.jpg was not modified
+Request finished in 33.1824ms 304 image/jpeg
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 21.5543ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 9.0134ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 73.0815ms
+Request finished in 181.1283ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=3  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 19.8739ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml executed in 3.8113ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 55.3905ms
+Request finished in 69.1848ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/ChangeUser application/x-www-form-urlencoded; charset=UTF-8 382
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 42.0676ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 90.048ms
+Request finished in 133.2365ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 11
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Invalid
+Request starting HTTP/1.1 GET http://localhost:44309/  
+Request starting HTTP/1.1 DEBUG http://localhost:50836/  0
+Request finished in 116.9923ms 200 
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport() on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.7145ms.
+Executing ViewResult, running view UserReport.
+Executed ViewResult - view UserReport executed in 353.7799ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 1488.4682ms
+Request finished in 1864.4206ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Report/UserReport application/x-www-form-urlencoded; charset=UTF-8 37
+Route matched with {action = "UserReport", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserReport(System.DateTime, System.DateTime) on controller LunchTool.Web.Controllers.ReportController (LunchTool.Web).
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 461.1716ms.
+Executing PartialViewResult, running view ~/Views/Shared/_UserReport.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/_UserReport.cshtml executed in 10.6175ms.
+Executed action LunchTool.Web.Controllers.ReportController.UserReport (LunchTool.Web) in 609.7911ms
+Request finished in 864.2307ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Index  
+Route matched with {action = "Index", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3972ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 53.1961ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Index (LunchTool.Web) in 87.7505ms
+Request finished in 132.2844ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/Users  
+Route matched with {action = "Users", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Users() on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 89.3493ms.
+Executing ViewResult, running view Users.
+Executed ViewResult - view Users executed in 22.752ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.Users (LunchTool.Web) in 151.7952ms
+Request finished in 237.8779ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 3691.6771ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 21.8937ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 3831.6664ms
+Request finished in 3958.4288ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:44309/Administration/ChangeUser?id=3  
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 74.0827ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_ChangeUser.cshtml executed in 31.7996ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 144.1858ms
+Request finished in 309.2854ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/ChangeUser application/x-www-form-urlencoded; charset=UTF-8 369
+Route matched with {action = "ChangeUser", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ChangeUser(LunchTool.Web.ViewModels.UserViewModel) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.ContentResult in 120.0241ms.
+Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+Executed action LunchTool.Web.Controllers.AdministrationController.ChangeUser (LunchTool.Web) in 177.4613ms
+Request finished in 265.5345ms 200 text/plain; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:44309/Administration/GetUsersPage application/x-www-form-urlencoded; charset=UTF-8 12
+Route matched with {action = "GetUsersPage", controller = "Administration"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsersPage(Int32) on controller LunchTool.Web.Controllers.AdministrationController (LunchTool.Web).
+Authorization was successful.
+Authorization was successful.
+Executing action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) - Validation state: Valid
+Executed action method LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 24.2951ms.
+Executing PartialViewResult, running view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml.
+Executed PartialViewResult - view ~/Views/Shared/AdministrationPages/_UsersPage.cshtml executed in 6.0426ms.
+Executed action LunchTool.Web.Controllers.AdministrationController.GetUsersPage (LunchTool.Web) in 62.466ms
+Request finished in 95.837ms 200 text/html; charset=utf-8

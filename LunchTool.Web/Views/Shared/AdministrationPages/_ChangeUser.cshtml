@@ -1,16 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Изменить: пользователь";
-}
+﻿@model LunchTool.Web.ViewModels.UserViewModel
 
-@model LunchTool.Web.ViewModels.UserViewModel
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header">
-                Изменить пользователя
-            </div>
-            <form asp-action="ChangeUser" asp-controller="Administration" method="post" class="card-body">
+            <form asp-action="ChangeUser" asp-controller="Administration" method="post"  data-ajax="true" data-ajax-method="POST" data-ajax-success="onChangeComplete">
                 <input type="hidden" name="Id" value="@Model.Id" readonly />
                 <div class="form-group">
                     <label for="LastName">Фамилия</label>
@@ -44,6 +35,3 @@
                     <input type="submit" name="" value="Изменить" class="btn btn-primary" />
                 </div>
             </form>
-        </div>
-    </div>   
-</div>

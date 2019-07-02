@@ -2,7 +2,7 @@
     ViewData["Title"] = "Администрирование: поставщики";
 }
 
-<div class="btn btn-primary" data-toggle="modal" data-target="#addProviderModal">Добавить меню</div>
+<div class="btn btn-primary" data-toggle="modal" data-target="#addProviderModal">Добавить поставщика</div>
 
 <div class="modal" tabindex="-1" role="dialog" id="addProviderModal">
     <div class="modal-dialog" role="document">
@@ -154,12 +154,14 @@
         }
 
         function deactivateProvider(id) {
+            if (confirm('Вы уверенны что хотите деактивировать поставщика?'))
             $.post("DeactivateProvider/", { id: id }).always(function (done) {
                 var currentPage = $("#currentPageNumber").text();
                 loadProvidersPage(currentPage);
             });
         }
         function activateProvider(id) {
+            if (confirm('Вы уверенны что хотите активировать поставщика?'))
             $.post("ActivateProvider/", { id: id }).always(function (done) {
                 var currentPage = $("#currentPageNumber").text();
                 loadProvidersPage(currentPage);

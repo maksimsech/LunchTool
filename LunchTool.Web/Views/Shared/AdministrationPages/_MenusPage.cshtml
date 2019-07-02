@@ -2,63 +2,67 @@
 
 <div hidden="hidden" id="currentPageNumber">@Model.Info.PageNumber</div>
 <table class="table">
-    <tr>
-        <td>Id</td>
-        <td>Название</td>
-        <td>Информация</td>
-        <td>Дата</td>
-        <td>Ограничение по времени</td>
-        <td>Активен</td>
-        <td></td>
-        <td></td>
-    </tr>
-    @foreach (var item in Model.Item)
-    {
+    <thead class="thead-light">
         <tr>
-            <td>@item.Id</td>
-            <td><a asp-action="Dishes" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
-            <td>
-                @if (item.Info != null)
-                {
-                    @item.Info
-                }
-            </td>
-            <td>
-                @if (item.Date != null)
-                {
-                    @String.Format("{0}.{1}.{2} г.", item.Date.Day, item.Date.Month, item.Date.Year);
-                }
-            </td>
-            <td>
-                @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute > 9 ? item.TimeLimit.Minute.ToString() : "0" + item.TimeLimit.Minute.ToString())
-            </td>
-            <td>
+            <th scope="col">Id</th>
+            <th scope="col">Название</th>
+            <th scope="col">Информация</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Ограничение по времени</th>
+            <th scope="col">Активен</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td><a asp-action="Dishes" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
+                <td>
+                    @if (item.Info != null)
+                    {
+                        @item.Info
+                    }
+                </td>
+                <td>
+                    @if (item.Date != null)
+                    {
+                        @String.Format("{0}.{1}.{2} г.", item.Date.Day, item.Date.Month, item.Date.Year);
+                    }
+                </td>
+                <td>
+                    @String.Format("{0}:{1}", item.TimeLimit.Hour, item.TimeLimit.Minute > 9 ? item.TimeLimit.Minute.ToString() : "0" + item.TimeLimit.Minute.ToString())
+                </td>
+                <td>
+                    @if (item.IsActive)
+                    {
+                        <div>Да</div>
+                    }
+                    else
+                    {
+                        <div>Нет</div>
+                    }
+                </td>
+                <td>
+                    <button onclick="onChangeMenu(@item.Id)" class="btn btn-light">Изменить</button>
+                </td>
                 @if (item.IsActive)
                 {
-                    <div>Да</div>
+                    <td>
+                        <a href="javascript:deactivateMenu('@item.Id')" class="btn btn-danger">Деактивировать</a>
+                    </td>
                 }
                 else
                 {
-                    <div>Нет</div>
+                    <td>
+                        <a href="javascript:activateMenu('@item.Id')" class="btn btn-danger">Активировать</a>
+                    </td>
                 }
-            </td>
-            <td>
-                <button onclick="onChangeMenu(@item.Id)" class="btn btn-light">Изменить</button>
-            </td>
-            @if (item.IsActive)
-            {
-                <td>
-                    <a href="javascript:deactivateMenu('@item.Id')" class="btn btn-light">Деактивировать</a>
-                </td>
-            }
-            else
-            {
-                <td>
-                    <a href="javascript:activateMenu('@item.Id')" class="btn btn-light">Активировать</a>
-                </td>
-            }
-        </tr>
-    }
+            </tr>
+        }
+    </tbody>
 </table>
 @if (Model.Info.HasPreviousPage)
 {

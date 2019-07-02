@@ -2,55 +2,70 @@
 
 
 <table class="table">
-    <tr><td>Id</td><td>Название</td><td>Адрес</td><td>Email</td><td>Начало работы</td><td>Окончание работы</td><td>Номер</td><td>Активен</td><td></td><td></td></tr>
-    @foreach (var item in Model.Item)
-    {
+    <thead class="thead-light">
         <tr>
-            <td>@item.Id</td>
-            <td><a asp-action="Menus" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
-            <td>@item.Address</td>
-            <td>@item.Email</td>
-            <td>
-                @if (item.StartWork != null)
-                {@String.Format("{0}:{1}", item.StartWork.Value.Hour, item.StartWork.Value.Minute > 9 ? item.StartWork.Value.Minute.ToString() : "0" + item.StartWork.Value.Minute.ToString());
-            }
-            </td>
-            <td>
-                @if (item.EndWork != null)
-                {@String.Format("{0}:{1}", item.EndWork.Value.Hour, item.EndWork.Value.Minute > 9 ? item.EndWork.Value.Minute.ToString() : "0" + item.EndWork.Value.Minute.ToString());
-            }
-            </td>
-            <td>
-                @if (item.PhoneNumber != null)
-                {@item.PhoneNumber}
-            </td>
-            <td>
+            <th scope="col">Id</th>
+            <th scope="col">Название</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Email</th>
+            <th scope="col">Начало работы</th>
+            <th scope="col">Окончание работы</th>
+            <th scope="col">Номер</th>
+            <th scope="col">Активен</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td><a asp-action="Menus" asp-controller="Administration" asp-route-id="@item.Id">@item.Name</a></td>
+                <td>@item.Address</td>
+                <td>@item.Email</td>
+                <td>
+                    @if (item.StartWork != null)
+                    {@String.Format("{0}:{1}", item.StartWork.Value.Hour, item.StartWork.Value.Minute > 9 ? item.StartWork.Value.Minute.ToString() : "0" + item.StartWork.Value.Minute.ToString());
+                }
+                </td>
+                <td>
+                    @if (item.EndWork != null)
+                    {@String.Format("{0}:{1}", item.EndWork.Value.Hour, item.EndWork.Value.Minute > 9 ? item.EndWork.Value.Minute.ToString() : "0" + item.EndWork.Value.Minute.ToString());
+                }
+                </td>
+                <td>
+                    @if (item.PhoneNumber != null)
+                    {@item.PhoneNumber}
+                </td>
+                <td>
+                    @if (item.Active)
+                    {
+                        <div>Да</div>
+                    }
+                    else
+                    {
+                        <div>Нет</div>
+                    }
+                </td>
+                <td>
+                    <button onclick="onChangeProvider(@item.Id)" class="btn btn-light">Изменить</button>
+                </td>
                 @if (item.Active)
                 {
-                    <div>Да</div>
+                    <td>
+                        <a href="javascript:deactivateProvider('@item.Id')" class="btn btn-danger">Деактивировать</a>
+                    </td>
                 }
                 else
                 {
-                    <div>Нет</div>
+                    <td>
+                        <a href="javascript:activateProvider('@item.Id')" class="btn btn-danger">Активировать</a>
+                    </td>
                 }
-            </td>
-            <td>
-                <button onclick="onChangeProvider(@item.Id)" class="btn btn-light">Изменить</button>
-            </td>
-            @if (item.Active)
-            {
-                <td>
-                    <a href="javascript:deactivateProvider('@item.Id')" class="btn btn-light">Деактивировать</a>
-                </td>
-            }
-            else
-            {
-                <td>
-                    <a href="javascript:activateProvider('@item.Id')" class="btn btn-light">Активировать</a>
-                </td>
-            }
-        </tr>
-    }
+            </tr>
+        }
+    </tbody>
 </table>
 @if (Model.Info.HasPreviousPage)
 {
