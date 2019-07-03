@@ -14,6 +14,8 @@ using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using LunchTool.Web.Models;
+using IronPdf;
+using System.IO;
 
 namespace LunchTool.Web.Controllers
 {
@@ -116,5 +118,48 @@ namespace LunchTool.Web.Controllers
             var endOfWeek = startOfWeek.AddDays(6).Date;
             return (startOfWeek, endOfWeek);
         }
+
+        [HttpPost]
+        public string MakePdf(string html)
+        {
+            var option = new PdfPrintOptions();
+            option.CustomCssUrl = new Uri(Path.Combine(Environment.CurrentDirectory, @"wwwroot\lib\bootstrap\dist\css\bootstrap.css"));
+            var renderer = new HtmlToPdf(option);
+            var doc = renderer.RenderHtmlAsPdf(html);
+            var tempPath = Path.GetTempPath();
+            doc.SaveAs(@"D:\git\test.pdf");
+            var fileName = $"monthReport{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
+            var fullPath = Path.Combine(tempPath, fileName);
+            System.IO.File.WriteAllBytes(fullPath, doc.BinaryData);
+            return fileName;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Download(string fileName)
+        {
+            var fullPath = Path.Combine(Path.GetTempPath(), fileName);
+            var memorySteam = new MemoryStream();
+            using(var fileStream = new FileStream(fullPath, FileMode.Open))
+            {
+                await fileStream.CopyToAsync(memorySteam);
+            }
+
+            memorySteam.Position = 0;
+            return File(memorySteam, "application/pdf;");
+        }
+
+        //[HttpPost]
+        //public FileResult MakePdf(string table)
+        //{
+        //    var option = new PdfPrintOptions();
+        //    var path = Environment.CurrentDirectory;
+        //    option.CustomCssUrl = new Uri(Path.Combine(Environment.CurrentDirectory, @"wwwroot\lib\bootstrap\dist\css\bootstrap.css"));
+        //    var renderer = new HtmlToPdf(option);
+        //    var doc = renderer.RenderHtmlAsPdf(table);
+        //    var contentLength = doc.BinaryData.Length;
+        //    Response.Headers.Add("Content-Length", contentLength.ToString());
+        //    Response.Headers.Add("Content-Disposition", @"inline; filename=month_report.pdf");
+        //    return File(doc.BinaryData, "application/pdf;");
+        //}
     }
 }

@@ -7,16 +7,18 @@
 <div class="row">
     <div class="col-4">
         <label for="FromDate">От</label>
-        <input type="date" name="FromDate" id="FromDate" value="@Model.Item1.ToString("yyyy-MM-dd")"/>
+        <input type="date" name="FromDate" id="FromDate" value="@Model.Item1.ToString("yyyy-MM-dd")" />
     </div>
     <div class="col-4">
         <label for="ToDate">До</label>
-        <input type="date" name="ToDate" id="ToDate" value="@Model.Item2.ToString("yyyy-MM-dd")"/>
+        <input type="date" name="ToDate" id="ToDate" value="@Model.Item2.ToString("yyyy-MM-dd")" />
     </div>
     <div class="col-4">
         <a class="btn btn-primary" html="javascript:void(0);" onclick="makeReport()">Составить</a>
     </div>
 </div>
+
+<button class="btn btn-dark" onclick="makeReportPdf()">pdf</button>
 
 <div id="result">
 
@@ -24,6 +26,8 @@
 
 @section Scripts
     {
+    <script src="~/lib/pdfmake/pdfmake.min.js"></script>
+    <script src="~/lib/pdfmake/vfs_fonts.js"></script>
     <script>
 
         $.post("/Report/UserReport", { "FromDate": $("#FromDate").val(), "ToDate": $("#ToDate").val() }).done(function (result) {
@@ -42,5 +46,10 @@
                 }
             });
         }
+
+        function makeReportPdf() {
+
+        }
+
     </script>
 }

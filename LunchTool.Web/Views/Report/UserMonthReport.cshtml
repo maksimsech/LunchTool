@@ -8,7 +8,7 @@
     <div class="col-3">
         <select id="ProviderId">
             <option value="-1">Все</option>
-            @foreach(var provider in Model)
+            @foreach (var provider in Model)
             {
                 <option value="@provider.Id">@provider.Name</option>
             }
@@ -16,7 +16,7 @@
     </div>
     <div class="col-3">
         <select id="Month">
-            @for(int i = 1; i <= 12; i++)
+            @for (int i = 1; i <= 12; i++)
             {
                 <option value="@i">@i</option>
             }
@@ -24,7 +24,7 @@
     </div>
     <div class="col-3">
         <select id="Year">
-            @for(int i = DateTime.Today.Year - 2; i <= DateTime.Today.Year + 4; i++)
+            @for (int i = DateTime.Today.Year - 2; i <= DateTime.Today.Year + 4; i++)
             {
                 <option value="@i">@i</option>
             }
@@ -35,26 +35,83 @@
     </div>
 </div>
 
+<button class="btn btn-dark" onclick="makeReportPdf()">pdf</button>
+
 <div id="result">
 
 </div>
 
 @section Scripts
-{ 
-<script>
-    function makeReport() {
-        var providerId = $("#ProviderId").val();
-        var month = $("#Month").val();
-        var year = $("#Year").val();
+    {
+    @*<script src="~/lib/jsPDF/jspdf.js"></script>
+    <script src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.min.js"></script>
+    <script src="~/lib/jsPDF/plugins/default_vfs.js"></script>
+    <script src="~/lib/jsPDF/plugins/times-normal.js"></script>
+    <script src="~/lib/jsPDF/plugins/from_html.js"></script>
+    <script src="~/lib/jsPDF/plugins/split_text_to_size.js"></script>
+    <script src="~/lib/jsPDF/plugins/standard_fonts_metrics.js"></script>
+    <script src="~/lib/jsPDF/plugins/cell.js"></script>
+    <script src="~/lib/jsPDF/plugins/addimage.js"></script>
+    <script src="~/lib/jsPDF/plugins/utf8.js"></script>
+    <script src="~/lib/jsPDF/plugins/ttfsupport.js"></script>
+    <script src="~/lib/jsPDF/plugins/ttffont.js"></script>
+    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.debug.js"></script>
+    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/default_vfs.js"></script>
+    <script src="~/lib/png/png.js"></script>
+    <script src="~/lib/png/zlib.js"></script>
+    <script src="~/lib/jsPDF/plugins/png_support.js"></script>
+    <script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable"></script>*@
+    <script>
+        function makeReport() {
+            var providerId = $("#ProviderId").val();
+            var month = $("#Month").val();
+            var year = $("#Year").val();
 
-        $.ajax({
-            url: "/Report/UserMonthReport",
-            method: "POST",
-            data: { "ProviderId": providerId, "Month": month, "Year": year },
-            success: function (result) {
-                $("#result").html(result);
-            }
-        });
-    }
-</script>
+            $.ajax({
+                url: "/Report/UserMonthReport",
+                method: "POST",
+                data: { "ProviderId": providerId, "Month": month, "Year": year },
+                success: function (result) {
+                    $("#result").html(result);
+                }
+            });
+        }
+
+        //var doc = new jsPDF({ orientation: 'l' });
+        //doc.AddFileToVFS();
+
+        function makeReportPdf() {
+            console.log($("#result").html());
+            $.post("/Report/MakePdf", { "html": $("#result").html() }).done(function (message) {
+                window.location.href = "/Report/Download/?fileName=" + message;
+            });
+        }
+
+        function test() {
+            html2canvas(document.getElementById("result")).then(function (canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                var imgWidth = 210;
+                var pageHeight = 295;
+                var imgHeight = canvas.height * imgWidth / canvas.width;
+                var heightLeft = imgHeight;
+                var doc = new jsPDF('p', 'mm');
+                var position = 0;
+                doc.text(20, 20, "Hello world!");
+                doc.text(20, 20, "Hello world!");
+                doc.text(20, 20, "Hello world!");
+                doc.text(20, 20, "Hello world!");
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    doc.addPage();
+                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                doc.output("dataurlnewwindow");
+            });
+        }
+    </script>
 }
