@@ -1,5 +1,14 @@
 ﻿@model IEnumerable<LunchTool.Web.ViewModels.AllUsersReportViewModel>
 
+<div>
+    <h3>
+        Отчет за период от @TempData["FromDate"] до @TempData["ToDate"]
+    </h3>
+    <h3>
+        Поставщик: @TempData["ProviderName"]
+    </h3>
+</div>
+
 
 <table class="table">
     <thead class="thead-light">

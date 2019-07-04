@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<button class="btn btn-dark" onclick="makeReportPdf()">pdf</button>
+<button class="btn btn-info" onclick="makeReportPdf()" style="display:none;" id="reportPdf">Сделать PDF</button>
 
 <div id="result">
 
@@ -26,12 +26,17 @@
 
 @section Scripts
     {
-    <script src="~/lib/pdfmake/pdfmake.min.js"></script>
-    <script src="~/lib/pdfmake/vfs_fonts.js"></script>
     <script>
 
         $.post("/Report/UserReport", { "FromDate": $("#FromDate").val(), "ToDate": $("#ToDate").val() }).done(function (result) {
-            $("#result").html(result)
+            if (result === "") {
+                $("#reportPdf").hide();
+                $("#result").html("За данную неделю нет заказов.");
+            }
+            else {
+                $("#result").html(result);
+                $("#reportPdf").show();
+            }
         });
         function makeReport() {
             var fromDate = $("#FromDate").val();
@@ -42,13 +47,26 @@
                 method: "POST",
                 data: { "FromDate": fromDate, "ToDate": toDate },
                 success: function (result) {
-                    $("#result").html(result);
+                    if (result === "") {
+                        $("#reportPdf").hide();
+                        $("#result").html("За данный промежуток нет заказов.");
+                    }
+                    else {
+                        $("#result").html(result);
+                        $("#reportPdf").show();
+                    }
                 }
             });
         }
 
         function makeReportPdf() {
-
+            var prehtml = 'Отчет для пользователя: @String.Format("{0} {1}",
+            User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).Select(c => c.Value).FirstOrDefault(),
+            User.Claims.Where(c => c.Type == ClaimTypes.GivenName).Select(c => c.Value).FirstOrDefault())' +
+                ' с ' + $("#FromDate").val() + ' по ' + $("#ToDate").val();
+            $.post("/Report/MakePdf", { "html": prehtml + $("#result").html(), "userName": @int.Parse(User.Identity.Name) }).done(function (message) {
+                window.location.href = "/Report/Download/?fileName=" + message;
+            });
         }
 
     </script>

@@ -15,6 +15,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using LunchTool.Web.Models;
 using IronPdf;
+using NickBuhro.Translit;
 using System.IO;
 
 namespace LunchTool.Web.Controllers
@@ -55,7 +56,27 @@ namespace LunchTool.Web.Controllers
         {
             var userId = int.Parse(User.Identity.Name);
             var date = new DateTime(Year, Month, 1, 1, 1, 1);
+
+            TempData["Month"] = Month < 10 ? "0" + Month.ToString() : Month.ToString();
+            TempData["Year"] = Year.ToString();
+            if(ProviderId == -1)
+            {
+                TempData["ProviderName"] = "Все";
+            }
+            else
+            {
+                var providerName = dataService.Providers.Get(p => p.Id == ProviderId).Select(p => p.Name).FirstOrDefault();
+                TempData["ProviderName"] = providerName;
+            }
+            var user = dataService.Users.Get(u => u.Id == userId).FirstOrDefault();
+            var userName = $"{user.LastName} {user.FirstName} {user.Patronymic?? ""}";
+            TempData["UserName"] = userName;
+
             var reportDTO = reportService.UserMonthReport(date, userId, ProviderId);
+            if (reportDTO.All(r => r.OrderCount == 0))
+            {
+                return Content("");
+            }
             var reportViewModel = mapper.Map<IEnumerable<UserMonthReportDTO>, IEnumerable<UserMonthReportViewModel>>(reportDTO);
             return PartialView("~/Views/Shared/_UserMonthReport.cshtml", reportViewModel);
         }
@@ -72,7 +93,17 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult UserProvidersReport(int UserId, DateTime FromDate, DateTime ToDate)
         {
+            string fromDay = FromDate.Day < 10 ? "0" + FromDate.Day.ToString() : FromDate.Day.ToString();
+            string fromMonth = FromDate.Month < 10 ? "0" + FromDate.Month.ToString() : FromDate.Month.ToString();
+            string toDay = ToDate.Day < 10 ? "0" + ToDate.Day.ToString() : ToDate.Day.ToString();
+            string toMonth = ToDate.Month < 10 ? "0" + ToDate.Month.ToString() : ToDate.Month.ToString();
+            TempData["FromDate"] = $"{fromDay}.{fromMonth}.{FromDate.Year} г.";
+            TempData["ToDate"] = $"{toDay}.{toDay}.{ToDate.Year} г.";
             var reportDTO = reportService.UserProvidersReport(UserId, FromDate, ToDate);
+            if (reportDTO.Count() == 0)
+            {
+                return Content("");
+            }
             var reportViewModel = mapper.Map<IEnumerable<UserProvidersReportDTO>, IEnumerable<UserProvidersReportViewModel>>(reportDTO);
             return PartialView("~/Views/Shared/_UserProvidersReport.cshtml", reportViewModel);
         }
@@ -89,7 +120,26 @@ namespace LunchTool.Web.Controllers
         [HttpPost]
         public IActionResult AllUsersReport(int ProviderId, DateTime FromDate, DateTime ToDate)
         {
+            if (ProviderId == -1)
+            {
+                TempData["ProviderName"] = "Все";
+            }
+            else
+            {
+                var providerName = dataService.Providers.Get(p => p.Id == ProviderId).Select(p => p.Name).FirstOrDefault();
+                TempData["ProviderName"] = providerName;
+            }
+            string fromDay = FromDate.Day < 10 ? "0" + FromDate.Day.ToString() : FromDate.Day.ToString();
+            string fromMonth = FromDate.Month < 10 ? "0" + FromDate.Month.ToString() : FromDate.Month.ToString();
+            string toDay = ToDate.Day < 10 ? "0" + ToDate.Day.ToString() : ToDate.Day.ToString();
+            string toMonth = ToDate.Month < 10 ? "0" + ToDate.Month.ToString() : ToDate.Month.ToString();
+            TempData["FromDate"] = $"{fromDay}.{fromMonth}.{FromDate.Year} г.";
+            TempData["ToDate"] = $"{toDay}.{toDay}.{ToDate.Year} г.";
             var reportDTO = reportService.AllUsersReport(ProviderId, FromDate, ToDate);
+            if(reportDTO.Count() == 0)
+            {
+                return Content("");
+            }
             var reportViewModel = mapper.Map<IEnumerable<AllUsersReportDTO>, IEnumerable<AllUsersReportViewModel>>(reportDTO);
             return PartialView("~/Views/Shared/_AllUsersReport.cshtml", reportViewModel);
         }
@@ -106,6 +156,10 @@ namespace LunchTool.Web.Controllers
         {
             var userId = int.Parse(User.Identity.Name);
             var reportDTO = reportService.GetUserOrders(userId, FromDate, ToDate);
+            if (reportDTO.Count() == 0)
+            {
+                return Content("");
+            }
             var reportViewModel = mapper.Map<IEnumerable<UserPageReportDTO>, IEnumerable<UserPageReportViewModel>>(reportDTO);  
             return PartialView("~/Views/Shared/_UserReport.cshtml", reportViewModel);
         }
@@ -120,15 +174,22 @@ namespace LunchTool.Web.Controllers
         }
 
         [HttpPost]
-        public string MakePdf(string html)
+        public string MakePdf(string html, string userName)
         {
-            var option = new PdfPrintOptions();
-            option.CustomCssUrl = new Uri(Path.Combine(Environment.CurrentDirectory, @"wwwroot\lib\bootstrap\dist\css\bootstrap.css"));
+            var option = new PdfPrintOptions
+            {
+                CustomCssUrl = new Uri(Path.Combine(Environment.CurrentDirectory, @"wwwroot\lib\bootstrap\dist\css\bootstrap.css")),
+                MarginBottom = 5,
+                MarginLeft = 5,
+                MarginRight = 5,
+                MarginTop = 5
+            };
             var renderer = new HtmlToPdf(option);
             var doc = renderer.RenderHtmlAsPdf(html);
             var tempPath = Path.GetTempPath();
-            doc.SaveAs(@"D:\git\test.pdf");
-            var fileName = $"monthReport{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
+            var translitUserName = Transliteration.CyrillicToLatin(userName);
+            translitUserName = translitUserName.Replace(' ', '-');
+            var fileName = $"Otchet-{translitUserName}-{DateTime.Now.ToString("yyyy-MM-dd")}.pdf";
             var fullPath = Path.Combine(tempPath, fileName);
             System.IO.File.WriteAllBytes(fullPath, doc.BinaryData);
             return fileName;
@@ -139,27 +200,19 @@ namespace LunchTool.Web.Controllers
         {
             var fullPath = Path.Combine(Path.GetTempPath(), fileName);
             var memorySteam = new MemoryStream();
-            using(var fileStream = new FileStream(fullPath, FileMode.Open))
+            try
             {
-                await fileStream.CopyToAsync(memorySteam);
+                using (var fileStream = new FileStream(fullPath, FileMode.Open))
+                {
+                    await fileStream.CopyToAsync(memorySteam);
+                }
             }
-
+            catch (Exception e){
+                return Content("Создайте заново отчет.");
+            }
+            System.IO.File.Delete(fullPath);
             memorySteam.Position = 0;
             return File(memorySteam, "application/pdf;");
         }
-
-        //[HttpPost]
-        //public FileResult MakePdf(string table)
-        //{
-        //    var option = new PdfPrintOptions();
-        //    var path = Environment.CurrentDirectory;
-        //    option.CustomCssUrl = new Uri(Path.Combine(Environment.CurrentDirectory, @"wwwroot\lib\bootstrap\dist\css\bootstrap.css"));
-        //    var renderer = new HtmlToPdf(option);
-        //    var doc = renderer.RenderHtmlAsPdf(table);
-        //    var contentLength = doc.BinaryData.Length;
-        //    Response.Headers.Add("Content-Length", contentLength.ToString());
-        //    Response.Headers.Add("Content-Disposition", @"inline; filename=month_report.pdf");
-        //    return File(doc.BinaryData, "application/pdf;");
-        //}
     }
 }

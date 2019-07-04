@@ -20,6 +20,6 @@ namespace LunchTool.Web
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Trace));
+                .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Information));
     }
 }

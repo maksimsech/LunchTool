@@ -1,16 +1,17 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "Отчет по пользователю за период";
 }
 
 @model IEnumerable<LunchTool.Web.ViewModels.UserViewModel>
 
+
 <div class="row">
     <div class="col-3">
         <label for="UserId">Сотрудник</label>
         <select name="UserId" id="UserId">
-            @foreach(var user in Model)
+            @foreach (var user in Model)
             {
-                <option value="@user.Id">@string.Format("{0} {1} {2}", user.LastName, user.FirstName, user.Patronymic?? "")</option>
+                <option value="@user.Id">@string.Format("{0} {1} {2}", user.LastName, user.FirstName, user.Patronymic ?? "")</option>
             }
         </select>
     </div>
@@ -27,26 +28,34 @@
     </div>
 </div>
 
+<button class="btn btn-info" onclick="makeReportPdf()">Сделать PDF</button>
+
 <div id="result">
 
 </div>
 
 @section Scripts
-{
-<script>
-    function makeReport() {
-        var userId = $("#UserId").val();
-        var fromDate = $("#FromDate").val();
-        var toDate = $("#ToDate").val();
+    {
+    <script>
+        function makeReport() {
+            var userId = $("#UserId").val();
+            var fromDate = $("#FromDate").val();
+            var toDate = $("#ToDate").val();
 
-        $.ajax({
-            url: "/Report/UserProvidersReport",
-            method: "POST",
-            data: { "UserId": userId, "FromDate": fromDate, "ToDate": toDate },
-            success: function (result) {
-                $("#result").html(result);
-            }
-        });
-    }
-</script>
+            $.ajax({
+                url: "/Report/UserProvidersReport",
+                method: "POST",
+                data: { "UserId": userId, "FromDate": fromDate, "ToDate": toDate },
+                success: function (result) {
+                    $("#result").html(result);
+                }
+            });
+        }
+
+        function makeReportPdf() {
+            $.post("/Report/MakePdf", { "html": $("#result").html(), "userName": $("#UserId option:selected").text() }).done(function (message) {
+                window.location.href = "/Report/Download/?fileName=" + message;
+            });
+        }
+    </script>
 }

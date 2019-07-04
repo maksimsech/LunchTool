@@ -1,6 +1,6 @@
 ﻿@model LunchTool.Web.ViewModels.PageViewModel<IEnumerable<LunchTool.Web.ViewModels.ProviderViewModel>>
 
-
+<div hidden="hidden" id="currentPageNumber">@Model.Info.PageNumber</div>
 <table class="table">
     <thead class="thead-light">
         <tr>
@@ -60,7 +60,7 @@
                 else
                 {
                     <td>
-                        <a href="javascript:activateProvider('@item.Id')" class="btn btn-danger">Активировать</a>
+                        <a href="javascript:activateProvider('@item.Id')" class="btn btn-success">Активировать</a>
                     </td>
                 }
             </tr>

@@ -30,6 +30,8 @@
     </div>
 </div>
 
+<button class="btn btn-info" onclick="makeReportPdf()" style="display:none;" id="reportPdf">Сделать PDF</button>
+
 <div id="result">
 
 </div>
@@ -47,9 +49,22 @@
                 method: "POST",
                 data: { "ProviderId": providerId, "FromDate": fromDate, "ToDate": toDate },
                 success: function (result) {
-                    $("#result").html(result);
+                    if (result === "") {
+                        $("#reportPdf").hide();
+                        $("#result").html("Ничего не найдено.");
+                    }
+                    else {
+                        $("#result").html(result);
+                        $("#reportPdf").show();
+                    }
                 }
             });
+        }
+
+        function makeReportPdf() {
+                $.post("/Report/MakePdf", { "html": $("#result").html(), "userName": "Vse" }).done(function (message) {
+                    window.location.href = "/Report/Download/?fileName=" + message;
+                });
         }
     </script>
 }

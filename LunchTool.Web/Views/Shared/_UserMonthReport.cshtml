@@ -1,5 +1,18 @@
 ﻿@model IEnumerable<LunchTool.Web.ViewModels.UserMonthReportViewModel>
 
+<div>
+    Отчет за @TempData["Month"] . @TempData["Year"] г.
+</div>
+<div class="row" >
+    
+    <div class="col-12"style="position:relative">
+        Сотрудник: <span id="UserName">@TempData["UserName"]</span>
+        <span style="position:absolute;right:1.5%;">Поставщик: @TempData["ProviderName"]</span>
+    </div>
+        
+
+</div>
+
 <table class="table" id="reportTable">
     <thead class="thead-light">
         <tr>

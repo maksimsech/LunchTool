@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<LunchTool.Web.ViewModels.UserProvidersReportViewModel>
 
+<h3>
+    Отчет за период от @TempData["FromDate"] до @TempData["ToDate"]
+</h3>
+
 @foreach (var item in Model)
 {
     <div class="text-right">
