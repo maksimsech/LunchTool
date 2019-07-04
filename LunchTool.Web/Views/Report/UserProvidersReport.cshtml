@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<button class="btn btn-info" onclick="makeReportPdf()">Сделать PDF</button>
+<button class="btn btn-info" onclick="makeReportPdf()" style="display:none;" id="reportPdf">Сделать PDF</button>
 
 <div id="result">
 
@@ -47,7 +47,14 @@
                 method: "POST",
                 data: { "UserId": userId, "FromDate": fromDate, "ToDate": toDate },
                 success: function (result) {
-                    $("#result").html(result);
+                    if (result === "") {
+                        $("#reportPdf").hide();
+                        $("#result").html("За данный месяц нет заказов.");
+                    }
+                    else {
+                        $("#result").html(result);
+                        $("#reportPdf").show();
+                    }
                 }
             });
         }
