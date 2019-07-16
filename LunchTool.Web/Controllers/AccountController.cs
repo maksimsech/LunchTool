@@ -39,6 +39,7 @@ namespace LunchTool.Web.Controllers
                 cfg.CreateMap<RegisterViewModel, UserDTO>();
                 cfg.CreateMap<UserDTO, UserViewModel>();
                 cfg.CreateMap<UserViewModel, UserDTO>();
+                cfg.CreateMap<UserDTO, AuthUserDTO>();
             }).CreateMapper();
         }
 

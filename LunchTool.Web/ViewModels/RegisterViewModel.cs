@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace LunchTool.Web.ViewModels
 {
@@ -24,13 +20,13 @@ namespace LunchTool.Web.ViewModels
         public string Email { get; set; }
 
         [Required]
-        [DataType((DataType.Password))]
+        [DataType(DataType.Password)]
         [MinLength(8)]
         [MaxLength(12)]
         public string Password { get; set; }
 
         [Required]
-        [DataType((DataType.Password))]
+        [DataType(DataType.Password)]
         [Compare("Password")]
         [MinLength(8)]
         [MaxLength(12)]
@@ -38,6 +34,8 @@ namespace LunchTool.Web.ViewModels
  
         public bool IsAdmin { get; set; }
 
+        [Required]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
     }
 }

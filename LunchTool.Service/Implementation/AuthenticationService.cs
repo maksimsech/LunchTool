@@ -32,7 +32,7 @@ namespace LunchTool.Service.Implementation
             
             var user = MapToUser(userDTO);
             var find = db.Users.Find(u => u.Email == user.Email);
-            return find != null;
+            return find.Count() != 0;
         }
 
         public void Register(UserDTO userDTO)
