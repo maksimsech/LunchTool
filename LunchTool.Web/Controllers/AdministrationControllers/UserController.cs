@@ -14,6 +14,7 @@ using LunchTool.Service.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace LunchTool.Web.Controllers
 {

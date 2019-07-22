@@ -75,8 +75,9 @@ namespace LunchTool.Web.Controllers
                 {
                     return Content("Пользователь не найден");
                 }
-                userViewModel.Id = userId;
+
                 userViewModel.Password = find.Password;
+                userViewModel.Id = userId;
                 userViewModel.IsAdmin = find.IsAdmin;
                 var userDTO = mapper.Map<UserViewModel, UserDTO>(userViewModel);
                 authentificationService.ChangeInfo(userDTO);
@@ -101,10 +102,10 @@ namespace LunchTool.Web.Controllers
                 var userId = int.Parse(User.Identity.Name);
                 var userEmail = dataService.Users.Get(u => u.Id == userId).Select(u => u.Email).FirstOrDefault();
 
-                var oldPassword = GetHash(userEmail, changePasswordViewModel.OldPassword);
+                var oldPassword = GetHash(changePasswordViewModel.OldPassword);
                 if (authentificationService.CheckPassword(userId, oldPassword))
                 {
-                    var newPassword = GetHash(userEmail, changePasswordViewModel.NewPassword);
+                    var newPassword = GetHash(changePasswordViewModel.NewPassword);
                     authentificationService.ChangePassword(userId, newPassword);
                     return RedirectToAction("Index", "Account");
                 }
@@ -127,7 +128,7 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userDTO = mapper.Map<LoginViewModel, UserDTO>(loginViewModel);
-                userDTO.Password = GetHash(loginViewModel.Email, loginViewModel.Password);
+                userDTO.Password = GetHash(loginViewModel.Password);
                 if (authentificationService.CheckLogin(userDTO))
                 {
                     var authUserDTO = authentificationService.GetAuthUserDTO(userDTO);
@@ -154,7 +155,7 @@ namespace LunchTool.Web.Controllers
             if (ModelState.IsValid)
             {
                 var userDTO = mapper.Map<RegisterViewModel, UserDTO>(registerViewModel);
-                userDTO.Password = GetHash(registerViewModel.Email, registerViewModel.Password);
+                userDTO.Password = GetHash(registerViewModel.Password);
                 if (authentificationService.IsRegistered(userDTO))
                 {
                     ModelState.AddModelError("", "Пользователь уже существует");
@@ -173,12 +174,12 @@ namespace LunchTool.Web.Controllers
         }
 
         [NonAction]
-        private string GetHash(string email, string password)
+        private string GetHash(string password)
         {
             byte[] result;
             using(var sha256 = SHA256.Create())
             {
-                var bytes = Encoding.UTF8.GetBytes(email + password);
+                var bytes = Encoding.UTF8.GetBytes(password);
                 result = sha256.ComputeHash(bytes);
             }
             return BitConverter.ToString(result);
