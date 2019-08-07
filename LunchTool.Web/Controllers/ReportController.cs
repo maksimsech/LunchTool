@@ -207,7 +207,7 @@ namespace LunchTool.Web.Controllers
                     await fileStream.CopyToAsync(memorySteam);
                 }
             }
-            catch (Exception e){
+            catch (Exception){
                 return Content("Создайте заново отчет.");
             }
             System.IO.File.Delete(fullPath);
